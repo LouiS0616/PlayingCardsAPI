@@ -18,6 +18,9 @@ class Main {
         if(deck.include(imitator)) {
             hand.pickFrom(deck, imitator);
         }
+        else {
+            System.out.println("Already you have two jokers.");
+        }
 
         hand.printCards();
     }
