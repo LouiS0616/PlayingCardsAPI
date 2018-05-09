@@ -3,36 +3,43 @@ package cards;
 import card.Card;
 import card.imitator.CardImitator;
 
-import java.util.Optional;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 public abstract class Cards implements Iterable<Card> {
     //
-    private final String name_;
-    private Observer observer_;
-
-    //
+    // Generate methods
     protected Cards(String name, Observer observer) {
         this.name_ = name;
         this.observer_ = observer;
     }
 
     //
+    // Check methods
     public boolean include(CardImitator imitator) {
         return stream()
             .anyMatch(imitator::isEquivalent)
         ;
     }
 
+    public abstract int countCard();
+
     //
-    public class CardNotEnoughException extends RuntimeException {
+    // Iterate methods
+    public abstract Stream<Card> stream();
+
+    //
+    // Methods related drawing
+    protected abstract Card pick();
+    protected abstract void add(Card card);
+    protected void update(Observer.Type type, Card card, Cards other) {
+        observer_.update(type, card, this, other);
     }
 
     //
     // Randomly drawing
-    protected abstract Card pick();
-    protected abstract void add(Card card);
+    public class CardNotEnoughException extends RuntimeException { }
+
     public void pickFrom(Cards from) {
         Card card = from.pick();
         this.add(card);
@@ -63,14 +70,8 @@ public abstract class Cards implements Iterable<Card> {
         this.update(Observer.Type.ADD,  card, from);
     }
 
-    public abstract int countCard();
-
-    protected void update(Observer.Type type, Card card, Cards other) {
-        observer_.update(type, card, this, other);
-    }
-
-    public abstract Stream<Card> stream();
-
+    //
+    // Display methods
     @Override
     public String toString() {
         return this.name_;
@@ -82,4 +83,9 @@ public abstract class Cards implements Iterable<Card> {
                 .collect(Collectors.joining(", "))
         );
     }
+
+    //
+    // Fields
+    private final String name_;
+    private Observer observer_;
 }
