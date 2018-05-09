@@ -1,6 +1,13 @@
 package card;
 
 public class Joker extends Card {
+    private static int serialId_ = 0;
+    private int id_;
+
+    public Joker() {
+        this.id_ = ++serialId_;
+    }
+
     @Override
     public boolean isRankedCard() {
         return false;
@@ -18,7 +25,10 @@ public class Joker extends Card {
     @Override
     public int compareTo(Card other) {
         if(other.isJoker()) {
-            return 0;
+            Joker otherJoker = (Joker)other;
+            return Integer.compare(
+                this.id_, otherJoker.id_
+            );
         }
 
         return 1;
