@@ -10,15 +10,15 @@ class Main {
         deck.shuffle();
 
         Hand hand = new Hand(
-            "Hand", new PrintObserver(), deck, 0
+            "Hand", new PrintObserver(), deck, 10
         );
         hand.printCards();
 
         CardImitator imitator = new JokerImitator();
-        hand.pickFrom(deck, imitator);
-        hand.pickFrom(deck, imitator);
+        if(deck.include(imitator)) {
+            hand.pickFrom(deck, imitator);
+        }
 
-        deck.printCards();
         hand.printCards();
     }
 }

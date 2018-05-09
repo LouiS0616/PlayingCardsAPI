@@ -36,7 +36,7 @@ public class OrderedCards extends Cards {
         Optional<Card> ret = this.stream()
             .filter(purpose::isEquivalent)
             .findFirst()
-            ;
+        ;
 
         if(ret.isPresent()) {
             return CollectionUtil.popElem(
