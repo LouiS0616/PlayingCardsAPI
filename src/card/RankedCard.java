@@ -15,7 +15,6 @@ public class RankedCard extends Card {
         this.suit_ = suit;
         this.rank_ = rank;
     }
-
     public static List<Card> generate() {
         if(defaultCardList_ != null) {
             return defaultCardList_;

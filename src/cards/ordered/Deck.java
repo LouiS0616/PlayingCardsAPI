@@ -6,9 +6,6 @@ import card.RankedCard;
 import cards.Observer;
 
 public class Deck extends OrderedCards {
-    public Deck() {
-        this(2);
-    }
     public Deck(Observer observer) {
         this(2, observer);
     }
