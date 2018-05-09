@@ -1,4 +1,3 @@
-import card.imitator.JokerImitator;
 import cards.ordered.Deck;
 import cards.unordered.Hand;
 import observer.PrintObserver;
@@ -9,12 +8,8 @@ class Main {
         deck.shuffle();
 
         Hand hand = new Hand(
-            "Hand", new PrintObserver(), deck, 10
+                "Hand", new PrintObserver(), deck, 10
         );
         hand.printCards();
-
-        System.out.println(
-            hand.include(new JokerImitator())
-        );
     }
 }
