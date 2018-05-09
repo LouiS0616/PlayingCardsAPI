@@ -10,6 +10,8 @@ public class Joker extends Card {
         this.id_ = ++serialId_;
     }
 
+    //
+    // Basically methods
     @Override
     public String toString() {
         return "Joker";
