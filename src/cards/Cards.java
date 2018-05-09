@@ -23,13 +23,17 @@ public abstract class Cards implements Iterable<Card> {
         Card card = from.pick();
         this.add(card);
 
-        from.observer_.update(Observer.Type.PICK, card, this);
-        this.observer_.update(Observer.Type.ADD,  card, from);
+        from.update(Observer.Type.PICK, card, this);
+        this.update(Observer.Type.ADD,  card, from);
     }
     public void pickFrom(Cards from, int num) {
         for(int i = 0; i < num; ++i) {
             pickFrom(from);
         }
+    }
+
+    protected void update(Observer.Type type, Card card, Cards other) {
+        observer_.update(type, card, this, other);
     }
 
     public abstract Stream<Card> stream();

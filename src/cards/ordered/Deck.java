@@ -9,6 +9,9 @@ public class Deck extends OrderedCards {
     public Deck() {
         this(2);
     }
+    public Deck(Observer observer) {
+        this(2, observer);
+    }
     public Deck(int numOfJoker) {
         this(numOfJoker, Observer.STUB);
     }

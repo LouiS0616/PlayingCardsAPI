@@ -10,10 +10,10 @@ public interface Observer {
     /**
      * @param other The other cards where card is from or card is to.
      */
-    void update(Type type, Card card, Cards other);
+    void update(Type type, Card card, Cards self, Cards other);
 
     Observer STUB =
-        (Type type, Card card, Cards other) -> {
+        (Type type, Card card, Cards self, Cards other) -> {
             // Do nothing.
         }
     ;
