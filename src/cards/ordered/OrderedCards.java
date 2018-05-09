@@ -4,6 +4,7 @@ import card.Card;
 import card.imitator.CardImitator;
 import cards.Cards;
 import cards.Observer;
+import util.CollectionUtil;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -29,6 +30,21 @@ public class OrderedCards extends Cards {
     @Override
     protected final Card pick() {
         return cards_.remove(0);
+    }
+    @Override
+    protected final Card pick(CardImitator purpose) {
+        Optional<Card> ret = this.stream()
+            .filter(purpose::isEquivalent)
+            .findFirst()
+            ;
+
+        if(ret.isPresent()) {
+            return CollectionUtil.popElem(
+                this.cards_, ret.get()
+            );
+        }
+
+        throw new CardNotFoundException();
     }
     @Override
     protected final void add(Card card) {

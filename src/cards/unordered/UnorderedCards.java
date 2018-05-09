@@ -28,6 +28,21 @@ public class UnorderedCards extends Cards {
         );
     }
     @Override
+    protected final Card pick(CardImitator purpose) {
+        Optional<Card> ret = this.stream()
+            .filter(purpose::isEquivalent)
+            .findFirst()
+        ;
+
+        if(ret.isPresent()) {
+            return CollectionUtil.popElem(
+                this.cardSet_, ret.get()
+            );
+        }
+
+        throw new CardNotFoundException();
+    }
+    @Override
     public final void add(Card card) {
         if(!cardSet_.add(card)) {
             System.err.println("You may use deprecated cards.");

@@ -54,18 +54,7 @@ public abstract class Cards implements Iterable<Card> {
     // Specific drawing
     public static class CardNotFoundException extends RuntimeException {}
 
-    private Card pick(CardImitator purpose) {
-        Optional<Card> ret = this.stream()
-            .filter(purpose::isEquivalent)
-            .findFirst()
-        ;
-
-        if(ret.isPresent()) {
-            return ret.get();
-        }
-
-        throw new CardNotFoundException();
-    }
+    protected abstract Card pick(CardImitator purpose);
     public void pickFrom(Cards from, CardImitator purpose) {
         Card card = from.pick(purpose);
         this.add(card);
