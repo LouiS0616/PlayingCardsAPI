@@ -21,7 +21,6 @@ public abstract class Cards implements Iterable<Card> {
             .anyMatch(imitator::isEquivalent)
         ;
     }
-
     public abstract int countCard();
 
     //
@@ -30,7 +29,6 @@ public abstract class Cards implements Iterable<Card> {
 
     //
     // Methods related drawing
-    protected abstract Card pick();
     protected abstract void add(Card card);
     protected void update(Observer.Type type, Card card, Cards other) {
         observer_.update(type, card, this, other);
@@ -40,6 +38,7 @@ public abstract class Cards implements Iterable<Card> {
     // Randomly drawing
     public class CardNotEnoughException extends RuntimeException { }
 
+    protected abstract Card pick();
     public void pickFrom(Cards from) {
         Card card = from.pick();
         this.add(card);

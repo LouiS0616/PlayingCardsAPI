@@ -3,7 +3,7 @@ package cards.unordered;
 import cards.Cards;
 import cards.Observer;
 
-public class Hand extends UnorderedCards {
+public class Hand extends AutoSortedCards {
     public Hand(String name, Cards from, int initialNumOfHand) {
         this(name, Observer.STUB, from, initialNumOfHand);
     }
