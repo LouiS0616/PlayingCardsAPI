@@ -1,5 +1,6 @@
 package card;
 
+import cards.Observer;
 import util.ClosedIntRange;
 
 import java.util.ArrayList;
@@ -7,6 +8,7 @@ import java.util.Comparator;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Objects;
 
 public class RankedCard extends Card {
     public class InvalidRankException extends RuntimeException {
@@ -53,6 +55,26 @@ public class RankedCard extends Card {
             .thenComparing(RankedCard::getSuit)
             .compare(this, (RankedCard)other)
         ;
+    }
+    @Override
+    public boolean equals(Object obj) {
+        if(this == obj) {
+            return true;
+        }
+        if(!(obj instanceof RankedCard)) {
+            return false;
+        }
+
+        RankedCard other = (RankedCard)obj;
+        return other.rank_ == this.rank_
+            && other.suit_ == this.suit_
+        ;
+    }
+    @Override
+    public int hashCode() {
+        return Objects.hash(
+            this.rank_, this.suit_
+        );
     }
 
     public enum Suit {
