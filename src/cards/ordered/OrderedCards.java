@@ -19,7 +19,7 @@ public class OrderedCards extends Cards {
     }
 
     //
-    public void shuffle() {
+    public final void shuffle() {
         Collections.shuffle(this.cards_);
     }
 
@@ -33,13 +33,18 @@ public class OrderedCards extends Cards {
         cards_.add(card);
     }
 
+    @Override
+    public final int countCard() {
+        return cards_.size();
+    }
+
     //
     @Override
     public final Stream<Card> stream() {
         return cards_.stream();
     }
     @Override
-    public Iterator<Card> iterator() {
+    public final Iterator<Card> iterator() {
         return cards_.iterator();
     }
 

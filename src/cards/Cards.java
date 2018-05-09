@@ -17,6 +17,9 @@ public abstract class Cards implements Iterable<Card> {
     }
 
     //
+    public class CardNotEnoughException extends RuntimeException {
+    }
+
     protected abstract Card pick();
     protected abstract void add(Card card);
     public void pickFrom(Cards from) {
@@ -27,10 +30,16 @@ public abstract class Cards implements Iterable<Card> {
         this.update(Observer.Type.ADD,  card, from);
     }
     public void pickFrom(Cards from, int num) {
+        if(from.countCard() < num) {
+            throw new CardNotEnoughException();
+        }
+
         for(int i = 0; i < num; ++i) {
             pickFrom(from);
         }
     }
+
+    public abstract int countCard();
 
     protected void update(Observer.Type type, Card card, Cards other) {
         observer_.update(type, card, this, other);

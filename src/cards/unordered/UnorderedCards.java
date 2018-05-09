@@ -20,24 +20,30 @@ public class UnorderedCards extends Cards {
     }
 
     @Override
-    public Card pick() {
+    public final Card pick() {
         return CollectionUtil.popElem(
             cardSet_, (Card)cardSet_.toArray()[randIndex()]
         );
     }
     @Override
-    public void add(Card card) {
+    public final void add(Card card) {
         if(!cardSet_.add(card)) {
             System.err.println("You may use deprecated cards.");
         }
     }
 
     @Override
-    public Iterator<Card> iterator() {
+    public final int countCard() {
+        return cardSet_.size();
+    }
+
+    //
+    @Override
+    public final Iterator<Card> iterator() {
         return cardSet_.iterator();
     }
     @Override
-    public Stream<Card> stream() {
+    public final Stream<Card> stream() {
         return cardSet_.stream();
     }
 
