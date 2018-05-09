@@ -1,7 +1,5 @@
-import card.Suit;
 import card.imitator.CardImitator;
 import card.imitator.JokerImitator;
-import card.imitator.RankedCardImitator;
 import cards.ordered.Deck;
 import cards.unordered.Hand;
 import observer.PrintObserver;
