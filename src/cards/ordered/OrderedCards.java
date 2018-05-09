@@ -45,5 +45,5 @@ public class OrderedCards extends Cards {
 
     //
     //
-    private List<Card> cards_ = new ArrayList<>();
+    private final List<Card> cards_ = new ArrayList<>();
 }

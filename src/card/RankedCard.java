@@ -85,14 +85,14 @@ public class RankedCard extends Card {
             return defaultCardList_;
         }
 
-        List<Card> ret = new ArrayList<>();
+        defaultCardList_ = new ArrayList<>();
         for(int i: validRankRange) {
             for(Suit suit: Suit.values()) {
-                ret.add(new RankedCard(suit, i));
+                defaultCardList_.add(new RankedCard(suit, i));
             }
         }
 
-        return ret;
+        return defaultCardList_;
     }
     private static List<Card> defaultCardList_ = null;
 

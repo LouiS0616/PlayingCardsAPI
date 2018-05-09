@@ -7,7 +7,7 @@ import java.util.stream.Stream;
 
 public abstract class Cards implements Iterable<Card> {
     //
-    private String name_;
+    private final String name_;
     private Observer observer_;
 
     //

@@ -43,8 +43,8 @@ public class UnorderedCards extends Cards {
 
     //
     //
-    private static SortedSet<Card> cardSet_ = new TreeSet<>();
-    private static final Random rand_ = new Random();
+    private final SortedSet<Card> cardSet_ = new TreeSet<>();
+    private final Random rand_ = new Random();
 
     private int randIndex() {
         return rand_.nextInt(cardSet_.size());

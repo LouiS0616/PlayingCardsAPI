@@ -4,7 +4,7 @@ import card.Card;
 
 public interface Observer {
     enum Type {
-        ADD, PICK;
+        ADD, PICK,
     }
 
     /**
@@ -12,7 +12,7 @@ public interface Observer {
      */
     void update(Type type, Card card, Cards other);
 
-    public static final Observer STUB =
+    Observer STUB =
         (Type type, Card card, Cards other) -> {
             // Do nothing.
         }

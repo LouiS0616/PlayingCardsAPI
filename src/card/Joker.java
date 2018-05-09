@@ -2,7 +2,7 @@ package card;
 
 public class Joker extends Card {
     private static int serialId_ = 0;
-    private int id_;
+    private final int id_;
 
     public Joker() {
         this.id_ = ++serialId_;
