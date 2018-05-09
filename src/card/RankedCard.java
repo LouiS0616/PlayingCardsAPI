@@ -1,28 +1,15 @@
 package card;
 
-import cards.Observer;
-import util.ClosedIntRange;
-
-import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Objects;
+import java.util.stream.Collectors;
+import java.util.stream.IntStream;
 
 public class RankedCard extends Card {
-    public class InvalidRankException extends RuntimeException {
-        InvalidRankException(String message) {
-            super(message);
-        }
-    }
     private RankedCard(Suit suit, int rank) {
-        if(!validRankRange.contains(rank)) {
-            throw new InvalidRankException(
-                String.format("Input rank(%d) is not in range %s.", rank, validRankRange)
-            );
-        }
-
         this.suit_ = suit;
         this.rank_ = rank;
     }
@@ -68,23 +55,6 @@ public class RankedCard extends Card {
         );
     }
 
-    public enum Suit {
-        SPADE, HART, DIAMOND, CLUB;
-
-        @Override
-        public String toString() {
-            return suitToMark_.get(this);
-        }
-
-        static private final Map<Suit, String> suitToMark_ = new HashMap<>();
-        static {
-            suitToMark_.put(SPADE,   "♠");
-            suitToMark_.put(HART,    "♥");
-            suitToMark_.put(DIAMOND, "♦");
-            suitToMark_.put(CLUB,    "♣");
-        }
-    }
-
     public Suit getSuit() {
         return suit_;
     }
@@ -98,14 +68,15 @@ public class RankedCard extends Card {
             return defaultCardList_;
         }
 
-        defaultCardList_ = new ArrayList<>();
-        for(int i: validRankRange) {
-            for(Suit suit: Suit.values()) {
-                defaultCardList_.add(new RankedCard(suit, i));
-            }
-        }
-
-        return defaultCardList_;
+        return defaultCardList_ = IntStream.rangeClosed(1, 13)
+            .boxed()
+            .flatMap(
+                i -> Suit.stream().map(
+                    s -> new RankedCard(s, i)
+                )
+            )
+            .collect(Collectors.toList())
+        ;
     }
     private static List<Card> defaultCardList_ = null;
 
@@ -121,6 +92,4 @@ public class RankedCard extends Card {
         rankToMark_.put(12, "Q");
         rankToMark_.put(13, "K");
     }
-
-    private static final ClosedIntRange validRankRange = new ClosedIntRange(1, 13);
 }

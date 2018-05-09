@@ -2,7 +2,7 @@ package card.imitator;
 
 import card.Card;
 import card.RankedCard;
-import card.RankedCard.Suit;
+import card.Suit;
 
 public class RankedCardImitator extends CardImitator {
     public RankedCardImitator(Suit suit, int rank) {
