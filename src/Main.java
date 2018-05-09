@@ -10,7 +10,9 @@ class Main {
             "Hand", new PrintObserver(), deck, 10
         );
 
-        // deck.printCards();
+        hand.printCards();
+
+        hand.pickFrom(deck, 3);
         hand.printCards();
     }
 }
