@@ -1,7 +1,9 @@
 package cards;
 
 import card.Card;
+import card.imitator.CardImitator;
 
+import java.util.Optional;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
@@ -17,9 +19,18 @@ public abstract class Cards implements Iterable<Card> {
     }
 
     //
+    public boolean include(CardImitator imitator) {
+        return stream()
+            .anyMatch(imitator::isEquivalent)
+        ;
+    }
+
+    //
     public class CardNotEnoughException extends RuntimeException {
     }
 
+    //
+    // Randomly drawing
     protected abstract Card pick();
     protected abstract void add(Card card);
     public void pickFrom(Cards from) {
@@ -37,6 +48,30 @@ public abstract class Cards implements Iterable<Card> {
         for(int i = 0; i < num; ++i) {
             pickFrom(from);
         }
+    }
+
+    //
+    // Specific drawing
+    public static class CardNotFoundException extends RuntimeException {}
+
+    private Card pick(CardImitator purpose) {
+        Optional<Card> ret = this.stream()
+            .filter(purpose::isEquivalent)
+            .findFirst()
+        ;
+
+        if(ret.isPresent()) {
+            return ret.get();
+        }
+
+        throw new CardNotFoundException();
+    }
+    public void pickFrom(Cards from, CardImitator purpose) {
+        Card card = from.pick(purpose);
+        this.add(card);
+
+        from.update(Observer.Type.PICK, card, this);
+        this.update(Observer.Type.ADD,  card, from);
     }
 
     public abstract int countCard();

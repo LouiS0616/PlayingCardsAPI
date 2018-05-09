@@ -1,6 +1,7 @@
 package cards.ordered;
 
 import card.Card;
+import card.imitator.CardImitator;
 import cards.Cards;
 import cards.Observer;
 
@@ -8,6 +9,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Iterator;
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Stream;
 
 public class OrderedCards extends Cards {

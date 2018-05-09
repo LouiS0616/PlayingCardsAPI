@@ -1,3 +1,4 @@
+import card.imitator.JokerImitator;
 import cards.ordered.Deck;
 import cards.unordered.Hand;
 import observer.PrintObserver;
@@ -12,10 +13,8 @@ class Main {
         );
         hand.printCards();
 
-        hand.pickFrom(deck, 3);
-        hand.printCards();
-
-        deck.pickFrom(hand, 5);
-        hand.printCards();
+        System.out.println(
+            hand.include(new JokerImitator())
+        );
     }
 }

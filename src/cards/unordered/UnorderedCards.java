@@ -1,11 +1,13 @@
 package cards.unordered;
 
 import card.Card;
+import card.imitator.CardImitator;
 import cards.Cards;
 import cards.Observer;
 import util.CollectionUtil;
 
 import java.util.Iterator;
+import java.util.Optional;
 import java.util.Random;
 import java.util.SortedSet;
 import java.util.TreeSet;
@@ -20,7 +22,7 @@ public class UnorderedCards extends Cards {
     }
 
     @Override
-    public final Card pick() {
+    protected final Card pick() {
         return CollectionUtil.popElem(
             cardSet_, (Card)cardSet_.toArray()[randIndex()]
         );
