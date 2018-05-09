@@ -1,3 +1,5 @@
+package observer;
+
 import card.Card;
 import cards.Cards;
 import cards.Observer;
@@ -16,6 +18,8 @@ public class PrintObserver implements Observer {
         );
     }
     private void whenPicked(Card card, Cards self, Cards other) {
-
+        System.out.println(
+                String.format("Pick %s from %s to %s.", card, self, other)
+        );
     }
 }
