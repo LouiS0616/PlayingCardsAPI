@@ -1,6 +1,10 @@
 package card;
 
 public abstract class Card implements Comparable<Card> {
-    public abstract boolean isJoker();
-    public abstract boolean isRankedCard();
+    public final boolean isJoker() {
+        return this instanceof Joker;
+    }
+    public final boolean isRankedCard() {
+        return this instanceof RankedCard;
+    }
 }

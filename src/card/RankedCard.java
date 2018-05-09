@@ -28,15 +28,6 @@ public class RankedCard extends Card {
     }
 
     @Override
-    public boolean isRankedCard() {
-        return true;
-    }
-    @Override
-    public boolean isJoker() {
-        return false;
-    }
-
-    @Override
     public String toString() {
         return String.format(
                 "%s%s",

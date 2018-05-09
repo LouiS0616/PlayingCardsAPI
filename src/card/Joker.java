@@ -11,15 +11,6 @@ public class Joker extends Card {
     }
 
     @Override
-    public boolean isRankedCard() {
-        return false;
-    }
-    @Override
-    public boolean isJoker() {
-        return true;
-    }
-
-    @Override
     public String toString() {
         return "Joker";
     }
