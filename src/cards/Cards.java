@@ -30,7 +30,7 @@ public abstract class Cards implements Iterable<Card> {
     //
     // Methods related drawing
     protected abstract void add(Card card);
-    protected void update(Observer.Type type, Card card, Cards other) {
+    private void update(Observer.Type type, Card card, Cards other) {
         observer_.update(type, card, this, other);
     }
 
@@ -86,5 +86,5 @@ public abstract class Cards implements Iterable<Card> {
     //
     // Fields
     private final String name_;
-    private Observer observer_;
+    private final Observer observer_;
 }
