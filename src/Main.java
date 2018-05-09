@@ -6,9 +6,11 @@ class Main {
         Deck deck = new Deck();
         deck.shuffle();
 
-        Hand hand = new Hand("Hand", deck, 10);
+        Hand hand = new Hand(
+            "Hand", new PrintObserver(), deck, 10
+        );
 
-        deck.printCards();
+        // deck.printCards();
         hand.printCards();
     }
 }

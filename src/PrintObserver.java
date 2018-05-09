@@ -5,7 +5,9 @@ import cards.Observer;
 public class PrintObserver implements Observer {
     public void update(Type type, Card card, Cards other) {
         if(type == Type.ADD) {
-            System.out.println();
+            System.out.println(
+                String.format("Pick %s from %s.", card, other)
+            );
         }
     }
 }
