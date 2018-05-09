@@ -2,6 +2,7 @@ package cards.unordered;
 
 import card.Card;
 import cards.Cards;
+import cards.Observer;
 import util.CollectionUtil;
 
 import java.util.Iterator;
@@ -11,6 +12,13 @@ import java.util.TreeSet;
 import java.util.stream.Stream;
 
 public class UnorderedCards extends Cards {
+    public UnorderedCards(String name) {
+        this(name, Observer.STUB);
+    }
+    public UnorderedCards(String name, Observer observer) {
+        super(name, observer);
+    }
+
     @Override
     public Card pick() {
         return CollectionUtil.popElem(

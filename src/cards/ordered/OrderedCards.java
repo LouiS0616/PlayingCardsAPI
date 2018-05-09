@@ -2,6 +2,7 @@ package cards.ordered;
 
 import card.Card;
 import cards.Cards;
+import cards.Observer;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -10,11 +11,11 @@ import java.util.List;
 import java.util.stream.Stream;
 
 public class OrderedCards extends Cards {
-    public OrderedCards() {
-        cards_ = new ArrayList<>();
+    public OrderedCards(String name) {
+        this(name, Observer.STUB);
     }
-    public OrderedCards(List<Card> cards) {
-        cards_ = new ArrayList<>(cards);
+    public OrderedCards(String name, Observer observer) {
+        super(name, observer);
     }
 
     //
@@ -44,5 +45,5 @@ public class OrderedCards extends Cards {
 
     //
     //
-    private List<Card> cards_;
+    private List<Card> cards_ = new ArrayList<>();
 }
