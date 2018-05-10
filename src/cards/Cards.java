@@ -24,6 +24,12 @@ public abstract class Cards implements Iterable<Card> {
             .anyMatch(imitator::isEquivalent)
         ;
     }
+    public int countCard(WildCardImitator imitator) {
+        return (int)stream()
+            .filter(imitator::isEquivalent)
+            .count()
+        ;
+    }
     public abstract int countCard();
 
     //
