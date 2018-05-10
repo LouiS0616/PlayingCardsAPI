@@ -6,7 +6,7 @@ import java.util.Map;
 import java.util.stream.Stream;
 
 public enum Suit {
-    SPADE, HART, DIAMOND, CLUB;
+    SPADE, HEART, DIAMOND, CLUB;
 
     public static Stream<Suit> stream() {
         return Arrays.stream(Suit.values());
@@ -19,7 +19,7 @@ public enum Suit {
     static private final Map<Suit, String> suitToMark_ = new HashMap<>();
     static {
         suitToMark_.put(SPADE,   "♠");
-        suitToMark_.put(HART,    "♥");
+        suitToMark_.put(HEART,   "♥");
         suitToMark_.put(DIAMOND, "♦");
         suitToMark_.put(CLUB,    "♣");
     }
