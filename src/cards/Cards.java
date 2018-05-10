@@ -5,6 +5,7 @@ import card.imitator.CardImitator;
 import card.imitator.individual.IndividualCardImitator;
 import card.imitator.wild.WildCardImitator;
 
+import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
@@ -71,13 +72,15 @@ public abstract class Cards implements Iterable<Card> {
         this.update(Observer.Type.ADD,  card, from);
     }
 
-    public void divideFrom(Cards from, WildCardImitator purpose) {
-        from.stream()
-            .filter(purpose::isEquivalent)
-            .forEach(
-                card -> pickFrom(from, card.getImitator())
-            )
+    public void divideFrom(Cards from, WildCardImitator wildPurpose) {
+        // DO make list first avoid to java.util.ConcurrentModificationException.
+        List<IndividualCardImitator> purposes = from.stream()
+            .filter(wildPurpose::isEquivalent)
+            .map(Card::getImitator)
+            .collect(Collectors.toList())
         ;
+
+        purposes.forEach(card -> pickFrom(from, card));
     }
 
     //
