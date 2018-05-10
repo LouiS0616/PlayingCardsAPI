@@ -1,7 +1,7 @@
 package cards.ordered;
 
 import card.Card;
-import card.imitator.CardImitator;
+import card.imitator.individual.IndividualCardImitator;
 import cards.Cards;
 import cards.Observer;
 import util.CollectionUtil;
@@ -53,7 +53,7 @@ public class OrderedCards extends Cards {
         return cards_.remove(0);
     }
     @Override
-    protected final Card pick(CardImitator purpose) {
+    protected final Card pick(IndividualCardImitator purpose) {
         return CollectionUtil.popElem(
             cards_,
             stream()

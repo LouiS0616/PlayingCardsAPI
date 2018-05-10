@@ -2,6 +2,7 @@ package cards;
 
 import card.Card;
 import card.imitator.CardImitator;
+import card.imitator.individual.IndividualCardImitator;
 
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
@@ -60,8 +61,8 @@ public abstract class Cards implements Iterable<Card> {
     // Specific drawing
     public static class CardNotFoundException extends RuntimeException {}
 
-    protected abstract Card pick(CardImitator purpose);
-    public void pickFrom(Cards from, CardImitator purpose) {
+    protected abstract Card pick(IndividualCardImitator purpose);
+    public void pickFrom(Cards from, IndividualCardImitator purpose) {
         Card card = from.pick(purpose);
         this.add(card);
 

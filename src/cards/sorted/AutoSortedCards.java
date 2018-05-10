@@ -1,7 +1,7 @@
 package cards.sorted;
 
 import card.Card;
-import card.imitator.CardImitator;
+import card.imitator.individual.IndividualCardImitator;
 import cards.Cards;
 import cards.Observer;
 import util.CollectionUtil;
@@ -49,7 +49,7 @@ public class AutoSortedCards extends Cards {
         );
     }
     @Override
-    protected final Card pick(CardImitator purpose) {
+    protected final Card pick(IndividualCardImitator purpose) {
         return CollectionUtil.popElem(
             cardSet_,
             stream()
