@@ -43,6 +43,10 @@ public abstract class Cards implements Iterable<Card> {
 
     protected abstract Card pick();
     public void pickFrom(Cards from) {
+        if(this == from) {
+            return;
+        }
+
         Card card = from.pick();
         this.add(card);
 
@@ -50,6 +54,10 @@ public abstract class Cards implements Iterable<Card> {
         this.update(Observer.Type.ADD,  card, from);
     }
     public void pickFrom(Cards from, int num) {
+        if(this == from) {
+            return;
+        }
+
         if(from.countCard() < num) {
             throw new CardNotEnoughException();
         }
@@ -65,6 +73,10 @@ public abstract class Cards implements Iterable<Card> {
 
     protected abstract Card pick(IndividualCardImitator purpose);
     public void pickFrom(Cards from, IndividualCardImitator purpose) {
+        if(this == from) {
+            return;
+        }
+
         Card card = from.pick(purpose);
         this.add(card);
 
@@ -73,6 +85,10 @@ public abstract class Cards implements Iterable<Card> {
     }
 
     public void divideFrom(Cards from, WildCardImitator wildPurpose) {
+        if(this == from) {
+            return;
+        }
+
         // DO make list first avoid to java.util.ConcurrentModificationException.
         List<IndividualCardImitator> purposes = from.stream()
             .filter(wildPurpose::isEquivalent)

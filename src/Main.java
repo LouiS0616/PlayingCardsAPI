@@ -4,18 +4,15 @@ import card.imitator.wild.SuitImitator;
 import card.imitator.wild.WildJokerImitator;
 import cards.ordered.Deck;
 import cards.sorted.Hand;
+import cards.unordered.Trash;
 import observer.PrintObserver;
 
 class Main {
     public static void main(String[] args) {
-        Deck deck = Deck.makeDeck();
+        Deck deck = Deck.makeDeck(new PrintObserver());
         deck.shuffle();
 
-        Hand hand = new Hand("Hand", new PrintObserver(), deck, 0);
-        hand.divideFrom(deck, new SuitImitator(Suit.CLUB));
-        hand.divideFrom(deck, new RankImitator(13));
-        hand.divideFrom(deck, new WildJokerImitator());
-        hand.printCards();
+        deck.pickFrom(deck);
 
 
 
