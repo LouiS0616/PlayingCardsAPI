@@ -51,7 +51,7 @@ public class RankedCard extends Card {
 
     @Override
     public int compareTo(Card other) {
-        if(other.isJoker()) {
+        if(other instanceof Joker) {
             return -1;
         }
 

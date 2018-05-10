@@ -19,7 +19,7 @@ public class Joker extends Card {
 
     @Override
     public int compareTo(Card other) {
-        if(other.isJoker()) {
+        if(other instanceof Joker) {
             Joker otherJoker = (Joker)other;
             return Integer.compare(
                 this.id_, otherJoker.id_
