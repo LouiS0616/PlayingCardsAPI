@@ -12,12 +12,9 @@ import java.util.Random;
 import java.util.Set;
 import java.util.stream.Stream;
 
-public class UnorderedCards extends Cards {
+public abstract class UnorderedCards extends Cards {
     //
     // Generate methods
-    public UnorderedCards(String name) {
-        this(name, Observer.STUB);
-    }
     public UnorderedCards(String name, Observer observer) {
         super(name, observer);
     }

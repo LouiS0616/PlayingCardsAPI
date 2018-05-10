@@ -12,12 +12,9 @@ import java.util.SortedSet;
 import java.util.TreeSet;
 import java.util.stream.Stream;
 
-public class AutoSortedCards extends Cards {
+public abstract class AutoSortedCards extends Cards {
     //
     // Generate methods
-    public AutoSortedCards(String name) {
-        this(name, Observer.STUB);
-    }
     public AutoSortedCards(String name, Observer observer) {
         super(name, observer);
     }

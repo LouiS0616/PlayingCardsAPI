@@ -12,12 +12,9 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.stream.Stream;
 
-public class OrderedCards extends Cards {
+public abstract class OrderedCards extends Cards {
     //
     // Generate methods
-    public OrderedCards(String name) {
-        this(name, Observer.STUB);
-    }
     public OrderedCards(String name, Observer observer) {
         super(name, observer);
     }
