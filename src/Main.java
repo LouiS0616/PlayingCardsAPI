@@ -1,7 +1,8 @@
 import card.Suit;
+import card.imitator.individual.IndividualCardImitator;
+import card.imitator.individual.JokerImitator;
 import card.imitator.wild.RankImitator;
 import card.imitator.wild.SuitImitator;
-import card.imitator.wild.WildJokerImitator;
 import cards.ordered.Deck;
 import cards.sorted.Hand;
 import cards.unordered.Trash;
@@ -9,28 +10,46 @@ import observer.PrintObserver;
 
 class Main {
     public static void main(String[] args) {
-        Deck deck = Deck.makeDeck(new PrintObserver());
-        deck.shuffle();
+        //
+        // Make a deck.
+        Deck deck = Deck.makeDeck();
 
-        deck.pickFrom(deck);
-
-
-
-        /*
-        Hand hand = new Hand(
-            "Hand", new PrintObserver(), deck, 10
+        //
+        // Remove unnecessary cards.
+        Trash trash = Trash.makeTrash();
+        trash.divideFrom(
+            deck,
+            new RankImitator(11),
+            new RankImitator(12),
+            new RankImitator(13),
+            new SuitImitator(Suit.CLUB)
         );
-        hand.printCards();
 
-        IndividualCardImitator imitator = new JokerImitator();
-        if(deck.include(imitator)) {
-            hand.pickFrom(deck, imitator);
+        //
+        // Shuffle deck and make a hand with observer.
+        deck.shuffle();
+        Hand hand = new Hand("My Hand", new PrintObserver(), deck, 10);
+
+        //
+        // Draw joker from deck.
+        IndividualCardImitator jokerImitator = new JokerImitator();
+        if(deck.include(jokerImitator)) {
+            hand.pickFrom(deck, jokerImitator);
         }
         else {
-            System.out.println("Already you have two jokers.");
+            System.out.println("You already have two jokers.");
         }
 
+        //
+        // Print info.
         hand.printCards();
-        */
+        System.out.println(hand.countCard());
+        Suit.stream()
+            .forEach(
+                suit -> System.out.println(
+                    String.format("%s: %d.", suit, hand.countCard(new SuitImitator(suit)))
+                )
+            )
+        ;
     }
 }

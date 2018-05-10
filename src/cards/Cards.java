@@ -104,6 +104,11 @@ public abstract class Cards implements Iterable<Card> {
 
         purposes.forEach(card -> pickFrom(from, card));
     }
+    public void divideFrom(Cards from, WildCardImitator... wildPurposes) {
+        for(WildCardImitator wildPurpose: wildPurposes) {
+            divideFrom(from, wildPurpose);
+        }
+    }
 
     //
     // Display methods
