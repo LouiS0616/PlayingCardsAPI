@@ -1,8 +1,9 @@
-package card.imitator;
+package card.imitator.individual;
 
 import card.Card;
 import card.RankedCard;
 import card.Suit;
+import card.imitator.CardImitator;
 
 public class RankedCardImitator extends CardImitator {
     public RankedCardImitator(Suit suit, int rank) {

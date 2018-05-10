@@ -1,7 +1,8 @@
-package card.imitator;
+package card.imitator.individual;
 
 import card.Card;
 import card.Joker;
+import card.imitator.CardImitator;
 
 public class JokerImitator extends CardImitator {
     @Override
