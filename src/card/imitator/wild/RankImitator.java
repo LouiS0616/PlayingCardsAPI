@@ -1,10 +1,9 @@
-package card.imitator.wildcard;
+package card.imitator.wild;
 
 import card.Card;
 import card.RankedCard;
-import card.imitator.CardImitator;
 
-public class RankImitator extends CardImitator {
+public class RankImitator extends WildCardImitator {
     public RankImitator(int rank) {
         this.rank_ = rank;
     }

@@ -1,11 +1,10 @@
-package card.imitator.wildcard;
+package card.imitator.wild;
 
 import card.Card;
 import card.RankedCard;
 import card.Suit;
-import card.imitator.CardImitator;
 
-public class SuitImitator extends CardImitator {
+public class SuitImitator extends WildCardImitator {
     public SuitImitator(Suit suit) {
         this.suit_ = suit;
     }

@@ -3,9 +3,8 @@ package card.imitator.individual;
 import card.Card;
 import card.RankedCard;
 import card.Suit;
-import card.imitator.CardImitator;
 
-public class RankedCardImitator extends CardImitator {
+public class RankedCardImitator extends IndividualCardImitator {
     public RankedCardImitator(Suit suit, int rank) {
         this.suit_ = suit;
         this.rank_ = rank;

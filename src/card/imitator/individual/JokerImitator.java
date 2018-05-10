@@ -2,9 +2,8 @@ package card.imitator.individual;
 
 import card.Card;
 import card.Joker;
-import card.imitator.CardImitator;
 
-public class JokerImitator extends CardImitator {
+public class JokerImitator extends IndividualCardImitator {
     @Override
     public boolean isEquivalent(Card card) {
         return card instanceof Joker;
