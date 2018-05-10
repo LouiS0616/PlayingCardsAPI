@@ -1,7 +1,7 @@
 import card.Suit;
-import card.imitator.individual.IndividualCardImitator;
-import card.imitator.individual.JokerImitator;
+import card.imitator.wild.RankImitator;
 import card.imitator.wild.SuitImitator;
+import card.imitator.wild.WildJokerImitator;
 import cards.ordered.Deck;
 import cards.sorted.Hand;
 import observer.PrintObserver;
@@ -11,9 +11,13 @@ class Main {
         Deck deck = Deck.makeDeck();
         deck.shuffle();
 
-        Hand clubs = new Hand("Clubs", new PrintObserver(), deck, 0);
-        clubs.divideFrom(deck, new SuitImitator(Suit.CLUB));
-        clubs.printCards();
+        Hand hand = new Hand("Hand", new PrintObserver(), deck, 0);
+        hand.divideFrom(deck, new SuitImitator(Suit.CLUB));
+        hand.divideFrom(deck, new RankImitator(13));
+        hand.divideFrom(deck, new WildJokerImitator());
+        hand.printCards();
+
+
 
         /*
         Hand hand = new Hand(
