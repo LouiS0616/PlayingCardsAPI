@@ -1,5 +1,7 @@
 package card;
 
+import card.imitator.individual.JokerImitator;
+
 import java.util.Objects;
 
 public class Joker extends Card {
@@ -8,6 +10,10 @@ public class Joker extends Card {
 
     public Joker() {
         this.id_ = ++serialId_;
+    }
+    @Override
+    public JokerImitator getImitator() {
+        return new JokerImitator();
     }
 
     //

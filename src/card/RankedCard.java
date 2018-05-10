@@ -1,5 +1,7 @@
 package card;
 
+import card.imitator.individual.RankedCardImitator;
+
 import java.util.Comparator;
 import java.util.HashMap;
 import java.util.List;
@@ -31,6 +33,13 @@ public class RankedCard extends Card {
         ;
     }
     private static List<Card> defaultCardList_ = null;
+
+    @Override
+    public RankedCardImitator getImitator() {
+        return new RankedCardImitator(
+            this.suit_, this.rank_
+        );
+    }
 
     //
     // Basically methods

@@ -3,6 +3,7 @@ package cards;
 import card.Card;
 import card.imitator.CardImitator;
 import card.imitator.individual.IndividualCardImitator;
+import card.imitator.wild.WildCardImitator;
 
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
@@ -68,6 +69,15 @@ public abstract class Cards implements Iterable<Card> {
 
         from.update(Observer.Type.PICK, card, this);
         this.update(Observer.Type.ADD,  card, from);
+    }
+
+    public void divideFrom(Cards from, WildCardImitator purpose) {
+        from.stream()
+            .filter(purpose::isEquivalent)
+            .forEach(
+                card -> pickFrom(from, card.getImitator())
+            )
+        ;
     }
 
     //

@@ -1,4 +1,5 @@
 import card.imitator.CardImitator;
+import card.imitator.individual.IndividualCardImitator;
 import card.imitator.individual.JokerImitator;
 import cards.ordered.Deck;
 import cards.sorted.Hand;
@@ -14,7 +15,7 @@ class Main {
         );
         hand.printCards();
 
-        CardImitator imitator = new JokerImitator();
+        IndividualCardImitator imitator = new JokerImitator();
         if(deck.include(imitator)) {
             hand.pickFrom(deck, imitator);
         }
