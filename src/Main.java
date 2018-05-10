@@ -1,7 +1,7 @@
 import card.imitator.CardImitator;
 import card.imitator.JokerImitator;
 import cards.ordered.Deck;
-import cards.unordered.Hand;
+import cards.sorted.Hand;
 import observer.PrintObserver;
 
 class Main {

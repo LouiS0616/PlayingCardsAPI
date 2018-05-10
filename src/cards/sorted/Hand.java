@@ -1,4 +1,4 @@
-package cards.unordered;
+package cards.sorted;
 
 import cards.Cards;
 import cards.Observer;
