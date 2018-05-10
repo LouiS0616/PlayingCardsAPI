@@ -6,19 +6,27 @@ import card.RankedCard;
 import cards.Observer;
 
 public class Deck extends OrderedCards {
-    public Deck(Observer observer) {
-        this(2, observer);
+    //
+    // Generate methods
+    private static Deck instance_ = null;
+    public static Deck makeDeck() {
+        return makeDeck(Observer.STUB);
     }
-    public Deck(int numOfJoker) {
-        this(numOfJoker, Observer.STUB);
+    public static Deck makeDeck(Observer observer) {
+        if(instance_ != null) {
+            return instance_;
+        }
+
+        return instance_ = new Deck(observer);
     }
-    public Deck(int numOfJoker, Observer observer) {
+
+    private Deck(Observer observer) {
         super("Deck", observer);
 
         for(Card card: RankedCard.generate()) {
             add(card);
         }
-        for(int i = 0; i < numOfJoker; ++i) {
+        for(int i = 0; i < 2; ++i) {
             add(new Joker());
         }
     }

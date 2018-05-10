@@ -6,7 +6,7 @@ import observer.PrintObserver;
 
 class Main {
     public static void main(String[] args) {
-        Deck deck = new Deck(2);
+        Deck deck = Deck.makeDeck();
         deck.shuffle();
 
         Hand hand = new Hand(
