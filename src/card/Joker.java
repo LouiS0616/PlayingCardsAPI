@@ -2,6 +2,7 @@ package card;
 
 import card.imitator.individual.JokerImitator;
 
+import java.util.Comparator;
 import java.util.Objects;
 
 public class Joker extends Card {
@@ -23,31 +24,7 @@ public class Joker extends Card {
         return "Joker";
     }
 
-    @Override
-    public int compareTo(Card other) {
-        if(other instanceof Joker) {
-            Joker otherJoker = (Joker)other;
-            return Integer.compare(
-                this.id_, otherJoker.id_
-            );
-        }
-
-        return 1;
-    }
-    @Override
-    public boolean equals(Object obj) {
-        if(this == obj) {
-            return true;
-        }
-        if(!(obj instanceof Joker)) {
-            return false;
-        }
-
-        Joker other = (Joker)obj;
-        return this.id_ == other.id_;
-    }
-    @Override
-    public int hashCode() {
-        return Objects.hashCode(id_);
+    public static int compareId(Joker joker1, Joker joker2) {
+        return Integer.compare(joker1.id_, joker2.id_);
     }
 }

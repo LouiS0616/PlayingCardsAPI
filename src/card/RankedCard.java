@@ -2,11 +2,9 @@ package card;
 
 import card.imitator.individual.RankedCardImitator;
 
-import java.util.Comparator;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.Objects;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
@@ -56,39 +54,6 @@ public class RankedCard extends Card {
         rankToMark_.put(11, "J");
         rankToMark_.put(12, "Q");
         rankToMark_.put(13, "K");
-    }
-
-    @Override
-    public int compareTo(Card other) {
-        if(other instanceof Joker) {
-            return -1;
-        }
-
-        return Comparator
-            .comparingInt(RankedCard::getRank)
-            .thenComparing(RankedCard::getSuit)
-            .compare(this, (RankedCard)other)
-        ;
-    }
-    @Override
-    public boolean equals(Object obj) {
-        if(this == obj) {
-            return true;
-        }
-        if(!(obj instanceof RankedCard)) {
-            return false;
-        }
-
-        RankedCard other = (RankedCard)obj;
-        return other.rank_ == this.rank_
-            && other.suit_ == this.suit_
-        ;
-    }
-    @Override
-    public int hashCode() {
-        return Objects.hash(
-            this.rank_, this.suit_
-        );
     }
 
     //

@@ -1,6 +1,7 @@
 package cards.sorted;
 
 import card.Card;
+import card.comparator.DefaultCardComparator;
 import card.imitator.individual.IndividualCardImitator;
 import cards.Cards;
 import cards.Observer;
@@ -64,7 +65,7 @@ public abstract class AutoSortedCards extends Cards {
 
     //
     // Fields and utility
-    private final SortedSet<Card> cardSet_ = new TreeSet<>();
+    private final SortedSet<Card> cardSet_ = new TreeSet<>(new DefaultCardComparator());
     private final Random rand_ = new Random();
 
     private int randIndex() {
