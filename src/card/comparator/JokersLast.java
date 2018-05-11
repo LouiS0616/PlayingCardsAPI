@@ -4,7 +4,9 @@ import card.Card;
 import card.Joker;
 import card.RankedCard;
 
-public abstract class JokerFollowed extends CardComparator {
+//
+// I referenced java.util.Comparator<T>.nullsLast to name this class.
+public abstract class JokersLast extends CardComparator {
     //
     // Comparison methods
     protected abstract int compare(RankedCard rankedCard1, RankedCard rankedCard2);

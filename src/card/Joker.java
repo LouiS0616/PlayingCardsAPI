@@ -2,9 +2,6 @@ package card;
 
 import card.imitator.individual.JokerImitator;
 
-import java.util.Comparator;
-import java.util.Objects;
-
 public class Joker extends Card {
     private static int serialId_ = 0;
     private final int id_;
