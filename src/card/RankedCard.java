@@ -49,8 +49,8 @@ public class RankedCard extends Card {
 
     //
     // Fields and Accessors
-    private Suit suit_;
-    private int rank_;
+    private final Suit suit_;
+    private final int rank_;
 
     public Suit getSuit() {
         return suit_;
