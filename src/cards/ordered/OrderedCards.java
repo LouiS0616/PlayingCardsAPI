@@ -6,9 +6,9 @@ import cards.Cards;
 import cards.Observer;
 import util.CollectionUtil;
 
-import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Iterator;
+import java.util.LinkedList;
 import java.util.List;
 import java.util.stream.Stream;
 
@@ -66,5 +66,5 @@ public abstract class OrderedCards extends Cards {
 
     //
     // Fields
-    private final List<Card> cards_ = new ArrayList<>();
+    private final List<Card> cards_ = new LinkedList<>();
 }
