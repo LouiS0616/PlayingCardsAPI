@@ -5,6 +5,9 @@ import card.RankedCard;
 import card.Suit;
 
 public class SuitImitator implements WildCardImitator {
+    public SuitImitator(RankedCard model) {
+        this(model.getSuit());
+    }
     public SuitImitator(Suit suit) {
         this.suit_ = suit;
     }

@@ -27,9 +27,7 @@ public class RankedCard extends Card {
 
     @Override
     public RankedCardImitator getImitator() {
-        return new RankedCardImitator(
-            this.suit_, this.rank_
-        );
+        return new RankedCardImitator(this);
     }
 
     //
