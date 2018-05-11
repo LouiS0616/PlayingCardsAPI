@@ -4,7 +4,7 @@ import card.Card;
 import card.RankedCard;
 import card.Suit;
 
-public class SuitImitator extends WildCardImitator {
+public class SuitImitator implements WildCardImitator {
     public SuitImitator(Suit suit) {
         this.suit_ = suit;
     }

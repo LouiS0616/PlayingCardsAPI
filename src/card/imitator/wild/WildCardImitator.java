@@ -2,5 +2,5 @@ package card.imitator.wild;
 
 import card.imitator.CardImitator;
 
-public abstract class WildCardImitator extends CardImitator {
+public interface WildCardImitator extends CardImitator {
 }

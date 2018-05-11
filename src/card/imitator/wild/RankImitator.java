@@ -3,7 +3,7 @@ package card.imitator.wild;
 import card.Card;
 import card.RankedCard;
 
-public class RankImitator extends WildCardImitator {
+public class RankImitator implements WildCardImitator {
     public RankImitator(int rank) {
         this.rank_ = rank;
     }

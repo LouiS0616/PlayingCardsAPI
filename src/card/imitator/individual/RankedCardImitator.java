@@ -4,7 +4,7 @@ import card.Card;
 import card.RankedCard;
 import card.Suit;
 
-public class RankedCardImitator extends IndividualCardImitator {
+public class RankedCardImitator implements IndividualCardImitator {
     public RankedCardImitator(Suit suit, int rank) {
         this.suit_ = suit;
         this.rank_ = rank;
