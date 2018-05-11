@@ -2,6 +2,7 @@ package cards;
 
 import card.Card;
 
+@FunctionalInterface
 public interface Observer {
     enum Type {
         ADD, PICK,
