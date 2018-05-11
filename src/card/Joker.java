@@ -2,13 +2,19 @@ package card;
 
 import card.imitator.individual.JokerImitator;
 
+import java.util.stream.Stream;
+
 public class Joker extends Card {
     private static int serialId_ = 0;
     private final int id_;
 
-    public Joker() {
+    private Joker() {
         this.id_ = ++serialId_;
     }
+    static Stream<Card> generate() {
+        return Stream.of(new Joker(), new Joker());
+    }
+
     @Override
     public JokerImitator getImitator() {
         return new JokerImitator();

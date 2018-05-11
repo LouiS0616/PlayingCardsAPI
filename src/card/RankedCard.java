@@ -3,10 +3,9 @@ package card;
 import card.imitator.individual.RankedCardImitator;
 
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
-import java.util.stream.Collectors;
 import java.util.stream.IntStream;
+import java.util.stream.Stream;
 
 public class RankedCard extends Card {
     //
@@ -15,22 +14,16 @@ public class RankedCard extends Card {
         this.suit_ = suit;
         this.rank_ = rank;
     }
-    public static List<Card> generate() {
-        if(defaultCardList_ != null) {
-            return defaultCardList_;
-        }
-
-        return defaultCardList_ = IntStream.rangeClosed(1, 13)
+    static Stream<Card> generate() {
+        return IntStream.rangeClosed(1, 13)
             .boxed()
             .flatMap(
                 i -> Suit.stream().map(
                     s -> new RankedCard(s, i)
                 )
             )
-            .collect(Collectors.toList())
         ;
     }
-    private static List<Card> defaultCardList_ = null;
 
     @Override
     public RankedCardImitator getImitator() {

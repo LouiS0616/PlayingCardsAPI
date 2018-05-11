@@ -23,11 +23,8 @@ public class Deck extends OrderedCards {
     private Deck(Observer observer) {
         super("Deck", observer);
 
-        for(Card card: RankedCard.generate()) {
+        for(Card card: Card.makeCards$for_deck()) {
             add(card);
-        }
-        for(int i = 0; i < 2; ++i) {
-            add(new Joker());
         }
     }
 }
