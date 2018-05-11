@@ -17,6 +17,7 @@ public abstract class UnorderedCards extends Cards {
     // Generate methods
     protected UnorderedCards(String name, Observer observer) {
         super(name, observer);
+        this.cardSet_ = new HashSet<>();
     }
 
     //
@@ -64,7 +65,7 @@ public abstract class UnorderedCards extends Cards {
 
     //
     // Fields and utility
-    private final Set<Card> cardSet_ = new HashSet<>();
+    private final Set<Card> cardSet_;
     private final Random rand_ = new Random();
 
     private int randIndex() {
