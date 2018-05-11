@@ -1,6 +1,7 @@
 package cards.sorted;
 
 import card.Card;
+import card.comparator.CardComparator;
 import card.comparator.DefaultCardComparator;
 import card.imitator.individual.IndividualCardImitator;
 import cards.Cards;
@@ -16,8 +17,9 @@ import java.util.stream.Stream;
 public abstract class AutoSortedCards extends Cards {
     //
     // Generate methods
-    public AutoSortedCards(String name, Observer observer) {
+    public AutoSortedCards(String name, Observer observer, CardComparator comparator) {
         super(name, observer);
+        this.cardSet_ = new TreeSet<>(comparator);
     }
 
     //
@@ -65,7 +67,7 @@ public abstract class AutoSortedCards extends Cards {
 
     //
     // Fields and utility
-    private final SortedSet<Card> cardSet_ = new TreeSet<>(new DefaultCardComparator());
+    private final SortedSet<Card> cardSet_;
     private final Random rand_ = new Random();
 
     private int randIndex() {
