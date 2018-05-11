@@ -7,10 +7,9 @@ import cards.Observer;
 import java.util.Iterator;
 import java.util.stream.Stream;
 
-public class Trash extends UnorderedCards {
+public final class Trash extends UnorderedCards {
     //
     // Generate methods
-    private static Trash instance_ = null;
     public static Trash makeTrash() {
         return makeTrash(Observer.STUB);
     }
@@ -21,6 +20,7 @@ public class Trash extends UnorderedCards {
 
         return instance_ = new Trash(observer);
     }
+    private static Trash instance_ = null;
 
     private Trash(Observer observer) {
         super("Trash", observer);
@@ -53,6 +53,4 @@ public class Trash extends UnorderedCards {
     protected Card pick(IndividualCardImitator purpose) {
         return pick();
     }
-
-
 }

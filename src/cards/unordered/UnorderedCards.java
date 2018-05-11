@@ -15,7 +15,7 @@ import java.util.stream.Stream;
 public abstract class UnorderedCards extends Cards {
     //
     // Generate methods
-    public UnorderedCards(String name, Observer observer) {
+    protected UnorderedCards(String name, Observer observer) {
         super(name, observer);
     }
 

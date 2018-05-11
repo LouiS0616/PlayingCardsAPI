@@ -2,7 +2,6 @@ package cards.sorted;
 
 import card.Card;
 import card.comparator.CardComparator;
-import card.comparator.DefaultCardComparator;
 import card.imitator.individual.IndividualCardImitator;
 import cards.Cards;
 import cards.Observer;
@@ -17,7 +16,7 @@ import java.util.stream.Stream;
 public abstract class AutoSortedCards extends Cards {
     //
     // Generate methods
-    public AutoSortedCards(String name, Observer observer, CardComparator comparator) {
+    protected AutoSortedCards(String name, Observer observer, CardComparator comparator) {
         super(name, observer);
         this.cardSet_ = new TreeSet<>(comparator);
     }
