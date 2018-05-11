@@ -94,7 +94,7 @@ public abstract class Cards implements Iterable<Card> {
         // DO make list first avoid to java.util.ConcurrentModificationException.
         List<IndividualCardImitator> purposes = from.stream()
             .filter(wildPurpose::isEquivalent)
-            .map(Card::getImitator)
+            .map(Card::getIndividualImitator)
             .collect(Collectors.toList())
         ;
 

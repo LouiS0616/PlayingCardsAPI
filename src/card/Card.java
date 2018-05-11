@@ -23,5 +23,5 @@ public abstract class Card {
     private static List<Card> cards_ = null;
 
     //
-    public abstract IndividualCardImitator getImitator();
+    public abstract IndividualCardImitator getIndividualImitator();
 }

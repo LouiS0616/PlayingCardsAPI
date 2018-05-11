@@ -16,7 +16,7 @@ public class Joker extends Card {
     }
 
     @Override
-    public JokerImitator getImitator() {
+    public JokerImitator getIndividualImitator() {
         return new JokerImitator();
     }
 
