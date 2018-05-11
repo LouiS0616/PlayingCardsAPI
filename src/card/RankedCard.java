@@ -14,7 +14,7 @@ public class RankedCard extends Card {
         this.suit_ = suit;
         this.rank_ = rank;
     }
-    static Stream<Card> generate() {
+    static Stream<Card> generate$for_makeCards() {
         return IntStream.rangeClosed(1, 13)
             .boxed()
             .flatMap(

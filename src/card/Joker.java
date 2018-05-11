@@ -11,7 +11,7 @@ public class Joker extends Card {
     private Joker() {
         this.id_ = ++serialId_;
     }
-    static Stream<Card> generate() {
+    static Stream<Card> generate$for_makeCards() {
         return Stream.of(new Joker(), new Joker());
     }
 

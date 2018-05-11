@@ -1,8 +1,6 @@
 package cards.ordered;
 
 import card.Card;
-import card.Joker;
-import card.RankedCard;
 import cards.Observer;
 
 public class Deck extends OrderedCards {

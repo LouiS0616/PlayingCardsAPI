@@ -7,7 +7,7 @@ import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 public abstract class Card {
-    public static class CardDuplicationException extends RuntimeException {
+    private static class CardDuplicationException extends RuntimeException {
     }
     public static List<Card> makeCards$for_deck() {
         if(cards_ != null) {
@@ -16,7 +16,7 @@ public abstract class Card {
 
         return cards_ =
             Stream.concat(
-                RankedCard.generate(), Joker.generate()
+                RankedCard.generate$for_makeCards(), Joker.generate$for_makeCards()
             ).collect(Collectors.toList())
         ;
     }
