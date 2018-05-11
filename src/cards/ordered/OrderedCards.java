@@ -50,7 +50,7 @@ public abstract class OrderedCards extends Cards {
         return cards_.remove(0);
     }
     @Override
-    protected final Card pick(IndividualCardImitator purpose) {
+    protected final Card pick(IndividualCardImitator purpose) throws CardNotFoundException {
         return CollectionUtil.popElem(
             cards_,
             stream()

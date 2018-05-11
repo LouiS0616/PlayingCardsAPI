@@ -9,7 +9,7 @@ import java.util.stream.Stream;
 public abstract class Card {
     private static class CardDuplicationException extends RuntimeException {
     }
-    public static List<Card> makeCards$for_deck() {
+    public static List<Card> makeCards$for_deck() throws CardDuplicationException {
         if(cards_ != null) {
             throw new CardDuplicationException();
         }

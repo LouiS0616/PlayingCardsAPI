@@ -46,7 +46,7 @@ public abstract class UnorderedCards extends Cards {
         );
     }
     @Override
-    protected Card pick(IndividualCardImitator purpose) {
+    protected Card pick(IndividualCardImitator purpose) throws CardNotFoundException {
         return CollectionUtil.popElem(
             cardSet_,
             stream()
