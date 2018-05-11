@@ -9,14 +9,17 @@ import util.CollectionUtil;
 import java.util.Collections;
 import java.util.Iterator;
 import java.util.LinkedList;
-import java.util.List;
 import java.util.stream.Stream;
 
 public abstract class OrderedCards extends Cards {
     //
     // Generate methods
     protected OrderedCards(String name, Observer observer) {
+        this(name, observer, new LinkedList<>());
+    }
+    OrderedCards(String name, Observer observer, LinkedList<Card> cards) {
         super(name, observer);
+        this.cards_ = cards;
     }
 
     //
@@ -66,5 +69,8 @@ public abstract class OrderedCards extends Cards {
 
     //
     // Fields
-    private final List<Card> cards_ = new LinkedList<>();
+
+    // This field should be LinkedList object instead of List.
+    // Because OrderedCards does'nt allow random access.
+    private final LinkedList<Card> cards_;
 }

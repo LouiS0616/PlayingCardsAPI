@@ -19,10 +19,6 @@ public final class Deck extends OrderedCards {
     }
 
     private Deck(Observer observer) {
-        super("Deck", observer);
-
-        for(Card card: Card.makeCards$for_deck()) {
-            add(card);
-        }
+        super("Deck", observer, Card.makeCards$for_deck());
     }
 }
