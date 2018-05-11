@@ -9,7 +9,7 @@ public abstract class CardComparator implements Comparator<Card> {
     //
     // Comparison methods
     protected final int compare(Joker joker1, Joker joker2) {
-        return Joker.compareId(joker1, joker2);
+        return Joker.compareId$for_comparator(joker1, joker2);
     }
 
     //

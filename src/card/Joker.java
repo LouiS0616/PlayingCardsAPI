@@ -21,7 +21,7 @@ public class Joker extends Card {
         return "Joker";
     }
 
-    public static int compareId(Joker joker1, Joker joker2) {
+    public static int compareId$for_comparator(Joker joker1, Joker joker2) {
         return Integer.compare(joker1.id_, joker2.id_);
     }
 }
