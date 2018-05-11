@@ -4,12 +4,10 @@ import card.Card;
 import card.Joker;
 import card.RankedCard;
 
-import java.util.Comparator;
-
-public abstract class JokerFollowed implements Comparator<Card> {
+public abstract class JokerFollowed extends CardComparator {
     //
     // Comparison methods
-    public abstract int compare(RankedCard rankedCard1, RankedCard rankedCard2);
+    protected abstract int compare(RankedCard rankedCard1, RankedCard rankedCard2);
 
     @Override
     public final int compare(Card card1, Card card2) {
@@ -28,16 +26,5 @@ public abstract class JokerFollowed implements Comparator<Card> {
         return compare(
             (RankedCard)card1, (RankedCard)card2
         );
-    }
-
-    protected final int compare(Joker joker1, Joker joker2) {
-        return Joker.compareId(joker1, joker2);
-    }
-
-    //
-    // Basically methods
-    @Override
-    public boolean equals(Object obj) {
-        return this == obj;
     }
 }

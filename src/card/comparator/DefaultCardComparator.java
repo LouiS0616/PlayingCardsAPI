@@ -6,7 +6,7 @@ import java.util.Comparator;
 
 public class DefaultCardComparator extends JokerFollowed {
     @Override
-    public int compare(RankedCard rankedCard1, RankedCard rankedCard2) {
+    protected int compare(RankedCard rankedCard1, RankedCard rankedCard2) {
         return Comparator
             .comparingInt(RankedCard::getRank)
             .thenComparing(RankedCard::getSuit)
