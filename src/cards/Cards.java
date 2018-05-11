@@ -49,15 +49,7 @@ public abstract class Cards implements Iterable<Card> {
 
     protected abstract Card pick();
     public void pickFrom(Cards from) {
-        if(this == from) {
-            return;
-        }
-
-        Card card = from.pick();
-        this.add(card);
-
-        from.update(Observer.Type.PICK, card, this);
-        this.update(Observer.Type.ADD,  card, from);
+        pickFrom(from, 1);
     }
     public void pickFrom(Cards from, int num) {
         if(this == from) {
@@ -69,7 +61,11 @@ public abstract class Cards implements Iterable<Card> {
         }
 
         for(int i = 0; i < num; ++i) {
-            pickFrom(from);
+            Card card = from.pick();
+            this.add(card);
+
+            from.update(Observer.Type.PICK, card, this);
+            this.update(Observer.Type.ADD,  card, from);
         }
     }
 
