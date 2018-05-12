@@ -4,7 +4,6 @@ import card.Card;
 import card.Suit;
 import card.imitator.CardImitator;
 import card.imitator.individual.IndividualCardImitator;
-import card.imitator.individual.JokerImitator;
 import card.imitator.wild.SuitImitator;
 import card.imitator.wild.WildCardImitator;
 import exceptions.CardNotEnoughException;
@@ -96,15 +95,14 @@ public abstract class BaseCards implements Iterable<Card> {
                 suit -> String.format("%s: %d", suit, countCard(new SuitImitator(suit)))
             )
             .collect(Collectors.joining(", "))
-
-            + String.format(", Joker: %d", countCard(new JokerImitator()));
+        ;
     }
 
     public void printInfo() {
         new PyLikePrinter("\n").print(
             "----------------------------------------------------------------",
             "Name:        " + name_,
-            "Affiliation: " + affiliation_.toString(),
+            "Affiliation: " + affiliation_,
             "#Card:       " + countCard(),
             "Breakdown:   " + toStringBreakdown(),
             "",
