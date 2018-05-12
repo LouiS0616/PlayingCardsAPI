@@ -1,6 +1,7 @@
 package cards.ordered;
 
 import card.Card;
+import cards.CardOwner;
 import cards.Observer;
 
 public final class Deck extends OrderedCards {
@@ -20,5 +21,8 @@ public final class Deck extends OrderedCards {
 
     private Deck(Observer observer) {
         super("Deck", observer, Card.makeCards$for_deck());
+        //setOwner(owner_ = new CardOwner());
     }
+
+    //private final CardOwner owner_;
 }

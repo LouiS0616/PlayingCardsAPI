@@ -18,7 +18,7 @@ public abstract class Cards implements Iterable<Card> {
         this.name_ = name;
         this.observer_ = observer;
     }
-    public void setOwner(Deck owner) {
+    public void setOwner(CardOwner owner) {
         this.owner_ = owner;
     }
 
@@ -129,5 +129,5 @@ public abstract class Cards implements Iterable<Card> {
     private final String name_;
     private final Observer observer_;
 
-    private Deck owner_;
+    private CardOwner owner_;
 }

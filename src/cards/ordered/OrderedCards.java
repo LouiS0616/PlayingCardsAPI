@@ -2,6 +2,7 @@ package cards.ordered;
 
 import card.Card;
 import card.imitator.individual.IndividualCardImitator;
+import cards.CardOwner;
 import cards.Cards;
 import cards.Observer;
 import util.CollectionUtil;
