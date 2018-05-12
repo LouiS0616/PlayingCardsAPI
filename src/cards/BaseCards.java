@@ -16,7 +16,7 @@ import java.util.stream.Stream;
 public abstract class BaseCards implements Iterable<Card> {
     //
     // Generate methods
-    protected BaseCards(String name) {
+    BaseCards(String name) {
         this.name_ = name;
     }
     public void setOwner(CardOwner owner) {
@@ -41,7 +41,7 @@ public abstract class BaseCards implements Iterable<Card> {
     //
     // Methods related drawing
     protected abstract void add$owner_is_already_checked(Card card);
-    public final void add(Card card) throws CardOwnerImproperException {
+    void add(Card card) throws CardOwnerImproperException {
         if(affiliation_ == null) {
             throw new CardOwnerImproperException("You MUST register cards to valid card-owner.");
         }
