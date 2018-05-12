@@ -2,7 +2,9 @@ package cards;
 
 import card.Card;
 import card.imitator.CardImitator;
+import card.imitator.individual.IndividualCardImitator;
 import card.imitator.wild.WildCardImitator;
+import cards.exceptions.CardNotFoundException;
 
 import java.security.acl.Owner;
 import java.util.Iterator;
@@ -33,6 +35,13 @@ public abstract class BaseCards implements Iterable<Card> {
         ;
     }
     public abstract int countCard();
+
+    //
+    // Methods related drawing
+    protected abstract void add(Card card);
+
+    protected abstract IndividualCardImitator pickImitator();
+    protected abstract Card pick(IndividualCardImitator purpose) throws CardNotFoundException;
 
     //
     // Iterate methods

@@ -1,14 +1,11 @@
 package cards;
 
 import card.Card;
-import card.imitator.CardImitator;
 import card.imitator.individual.IndividualCardImitator;
 import card.imitator.wild.WildCardImitator;
 
-import java.util.Iterator;
 import java.util.List;
 import java.util.stream.Collectors;
-import java.util.stream.Stream;
 
 public abstract class Cards extends BaseCards {
     //
@@ -20,7 +17,6 @@ public abstract class Cards extends BaseCards {
 
     //
     // Methods related drawing
-    protected abstract void add(Card card);
     private void update(Observer.Type type, Card card, Cards other) {
         observer_.update(type, card, this, other);
     }
@@ -29,7 +25,6 @@ public abstract class Cards extends BaseCards {
     // Randomly drawing
     public class CardNotEnoughException extends RuntimeException { }
 
-    protected abstract IndividualCardImitator pickImitator();
 
     public void pickFrom(Cards from) {
         pickFrom(from, 1);
@@ -50,9 +45,7 @@ public abstract class Cards extends BaseCards {
 
     //
     // Specific drawing
-    public static class CardNotFoundException extends RuntimeException {}
 
-    protected abstract Card pick(IndividualCardImitator purpose) throws CardNotFoundException;
 
     public void pickFrom(Cards from, IndividualCardImitator purpose) {
         if(this == from) {
