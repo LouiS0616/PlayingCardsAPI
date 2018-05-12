@@ -2,7 +2,7 @@ package cards.ordered;
 
 import card.Card;
 import card.imitator.individual.IndividualCardImitator;
-import cards.PlayableCards;
+import cards.Cards;
 import cards.Observer;
 import util.CollectionUtil;
 
@@ -11,13 +11,13 @@ import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.stream.Stream;
 
-public abstract class OrderedPlayableCards extends PlayableCards {
+public abstract class OrderedCards extends Cards {
     //
     // Generate methods
-    protected OrderedPlayableCards(String name, Observer observer) {
+    protected OrderedCards(String name, Observer observer) {
         this(name, observer, new LinkedList<>());
     }
-    OrderedPlayableCards(String name, Observer observer, LinkedList<Card> cards) {
+    OrderedCards(String name, Observer observer, LinkedList<Card> cards) {
         super(name, observer);
         this.cards_ = cards;
     }
@@ -71,6 +71,6 @@ public abstract class OrderedPlayableCards extends PlayableCards {
     // Fields
 
     // This field should be LinkedList object instead of List.
-    // Because OrderedPlayableCards does'nt allow random access.
+    // Because OrderedCards does'nt allow random access.
     private final LinkedList<Card> cards_;
 }

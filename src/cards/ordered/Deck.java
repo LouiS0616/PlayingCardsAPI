@@ -3,7 +3,7 @@ package cards.ordered;
 import card.Card;
 import cards.Observer;
 
-public final class Deck extends OrderedPlayableCards {
+public final class Deck extends OrderedCards {
     //
     // Generate methods
     private static Deck instance_ = null;

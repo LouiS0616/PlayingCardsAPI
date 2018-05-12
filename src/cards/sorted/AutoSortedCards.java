@@ -1,23 +1,24 @@
-package cards.unordered;
+package cards.sorted;
 
 import card.Card;
+import card.comparator.CardComparator;
 import card.imitator.individual.IndividualCardImitator;
-import cards.PlayableCards;
+import cards.Cards;
 import cards.Observer;
 import util.CollectionUtil;
 
-import java.util.HashSet;
 import java.util.Iterator;
 import java.util.Random;
-import java.util.Set;
+import java.util.SortedSet;
+import java.util.TreeSet;
 import java.util.stream.Stream;
 
-public abstract class UnorderedPlayableCards extends PlayableCards {
+public abstract class AutoSortedCards extends Cards {
     //
     // Generate methods
-    protected UnorderedPlayableCards(String name, Observer observer) {
+    protected AutoSortedCards(String name, Observer observer, CardComparator comparator) {
         super(name, observer);
-        this.cardSet_ = new HashSet<>();
+        this.cardSet_ = new TreeSet<>(comparator);
     }
 
     //
@@ -30,23 +31,23 @@ public abstract class UnorderedPlayableCards extends PlayableCards {
     //
     // Iterate methods
     @Override
-    public Iterator<Card> iterator() {
+    public final Iterator<Card> iterator() {
         return cardSet_.iterator();
     }
     @Override
-    public Stream<Card> stream() {
+    public final Stream<Card> stream() {
         return cardSet_.stream();
     }
 
     //
     // Methods related drawing
     @Override
-    protected IndividualCardImitator pick() {
-        Card card = (Card)cardSet_.toArray()[randIndex()];
+    protected final IndividualCardImitator pick() {
+        Card card =  (Card)cardSet_.toArray()[randIndex()];
         return card.getIndividualImitator();
     }
     @Override
-    protected Card pick(IndividualCardImitator purpose) {
+    protected final Card pick(IndividualCardImitator purpose) {
         return CollectionUtil.popElem(
             cardSet_,
             stream()
@@ -64,7 +65,7 @@ public abstract class UnorderedPlayableCards extends PlayableCards {
 
     //
     // Fields and utility
-    private final Set<Card> cardSet_;
+    private final SortedSet<Card> cardSet_;
     private final Random rand_ = new Random();
 
     private int randIndex() {

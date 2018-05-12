@@ -7,7 +7,7 @@ import cards.Observer;
 import java.util.Iterator;
 import java.util.stream.Stream;
 
-public final class Trash extends UnorderedPlayableCards {
+public final class Trash extends UnorderedCards {
     //
     // Generate methods
     public static Trash makeTrash() {
