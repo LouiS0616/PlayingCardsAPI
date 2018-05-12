@@ -47,6 +47,8 @@ public abstract class BaseCards implements Iterable<Card> {
     protected abstract void add$owner_is_already_checked(Card card, Cards from);
 
     void add(Card card, Cards from) throws CardOwnerImproperException {
+        System.out.println(affiliation_);
+
         if(affiliation_ == null) {
             throw new CardOwnerImproperException("You MUST register cards to valid card-owner.");
         }

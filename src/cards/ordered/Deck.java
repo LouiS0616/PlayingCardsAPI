@@ -14,8 +14,9 @@ public final class Deck extends OrderedCards implements CardOwner {
     public Deck(Observer observer) {
         super("Deck", observer);
         setCards(
-            Card.makeCards$for_deck(this.owner_ = new CardAffiliation()), this
+            Card.makeCards$for_deck(this.owner_ = new CardAffiliation("Deck"))
         );
+        setOwner(this);
     }
 
     //

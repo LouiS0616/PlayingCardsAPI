@@ -20,9 +20,8 @@ public abstract class OrderedCards extends Cards {
         super(name, observer);
         this.cards_ = new LinkedList<>();
     }
-    protected void setCards(LinkedList<Card> cards, CardOwner owner) {
+    protected void setCards(LinkedList<Card> cards) {
         this.cards_ = cards;
-        this.setOwner(owner);
     }
 
     //
