@@ -4,17 +4,16 @@ import card.Card;
 import card.imitator.CardImitator;
 import card.imitator.individual.IndividualCardImitator;
 import card.imitator.wild.WildCardImitator;
-import cards.ordered.Deck;
 
 import java.util.Iterator;
 import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
-public abstract class Cards implements Iterable<Card> {
+public abstract class PlayableCards implements Iterable<Card> {
     //
     // Generate methods
-    protected Cards(String name, Observer observer) {
+    protected PlayableCards(String name, Observer observer) {
         this.name_ = name;
         this.observer_ = observer;
     }
@@ -45,7 +44,7 @@ public abstract class Cards implements Iterable<Card> {
     //
     // Methods related drawing
     protected abstract void add(Card card);
-    private void update(Observer.Type type, Card card, Cards other) {
+    private void update(Observer.Type type, Card card, PlayableCards other) {
         observer_.update(type, card, this, other);
     }
 
@@ -55,10 +54,10 @@ public abstract class Cards implements Iterable<Card> {
 
     protected abstract IndividualCardImitator pick();
 
-    public void pickFrom(Cards from) {
+    public void pickFrom(PlayableCards from) {
         pickFrom(from, 1);
     }
-    public void pickFrom(Cards from, int num) throws CardNotEnoughException {
+    public void pickFrom(PlayableCards from, int num) throws CardNotEnoughException {
         if(this == from) {
             return;
         }
@@ -78,7 +77,7 @@ public abstract class Cards implements Iterable<Card> {
 
     protected abstract Card pick(IndividualCardImitator purpose) throws CardNotFoundException;
 
-    public void pickFrom(Cards from, IndividualCardImitator purpose) {
+    public void pickFrom(PlayableCards from, IndividualCardImitator purpose) {
         if(this == from) {
             return;
         }
@@ -90,7 +89,7 @@ public abstract class Cards implements Iterable<Card> {
         this.update(Observer.Type.ADD,  card, from);
     }
 
-    public void divideFrom(Cards from, WildCardImitator wildPurpose) {
+    public void divideFrom(PlayableCards from, WildCardImitator wildPurpose) {
         if(this == from) {
             return;
         }
@@ -104,7 +103,7 @@ public abstract class Cards implements Iterable<Card> {
 
         purposes.forEach(imitator -> pickFrom(from, imitator));
     }
-    public void divideFrom(Cards from, WildCardImitator... wildPurposes) {
+    public void divideFrom(PlayableCards from, WildCardImitator... wildPurposes) {
         for(WildCardImitator wildPurpose: wildPurposes) {
             divideFrom(from, wildPurpose);
         }

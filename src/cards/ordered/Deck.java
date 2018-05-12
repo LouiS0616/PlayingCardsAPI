@@ -1,10 +1,9 @@
 package cards.ordered;
 
 import card.Card;
-import cards.CardOwner;
 import cards.Observer;
 
-public final class Deck extends OrderedCards {
+public final class Deck extends OrderedPlayableCards {
     //
     // Generate methods
     private static Deck instance_ = null;
