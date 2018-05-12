@@ -24,9 +24,6 @@ public abstract class Cards extends BaseCards {
 
     //
     // Randomly drawing
-    public void pickFrom(Cards from) {
-        pickFrom(from, 1);
-    }
     public void pickFrom(Cards from, int num) throws CardNotEnoughException {
         if(this == from) {
             return;
@@ -47,8 +44,6 @@ public abstract class Cards extends BaseCards {
 
     //
     // Specific drawing
-
-
     public void pickFrom(Cards from, IndividualCardImitator purpose) {
         if(this == from) {
             return;

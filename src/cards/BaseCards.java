@@ -4,10 +4,8 @@ import card.Card;
 import card.imitator.CardImitator;
 import card.imitator.individual.IndividualCardImitator;
 import card.imitator.wild.WildCardImitator;
-import cards.exceptions.CardNotEnoughException;
 import cards.exceptions.CardNotFoundException;
 
-import java.security.acl.Owner;
 import java.util.Iterator;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
@@ -18,7 +16,7 @@ public abstract class BaseCards implements Iterable<Card> {
     protected BaseCards(String name) {
         this.name_ = name;
     }
-    public void setOwner(Owner owner) {
+    public void setOwner(CardOwner owner) {
         this.owner_ = owner;
     }
 
@@ -66,5 +64,9 @@ public abstract class BaseCards implements Iterable<Card> {
     //
     // Fields
     private final String name_;
-    private Owner owner_;
+    private CardOwner owner_;
+
+    public boolean own(Card card) {
+        return card != null && card.isRegisteredAt(this.owner_);
+    }
 }
