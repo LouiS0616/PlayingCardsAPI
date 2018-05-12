@@ -68,7 +68,7 @@ public abstract class OrderedCards extends Cards {
         );
     }
     @Override
-    protected final void add$owner_is_already_checked(Card card) {
+    protected final void add$all_check_has_done(Card card) {
         cards_.add(card);
     }
 

@@ -40,14 +40,15 @@ public abstract class BaseCards implements Iterable<Card> {
 
     //
     // Methods related drawing
-    protected abstract void add$owner_is_already_checked(Card card);
-    void add(Card card) throws CardOwnerImproperException {
+    protected abstract void add$owner_is_already_checked(Card card, Cards from);
+
+    void add(Card card, Cards from) throws CardOwnerImproperException {
         if(affiliation_ == null) {
             throw new CardOwnerImproperException("You MUST register cards to valid card-owner.");
         }
 
         if(affiliation_.own(card)) {
-            add$owner_is_already_checked(card);
+            add$owner_is_already_checked(card, from);
         }
     }
 

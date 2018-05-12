@@ -16,6 +16,13 @@ public abstract class Cards extends BaseCards {
         this.observer_ = observer;
     }
 
+    protected abstract void add$all_check_has_done(Card card);
+
+    @Override
+    protected final void add$owner_is_already_checked(Card card, Cards from) {
+
+    }
+
     //
     // Methods related drawing
     private void update(Observer.Type type, Card card, Cards other) {
@@ -35,7 +42,7 @@ public abstract class Cards extends BaseCards {
 
         for(int i = 0; i < num; ++i) {
             Card card = from.draw();
-            this.add(card);
+            this.add(card, from);
 
             from.update(Observer.Type.PICK, card, this);
             this.update(Observer.Type.ADD,  card, from);
@@ -50,7 +57,7 @@ public abstract class Cards extends BaseCards {
         }
 
         Card card = from.draw(purpose);
-        this.add(card);
+        this.add(card, from);
 
         from.update(Observer.Type.PICK, card, this);
         this.update(Observer.Type.ADD,  card, from);
