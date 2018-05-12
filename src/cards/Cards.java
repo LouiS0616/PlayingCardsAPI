@@ -48,9 +48,8 @@ public abstract class Cards implements Iterable<Card> {
     public class CardNotEnoughException extends RuntimeException { }
 
     protected abstract Card pick();
-    public void pickFrom(Cards from) {
-        pickFrom(from, 1);
-    }
+
+    // All overloaded pickFrom method must use this method.
     private void pickFrom(Cards from, Card card) {
         this.add(card);
 
@@ -58,6 +57,9 @@ public abstract class Cards implements Iterable<Card> {
         this.update(Observer.Type.ADD,  card, from);
     }
 
+    public void pickFrom(Cards from) {
+        pickFrom(from, 1);
+    }
     public void pickFrom(Cards from, int num) throws CardNotEnoughException {
         if(this == from) {
             return;
