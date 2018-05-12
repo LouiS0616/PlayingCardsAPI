@@ -13,7 +13,7 @@ class Main {
         //
         // Make a deck.
         Deck deck = Deck.makeDeck();
-
+tmp
         //
         // Remove unnecessary cards.
         Trash trash = Trash.makeTrash();
