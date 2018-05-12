@@ -23,6 +23,10 @@ public abstract class OrderedCards extends Cards {
         this.cards_ = cards;
     }
 
+    protected void setCards(LinkedList<Card> cards) {
+        this.cards_ = cards;
+    }
+
     //
     // Class-specific methods
     public final void shuffle() {
@@ -73,5 +77,5 @@ public abstract class OrderedCards extends Cards {
 
     // This field should be LinkedList object instead of List.
     // Because OrderedCards does'nt allow random access.
-    private final LinkedList<Card> cards_;
+    private LinkedList<Card> cards_;
 }

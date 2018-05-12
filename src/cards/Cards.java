@@ -3,6 +3,7 @@ package cards;
 import card.Card;
 import card.imitator.individual.IndividualCardImitator;
 import card.imitator.wild.WildCardImitator;
+import cards.exceptions.CardNotEnoughException;
 
 import java.util.List;
 import java.util.stream.Collectors;
@@ -23,9 +24,6 @@ public abstract class Cards extends BaseCards {
 
     //
     // Randomly drawing
-    public class CardNotEnoughException extends RuntimeException { }
-
-
     public void pickFrom(Cards from) {
         pickFrom(from, 1);
     }

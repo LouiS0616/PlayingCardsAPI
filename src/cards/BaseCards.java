@@ -4,6 +4,7 @@ import card.Card;
 import card.imitator.CardImitator;
 import card.imitator.individual.IndividualCardImitator;
 import card.imitator.wild.WildCardImitator;
+import cards.exceptions.CardNotEnoughException;
 import cards.exceptions.CardNotFoundException;
 
 import java.security.acl.Owner;
