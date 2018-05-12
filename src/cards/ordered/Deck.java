@@ -7,19 +7,10 @@ import cards.Observer;
 public final class Deck extends OrderedCards {
     //
     // Generate methods
-    private static Deck instance_ = null;
-    public static Deck makeDeck() {
-        return makeDeck(Observer.STUB);
+    public Deck() {
+        this(Observer.STUB);
     }
-    public static Deck makeDeck(Observer observer) {
-        if(instance_ != null) {
-            return instance_;
-        }
-
-        return instance_ = new Deck(observer);
-    }
-
-    private Deck(Observer observer) {
+    public Deck(Observer observer) {
         super("Deck", observer);
         setCards(
             Card.makeCards$for_deck(this.owner_ = new CardOwner())

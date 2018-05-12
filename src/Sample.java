@@ -12,7 +12,7 @@ class Sample {
     public static void main(String[] args) {
         //
         // Make a deck.
-        Deck deck = Deck.makeDeck();
+        Deck deck = new Deck();
 /*
         //
         // Remove unnecessary cards.
