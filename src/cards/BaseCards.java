@@ -6,6 +6,8 @@ import card.imitator.individual.IndividualCardImitator;
 import card.imitator.wild.WildCardImitator;
 import cards.exceptions.CardNotFoundException;
 import cards.exceptions.CardOwnerImproperException;
+import cards.own.CardAffiliation;
+import cards.own.CardOwner;
 
 import java.util.Iterator;
 import java.util.stream.Collectors;
@@ -18,7 +20,7 @@ public abstract class BaseCards implements Iterable<Card> {
         this.name_ = name;
     }
     public void setOwner(CardOwner owner) {
-        this.owner_ = owner;
+        this.affiliation_ = owner.getAffiliation();
     }
 
     //
@@ -40,11 +42,11 @@ public abstract class BaseCards implements Iterable<Card> {
     // Methods related drawing
     protected abstract void add$owner_is_already_checked(Card card);
     public final void add(Card card) throws CardOwnerImproperException {
-        if(owner_ == null) {
+        if(affiliation_ == null) {
             throw new CardOwnerImproperException("You MUST register cards to valid card-owner.");
         }
 
-        if(owner_.own(card)) {
+        if(affiliation_.own(card)) {
             add$owner_is_already_checked(card);
         }
     }
@@ -74,5 +76,5 @@ public abstract class BaseCards implements Iterable<Card> {
     //
     // Fields
     private final String name_;
-    private CardOwner owner_;
+    private CardAffiliation affiliation_;
 }

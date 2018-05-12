@@ -1,10 +1,11 @@
 package cards.ordered;
 
 import card.Card;
-import cards.CardOwner;
+import cards.own.CardAffiliation;
 import cards.Observer;
+import cards.own.CardOwner;
 
-public final class Deck extends OrderedCards {
+public final class Deck extends OrderedCards implements CardOwner {
     //
     // Generate methods
     public Deck() {
@@ -13,9 +14,15 @@ public final class Deck extends OrderedCards {
     public Deck(Observer observer) {
         super("Deck", observer);
         setCards(
-            Card.makeCards$for_deck(this.owner_ = new CardOwner())
+            Card.makeCards$for_deck(this.owner_ = new CardAffiliation("Deck"))
         );
     }
 
-    private final CardOwner owner_;
+    //
+    // Affiliation
+    @Override
+    public CardAffiliation getAffiliation() {
+        return this.owner_;
+    }
+    private final CardAffiliation owner_;
 }

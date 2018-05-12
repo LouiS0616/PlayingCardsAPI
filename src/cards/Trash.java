@@ -3,11 +3,13 @@ package cards;
 import card.Card;
 import card.imitator.individual.IndividualCardImitator;
 import cards.exceptions.ProhibitedOperationException;
+import cards.own.CardAffiliation;
+import cards.own.CardOwner;
 
 import java.util.Iterator;
 import java.util.stream.Stream;
 
-public final class Trash extends Cards {
+public final class Trash extends Cards implements CardOwner {
     //
     // Generate methods
     public static Trash makeTrash() {
@@ -21,20 +23,22 @@ public final class Trash extends Cards {
 
     private Trash() {
         super("Trash", Observer.STUB);
-        setOwner(new TrashOwner());
+        setOwner(this);
     }
 
     //
     // Class-specific methods
-    public static class TrashOwner extends CardOwner {
-        private TrashOwner() {
-        }
-
+    private CardAffiliation affiliation_ = new CardAffiliation("Trash") {
         @Override
         public boolean own(Card card) {
             return true;
         }
+    };
+    @Override
+    public CardAffiliation getAffiliation() {
+        return affiliation_;
     }
+
     @Override
     public void add$owner_is_already_checked(Card card) {
         // Do nothing, just trash the card.

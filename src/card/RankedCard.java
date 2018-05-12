@@ -1,7 +1,7 @@
 package card;
 
 import card.imitator.individual.RankedCardImitator;
-import cards.CardOwner;
+import cards.own.CardAffiliation;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -11,12 +11,12 @@ import java.util.stream.Stream;
 public class RankedCard extends Card {
     //
     // Generate methods
-    private RankedCard(Suit suit, int rank, CardOwner owner) {
+    private RankedCard(Suit suit, int rank, CardAffiliation owner) {
         super(owner);
         this.suit_ = suit;
         this.rank_ = rank;
     }
-    static Stream<Card> generate$for_makeCards(CardOwner owner) {
+    static Stream<Card> generate$for_makeCards(CardAffiliation owner) {
         return IntStream.rangeClosed(1, 13)
             .boxed()
             .flatMap(
