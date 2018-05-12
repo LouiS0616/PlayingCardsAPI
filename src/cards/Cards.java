@@ -51,6 +51,13 @@ public abstract class Cards implements Iterable<Card> {
     public void pickFrom(Cards from) {
         pickFrom(from, 1);
     }
+    private void pickFrom(Cards from, Card card) {
+        this.add(card);
+
+        from.update(Observer.Type.PICK, card, this);
+        this.update(Observer.Type.ADD,  card, from);
+    }
+
     public void pickFrom(Cards from, int num) throws CardNotEnoughException {
         if(this == from) {
             return;
@@ -61,11 +68,7 @@ public abstract class Cards implements Iterable<Card> {
         }
 
         for(int i = 0; i < num; ++i) {
-            Card card = from.pick();
-            this.add(card);
-
-            from.update(Observer.Type.PICK, card, this);
-            this.update(Observer.Type.ADD,  card, from);
+            pickFrom(from, from.pick());
         }
     }
 
@@ -79,11 +82,7 @@ public abstract class Cards implements Iterable<Card> {
             return;
         }
 
-        Card card = from.pick(purpose);
-        this.add(card);
-
-        from.update(Observer.Type.PICK, card, this);
-        this.update(Observer.Type.ADD,  card, from);
+        pickFrom(from, from.pick(purpose));
     }
 
     public void divideFrom(Cards from, WildCardImitator wildPurpose) {
@@ -98,7 +97,7 @@ public abstract class Cards implements Iterable<Card> {
             .collect(Collectors.toList())
         ;
 
-        purposes.forEach(card -> pickFrom(from, card));
+        purposes.forEach(imitator -> pickFrom(from, imitator));
     }
     public void divideFrom(Cards from, WildCardImitator... wildPurposes) {
         for(WildCardImitator wildPurpose: wildPurposes) {
