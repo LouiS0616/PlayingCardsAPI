@@ -50,11 +50,11 @@ public abstract class OrderedCards extends Cards {
     //
     // Methods related drawing
     @Override
-    protected final IndividualCardImitator pickImitator() {
-        return cards_.get(0).getIndividualImitator();
+    protected final Card draw() {
+        return cards_.remove(0);
     }
     @Override
-    protected final Card pick(IndividualCardImitator purpose) {
+    protected final Card draw(IndividualCardImitator purpose) {
         return CollectionUtil.popElem(
             cards_,
             stream()

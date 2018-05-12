@@ -39,7 +39,11 @@ public abstract class Cards extends BaseCards {
         }
 
         for(int i = 0; i < num; ++i) {
-            pickFrom(from, from.pickImitator());
+            Card card = from.draw();
+            this.add(card);
+
+            from.update(Observer.Type.PICK, card, this);
+            this.update(Observer.Type.ADD,  card, from);
         }
     }
 
@@ -52,7 +56,7 @@ public abstract class Cards extends BaseCards {
             return;
         }
 
-        Card card = from.pick(purpose);
+        Card card = from.draw(purpose);
         this.add(card);
 
         from.update(Observer.Type.PICK, card, this);

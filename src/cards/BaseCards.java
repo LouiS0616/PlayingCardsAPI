@@ -40,8 +40,8 @@ public abstract class BaseCards implements Iterable<Card> {
     // Methods related drawing
     protected abstract void add(Card card);
 
-    protected abstract IndividualCardImitator pickImitator();
-    protected abstract Card pick(IndividualCardImitator purpose) throws CardNotFoundException;
+    protected abstract Card draw();
+    protected abstract Card draw(IndividualCardImitator purpose) throws CardNotFoundException;
 
     //
     // Iterate methods
