@@ -32,7 +32,6 @@ class Sample {
         hand.setOwner(deck);
 
         hand.pickFrom(deck, 10);
-        deck.pickFrom(hand, 10);
 
         //
         // Draw joker from deck.

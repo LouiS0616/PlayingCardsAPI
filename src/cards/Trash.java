@@ -2,7 +2,7 @@ package cards;
 
 import card.Card;
 import card.imitator.individual.IndividualCardImitator;
-import cards.exceptions.ProhibitedOperationException;
+import exceptions.ProhibitedOperationException;
 import cards.own.CardAffiliation;
 import cards.own.CardOwner;
 

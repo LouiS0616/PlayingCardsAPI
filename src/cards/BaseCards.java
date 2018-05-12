@@ -4,8 +4,8 @@ import card.Card;
 import card.imitator.CardImitator;
 import card.imitator.individual.IndividualCardImitator;
 import card.imitator.wild.WildCardImitator;
-import cards.exceptions.CardNotFoundException;
-import cards.exceptions.CardOwnerImproperException;
+import exceptions.CardNotFoundException;
+import exceptions.CardOwnerImproperException;
 import cards.own.CardAffiliation;
 import cards.own.CardOwner;
 

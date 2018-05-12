@@ -2,7 +2,7 @@ package card;
 
 import card.imitator.individual.IndividualCardImitator;
 import cards.own.CardAffiliation;
-import cards.exceptions.CardOwnerImproperException;
+import exceptions.CardOwnerImproperException;
 
 import java.util.LinkedList;
 import java.util.stream.Collectors;

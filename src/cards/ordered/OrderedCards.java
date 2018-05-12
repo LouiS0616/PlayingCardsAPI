@@ -4,7 +4,7 @@ import card.Card;
 import card.imitator.individual.IndividualCardImitator;
 import cards.Cards;
 import cards.Observer;
-import cards.exceptions.CardNotFoundException;
+import exceptions.CardNotFoundException;
 import cards.own.CardOwner;
 import util.CollectionUtil;
 
