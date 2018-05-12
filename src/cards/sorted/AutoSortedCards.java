@@ -5,6 +5,7 @@ import card.comparator.CardComparator;
 import card.imitator.individual.IndividualCardImitator;
 import cards.Cards;
 import cards.Observer;
+import exceptions.CardNotEnoughException;
 import exceptions.CardNotFoundException;
 import util.CollectionUtil;
 
@@ -44,6 +45,10 @@ public abstract class AutoSortedCards extends Cards {
     // Methods related drawing
     @Override
     protected final Card draw() {
+        if(countCard() == 0) {
+            throw new CardNotEnoughException();
+        }
+
         return CollectionUtil.popElem(
             cardSet_,
             (Card)cardSet_.toArray()[randIndex()]

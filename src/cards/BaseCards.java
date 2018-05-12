@@ -1,17 +1,23 @@
 package cards;
 
 import card.Card;
+import card.Suit;
 import card.imitator.CardImitator;
 import card.imitator.individual.IndividualCardImitator;
+import card.imitator.individual.JokerImitator;
+import card.imitator.wild.SuitImitator;
 import card.imitator.wild.WildCardImitator;
+import exceptions.CardNotEnoughException;
 import exceptions.CardNotFoundException;
 import exceptions.CardOwnerImproperException;
 import cards.own.CardAffiliation;
 import cards.own.CardOwner;
+import util.PyLikePrinter;
 
 import java.util.Iterator;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
+
 
 public abstract class BaseCards implements Iterable<Card> {
     //
@@ -26,6 +32,7 @@ public abstract class BaseCards implements Iterable<Card> {
 
         this.affiliation_ = owner.getAffiliation();
     }
+
 
     //
     // Check methods
@@ -42,32 +49,33 @@ public abstract class BaseCards implements Iterable<Card> {
     }
     public abstract int countCard();
 
+
     //
     // Methods related drawing
     protected abstract void add$owner_is_already_checked(Card card, Cards from);
 
-    void add(Card card, Cards from) throws CardOwnerImproperException {
-        System.out.println(affiliation_);
-
+    final void add(Card card, Cards from) throws CardOwnerImproperException {
         if(affiliation_ == null) {
             throw new CardOwnerImproperException("You MUST register cards to valid card-owner.");
         }
 
         if(affiliation_.own(card)) {
             add$owner_is_already_checked(card, from);
-            return;
         }
-
-        throw new CardOwnerImproperException("You MUST NOT mix distinct decks.");
+        else {
+            throw new CardOwnerImproperException("You MUST NOT mix distinct decks.");
+        }
     }
 
-    protected abstract Card draw();
+    protected abstract Card draw()                               throws CardNotEnoughException;
     protected abstract Card draw(IndividualCardImitator purpose) throws CardNotFoundException;
+
 
     //
     // Iterate methods
     public abstract Iterator<Card> iterator();
     public abstract Stream<Card> stream();
+
 
     //
     // Display methods
@@ -75,13 +83,36 @@ public abstract class BaseCards implements Iterable<Card> {
     public String toString() {
         return this.name_;
     }
-    public void printCards() {
-        System.out.println(
-            this.stream()
-                .map(Card::toString)
-                .collect(Collectors.joining(", "))
+
+    private String toStringCards() {
+        return stream()
+            .map(Card::toString)
+            .collect(Collectors.joining(", "))
+        ;
+    }
+    private String toStringBreakdown() {
+        return Suit.stream()
+            .map(
+                suit -> String.format("%s: %d", suit, countCard(new SuitImitator(suit)))
+            )
+            .collect(Collectors.joining(", "))
+
+            + String.format(", Joker: %d", countCard(new JokerImitator()));
+    }
+
+    public void printInfo() {
+        new PyLikePrinter("\n").print(
+            "----------------------------------------------------------------",
+            "Name:        " + name_,
+            "Affiliation: " + affiliation_.toString(),
+            "#Card:       " + countCard(),
+            "Breakdown:   " + toStringBreakdown(),
+            "",
+            toStringCards(),
+            "----------------------------------------------------------------"
         );
     }
+
 
     //
     // Fields

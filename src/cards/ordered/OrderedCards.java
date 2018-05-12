@@ -4,6 +4,7 @@ import card.Card;
 import card.imitator.individual.IndividualCardImitator;
 import cards.Cards;
 import cards.Observer;
+import exceptions.CardNotEnoughException;
 import exceptions.CardNotFoundException;
 import cards.own.CardOwner;
 import util.CollectionUtil;
@@ -52,6 +53,10 @@ public abstract class OrderedCards extends Cards {
     // Methods related drawing
     @Override
     protected final Card draw() {
+        if(countCard() == 0) {
+            throw new CardNotEnoughException();
+        }
+
         return cards_.remove(0);
     }
     @Override
