@@ -41,10 +41,9 @@ public abstract class UnorderedCards extends Cards {
     //
     // Methods related drawing
     @Override
-    protected Card pick() {
-        return CollectionUtil.popElem(
-            cardSet_, (Card)cardSet_.toArray()[randIndex()]
-        );
+    protected IndividualCardImitator pick() {
+        Card card = (Card)cardSet_.toArray()[randIndex()];
+        return card.getIndividualImitator();
     }
     @Override
     protected Card pick(IndividualCardImitator purpose) throws CardNotFoundException {

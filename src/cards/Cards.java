@@ -4,7 +4,9 @@ import card.Card;
 import card.imitator.CardImitator;
 import card.imitator.individual.IndividualCardImitator;
 import card.imitator.wild.WildCardImitator;
+import cards.ordered.Deck;
 
+import java.util.Iterator;
 import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
@@ -15,6 +17,9 @@ public abstract class Cards implements Iterable<Card> {
     protected Cards(String name, Observer observer) {
         this.name_ = name;
         this.observer_ = observer;
+    }
+    public void setOwner(Deck owner) {
+        this.owner_ = owner;
     }
 
     //
@@ -34,6 +39,7 @@ public abstract class Cards implements Iterable<Card> {
 
     //
     // Iterate methods
+    public abstract Iterator<Card> iterator();
     public abstract Stream<Card> stream();
 
     //
@@ -47,15 +53,7 @@ public abstract class Cards implements Iterable<Card> {
     // Randomly drawing
     public class CardNotEnoughException extends RuntimeException { }
 
-    protected abstract Card pick();
-
-    // All overloaded pickFrom method must use this method.
-    private void pickFrom(Cards from, Card card) {
-        this.add(card);
-
-        from.update(Observer.Type.PICK, card, this);
-        this.update(Observer.Type.ADD,  card, from);
-    }
+    protected abstract IndividualCardImitator pick();
 
     public void pickFrom(Cards from) {
         pickFrom(from, 1);
@@ -79,12 +77,17 @@ public abstract class Cards implements Iterable<Card> {
     public static class CardNotFoundException extends RuntimeException {}
 
     protected abstract Card pick(IndividualCardImitator purpose) throws CardNotFoundException;
+
     public void pickFrom(Cards from, IndividualCardImitator purpose) {
         if(this == from) {
             return;
         }
 
-        pickFrom(from, from.pick(purpose));
+        Card card = from.pick(purpose);
+        this.add(card);
+
+        from.update(Observer.Type.PICK, card, this);
+        this.update(Observer.Type.ADD,  card, from);
     }
 
     public void divideFrom(Cards from, WildCardImitator wildPurpose) {
@@ -125,4 +128,6 @@ public abstract class Cards implements Iterable<Card> {
     // Fields
     private final String name_;
     private final Observer observer_;
+
+    private Deck owner_;
 }

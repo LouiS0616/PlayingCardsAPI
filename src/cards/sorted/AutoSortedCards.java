@@ -42,10 +42,9 @@ public abstract class AutoSortedCards extends Cards {
     //
     // Methods related drawing
     @Override
-    protected final Card pick() {
-        return CollectionUtil.popElem(
-            cardSet_, (Card)cardSet_.toArray()[randIndex()]
-        );
+    protected final IndividualCardImitator pick() {
+        Card card =  (Card)cardSet_.toArray()[randIndex()];
+        return card.getIndividualImitator();
     }
     @Override
     protected final Card pick(IndividualCardImitator purpose) throws CardNotFoundException {

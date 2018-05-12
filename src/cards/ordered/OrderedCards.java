@@ -49,8 +49,8 @@ public abstract class OrderedCards extends Cards {
     //
     // Methods related drawing
     @Override
-    protected final Card pick() {
-        return cards_.remove(0);
+    protected final IndividualCardImitator pick() {
+        return cards_.get(0).getIndividualImitator();
     }
     @Override
     protected final Card pick(IndividualCardImitator purpose) throws CardNotFoundException {
