@@ -21,10 +21,22 @@ public final class Trash extends Cards {
 
     private Trash() {
         super("Trash", Observer.STUB);
+        setOwner(new TrashOwner());
     }
 
+    //
+    // Class-specific methods
+    public static class TrashOwner extends CardOwner {
+        private TrashOwner() {
+        }
+
+        @Override
+        public boolean own(Card card) {
+            return true;
+        }
+    }
     @Override
-    public void add(Card card) {
+    public void add$owner_is_already_checked(Card card) {
         // Do nothing, just trash the card.
     }
 

@@ -5,6 +5,7 @@ import card.imitator.CardImitator;
 import card.imitator.individual.IndividualCardImitator;
 import card.imitator.wild.WildCardImitator;
 import cards.exceptions.CardNotFoundException;
+import cards.exceptions.CardOwnerImproperException;
 
 import java.util.Iterator;
 import java.util.stream.Collectors;
@@ -37,7 +38,16 @@ public abstract class BaseCards implements Iterable<Card> {
 
     //
     // Methods related drawing
-    protected abstract void add(Card card);
+    protected abstract void add$owner_is_already_checked(Card card);
+    public final void add(Card card) throws CardOwnerImproperException {
+        if(owner_ == null) {
+            throw new CardOwnerImproperException("You MUST register cards to valid card-owner.");
+        }
+
+        if(owner_.own(card)) {
+            add$owner_is_already_checked(card);
+        }
+    }
 
     protected abstract Card draw();
     protected abstract Card draw(IndividualCardImitator purpose) throws CardNotFoundException;
@@ -65,8 +75,4 @@ public abstract class BaseCards implements Iterable<Card> {
     // Fields
     private final String name_;
     private CardOwner owner_;
-
-    public boolean own(Card card) {
-        return card != null && card.isRegisteredAt(this.owner_);
-    }
 }

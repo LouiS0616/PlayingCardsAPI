@@ -24,7 +24,7 @@ class Sample {
             new RankImitator(13),
             new SuitImitator(Suit.CLUB)
         );
-
+/*
         //
         // Shuffle deck and make a hand with observer.
         //deck.shuffle();
@@ -51,6 +51,6 @@ class Sample {
                 )
             )
         ;
-        deck.printCards();
+        deck.printCards();*/
     }
 }
