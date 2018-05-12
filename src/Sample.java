@@ -1,11 +1,9 @@
 import card.Suit;
 import card.imitator.individual.IndividualCardImitator;
 import card.imitator.individual.JokerImitator;
-import card.imitator.wild.RankImitator;
 import card.imitator.wild.SuitImitator;
 import cards.ordered.Deck;
 import cards.sorted.Hand;
-import cards.unordered.Trash;
 import observer.PrintObserver;
 
 class Sample {
