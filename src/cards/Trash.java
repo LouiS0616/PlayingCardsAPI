@@ -7,7 +7,7 @@ import cards.exceptions.ProhibitedOperationException;
 import java.util.Iterator;
 import java.util.stream.Stream;
 
-public final class Trash extends BaseCards {
+public final class Trash extends Cards {
     //
     // Generate methods
     public static Trash makeTrash() {
@@ -20,7 +20,7 @@ public final class Trash extends BaseCards {
     private static Trash instance_ = null;
 
     private Trash() {
-        super("Trash");
+        super("Trash", Observer.STUB);
     }
 
     @Override

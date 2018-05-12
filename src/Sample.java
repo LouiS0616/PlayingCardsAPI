@@ -1,7 +1,9 @@
 import card.Suit;
 import card.imitator.individual.IndividualCardImitator;
 import card.imitator.individual.JokerImitator;
+import card.imitator.wild.RankImitator;
 import card.imitator.wild.SuitImitator;
+import cards.Trash;
 import cards.ordered.Deck;
 import cards.sorted.Hand;
 import observer.PrintObserver;
@@ -11,7 +13,7 @@ class Sample {
         //
         // Make a deck.
         Deck deck = new Deck();
-/*
+
         //
         // Remove unnecessary cards.
         Trash trash = Trash.makeTrash();
@@ -22,7 +24,7 @@ class Sample {
             new RankImitator(13),
             new SuitImitator(Suit.CLUB)
         );
-*/
+
         //
         // Shuffle deck and make a hand with observer.
         //deck.shuffle();
