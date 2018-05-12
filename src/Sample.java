@@ -13,6 +13,17 @@ class Sample {
         //
         // Make a deck.
         Deck deck = new Deck();
+        Hand stub = new Hand("Stub");
+
+        deck.printInfo();
+        try {
+            stub.pickFrom(deck, 10);
+        }
+        catch(RuntimeException e) {
+            System.err.println(e);
+        }
+
+        deck.printInfo();
 
         //
         // Remove unnecessary cards.
