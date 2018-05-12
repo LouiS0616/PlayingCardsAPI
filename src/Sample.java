@@ -8,7 +8,7 @@ import cards.sorted.Hand;
 import cards.unordered.Trash;
 import observer.PrintObserver;
 
-class Main {
+class Sample {
     public static void main(String[] args) {
         //
         // Make a deck.
