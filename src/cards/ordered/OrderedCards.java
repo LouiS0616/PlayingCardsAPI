@@ -49,7 +49,7 @@ public abstract class OrderedCards extends Cards {
     //
     // Methods related drawing
     @Override
-    protected final IndividualCardImitator pick() {
+    protected final IndividualCardImitator pickImitator() {
         return cards_.get(0).getIndividualImitator();
     }
     @Override

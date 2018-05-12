@@ -52,7 +52,7 @@ public abstract class Cards implements Iterable<Card> {
     // Randomly drawing
     public class CardNotEnoughException extends RuntimeException { }
 
-    protected abstract IndividualCardImitator pick();
+    protected abstract IndividualCardImitator pickImitator();
 
     public void pickFrom(Cards from) {
         pickFrom(from, 1);
@@ -67,7 +67,7 @@ public abstract class Cards implements Iterable<Card> {
         }
 
         for(int i = 0; i < num; ++i) {
-            pickFrom(from, from.pick());
+            pickFrom(from, from.pickImitator());
         }
     }
 

@@ -46,7 +46,7 @@ public final class Trash extends UnorderedCards {
     }
 
     @Override
-    protected IndividualCardImitator pick() {
+    protected IndividualCardImitator pickImitator() {
         throw new ProhibitedOperationException("picking a card");
     }
     @Override
