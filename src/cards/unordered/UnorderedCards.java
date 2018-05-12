@@ -58,7 +58,7 @@ public abstract class UnorderedCards extends Cards {
     @Override
     public final void add(Card card) {
         if(!cardSet_.add(card)) {
-            System.err.println("You may use deprecated cards.");
+            System.err.println("You may use duplicated cards.");
         }
     }
 
