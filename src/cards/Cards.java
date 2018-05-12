@@ -16,18 +16,19 @@ public abstract class Cards extends BaseCards {
         this.observer_ = observer;
     }
 
+
+    //
+    // Methods related drawing
     protected abstract void add$all_check_has_done(Card card);
 
     @Override
     protected final void add$owner_is_already_checked(Card card, Cards from) {
+        this.observer_.update(Observer.Type.ADD, card, this, from);
+        from.observer_.update(Observer.Type.PICK, card, from, this);
 
+        add$all_check_has_done(card);
     }
 
-    //
-    // Methods related drawing
-    private void update(Observer.Type type, Card card, Cards other) {
-        observer_.update(type, card, this, other);
-    }
 
     //
     // Randomly drawing
@@ -43,9 +44,6 @@ public abstract class Cards extends BaseCards {
         for(int i = 0; i < num; ++i) {
             Card card = from.draw();
             this.add(card, from);
-
-            from.update(Observer.Type.PICK, card, this);
-            this.update(Observer.Type.ADD,  card, from);
         }
     }
 
@@ -58,9 +56,6 @@ public abstract class Cards extends BaseCards {
 
         Card card = from.draw(purpose);
         this.add(card, from);
-
-        from.update(Observer.Type.PICK, card, this);
-        this.update(Observer.Type.ADD,  card, from);
     }
 
     public void divideFrom(Cards from, WildCardImitator wildPurpose) {

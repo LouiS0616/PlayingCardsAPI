@@ -5,8 +5,6 @@ import card.imitator.wild.RankImitator;
 import card.imitator.wild.SuitImitator;
 import cards.Trash;
 import cards.ordered.Deck;
-import cards.own.CardAffiliation;
-import cards.own.CardOwner;
 import cards.sorted.Hand;
 import observer.PrintObserver;
 
@@ -34,7 +32,8 @@ class Sample {
         hand.setOwner(deck);
 
         hand.pickFrom(deck, 10);
-/*
+        deck.pickFrom(hand, 10);
+
         //
         // Draw joker from deck.
         IndividualCardImitator jokerImitator = new JokerImitator();
@@ -56,6 +55,5 @@ class Sample {
                 )
             )
         ;
-        deck.printCards();*/
     }
 }

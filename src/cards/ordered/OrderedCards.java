@@ -5,6 +5,7 @@ import card.imitator.individual.IndividualCardImitator;
 import cards.Cards;
 import cards.Observer;
 import cards.exceptions.CardNotFoundException;
+import cards.own.CardOwner;
 import util.CollectionUtil;
 
 import java.util.Collections;
@@ -16,15 +17,12 @@ public abstract class OrderedCards extends Cards {
     //
     // Generate methods
     protected OrderedCards(String name, Observer observer) {
-        this(name, observer, new LinkedList<>());
-    }
-    OrderedCards(String name, Observer observer, LinkedList<Card> cards) {
         super(name, observer);
-        this.cards_ = cards;
+        this.cards_ = new LinkedList<>();
     }
-
-    protected void setCards(LinkedList<Card> cards) {
+    protected void setCards(LinkedList<Card> cards, CardOwner owner) {
         this.cards_ = cards;
+        this.setOwner(owner);
     }
 
     //
