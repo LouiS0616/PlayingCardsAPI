@@ -61,9 +61,10 @@ public abstract class BaseCards implements Iterable<Card> {
             throw new CardOwnerImproperException("You MUST NOT mix distinct decks.");
         }
     }
-    final void add(Card card, Cards from) throws CardOwnerImproperException {
+    final void add$any_check_is_undone(Card card, Cards from) throws CardOwnerImproperException {
         try { check(card); }
         catch(CardOwnerImproperException e) {
+            // Return card to "from".
             from.add$all_check_has_done(card);
             throw e;
         }
@@ -71,6 +72,7 @@ public abstract class BaseCards implements Iterable<Card> {
         add$owner_is_already_checked(card, from);
     }
 
+    // TODO: このメソッドは排除し、代わりにIndividualImitatorを返すpeekメソッドを設ける。
     protected abstract Card draw()                               throws CardNotEnoughException;
     protected abstract Card draw(IndividualCardImitator purpose) throws CardNotFoundException;
 

@@ -3,12 +3,13 @@ import card.imitator.individual.IndividualCardImitator;
 import card.imitator.individual.JokerImitator;
 import card.imitator.wild.RankImitator;
 import card.imitator.wild.SuitImitator;
-import card.imitator.wild.UnionImitator;
+import card.imitator.wild.UnitedImitator;
 import cards.Trash;
 import cards.ordered.Deck;
 import cards.sorted.Hand;
 import observer.PrintObserver;
 
+// TODO: 各モジュールの平滑化。サブモジュールを減らせ。
 class Sample {
     public static void main(String[] args) {
         //
@@ -17,8 +18,8 @@ class Sample {
 
         //
         // Remove unnecessary cards.
-        UnionImitator unionImitator = new UnionImitator(
-            UnionImitator.OperationType.OR,
+        UnitedImitator unitedImitator = new UnitedImitator(
+            UnitedImitator.OperationType.OR,
             new RankImitator(11),
             new RankImitator(12),
             new RankImitator(13),
@@ -26,7 +27,7 @@ class Sample {
         );
 
         Trash trash = Trash.makeTrash();
-        trash.divideFrom(deck, unionImitator);
+        trash.divideFrom(deck, unitedImitator);
 
         //
         // Shuffle deck and make a hand with observer.

@@ -6,11 +6,11 @@ import card.imitator.CardImitator;
 import java.util.Arrays;
 import java.util.List;
 
-public class UnionImitator implements WildCardImitator {
+public class UnitedImitator implements WildCardImitator {
     public enum OperationType { AND, OR }
 
     // Be careful not to occur Loop Reference.
-    public UnionImitator(OperationType type, CardImitator... imitators) {
+    public UnitedImitator(OperationType type, CardImitator... imitators) {
         this.type_ = type;
         this.imitators_ = Arrays.asList(imitators);
     }
