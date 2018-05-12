@@ -13,7 +13,7 @@ class Sample {
         //
         // Make a deck.
         Deck deck = Deck.makeDeck();
-
+/*
         //
         // Remove unnecessary cards.
         Trash trash = Trash.makeTrash();
@@ -24,10 +24,10 @@ class Sample {
             new RankImitator(13),
             new SuitImitator(Suit.CLUB)
         );
-
+*/
         //
         // Shuffle deck and make a hand with observer.
-        deck.shuffle();
+        //deck.shuffle();
         Hand hand = new Hand("My Hand", new PrintObserver(), deck, 10);
 
         //
@@ -51,5 +51,6 @@ class Sample {
                 )
             )
         ;
+        deck.printCards();
     }
 }

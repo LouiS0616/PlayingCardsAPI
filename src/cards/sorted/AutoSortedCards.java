@@ -47,7 +47,7 @@ public abstract class AutoSortedCards extends Cards {
         return card.getIndividualImitator();
     }
     @Override
-    protected final Card pick(IndividualCardImitator purpose) throws CardNotFoundException {
+    protected final Card pick(IndividualCardImitator purpose) {
         return CollectionUtil.popElem(
             cardSet_,
             stream()
