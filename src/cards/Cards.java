@@ -47,6 +47,7 @@ public abstract class Cards extends BaseCards {
         }
     }
 
+
     //
     // Specific drawing
     public void pickFrom(Cards from, IndividualCardImitator purpose) {

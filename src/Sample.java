@@ -3,6 +3,7 @@ import card.imitator.individual.IndividualCardImitator;
 import card.imitator.individual.JokerImitator;
 import card.imitator.wild.RankImitator;
 import card.imitator.wild.SuitImitator;
+import card.imitator.wild.UnionImitator;
 import cards.Trash;
 import cards.ordered.Deck;
 import cards.sorted.Hand;
@@ -13,28 +14,19 @@ class Sample {
         //
         // Make a deck.
         Deck deck = new Deck();
-        Hand stub = new Hand("Stub");
-
-        deck.printInfo();
-        try {
-            stub.pickFrom(deck, 10);
-        }
-        catch(RuntimeException e) {
-            System.err.println(e);
-        }
-
-        deck.printInfo();
 
         //
         // Remove unnecessary cards.
-        Trash trash = Trash.makeTrash();
-        trash.divideFrom(
-            deck,
+        UnionImitator unionImitator = new UnionImitator(
+            UnionImitator.OperationType.OR,
             new RankImitator(11),
             new RankImitator(12),
             new RankImitator(13),
             new SuitImitator(Suit.CLUB)
         );
+
+        Trash trash = Trash.makeTrash();
+        trash.divideFrom(deck, unionImitator);
 
         //
         // Shuffle deck and make a hand with observer.
@@ -57,5 +49,6 @@ class Sample {
         //
         // Print info.
         hand.printInfo();
+        deck.printInfo();
     }
 }
