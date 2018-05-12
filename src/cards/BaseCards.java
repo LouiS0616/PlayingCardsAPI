@@ -20,6 +20,10 @@ public abstract class BaseCards implements Iterable<Card> {
         this.name_ = name;
     }
     public void setOwner(CardOwner owner) {
+        if(this.affiliation_ != null) {
+            throw new CardOwnerImproperException("You can NOT reset card owner.");
+        }
+
         this.affiliation_ = owner.getAffiliation();
     }
 
@@ -49,7 +53,10 @@ public abstract class BaseCards implements Iterable<Card> {
 
         if(affiliation_.own(card)) {
             add$owner_is_already_checked(card, from);
+            return;
         }
+
+        throw new CardOwnerImproperException("You MUST NOT mix distinct decks.");
     }
 
     protected abstract Card draw();

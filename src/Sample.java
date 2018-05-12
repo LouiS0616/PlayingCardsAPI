@@ -32,7 +32,7 @@ class Sample {
         hand.setOwner(deck);
 
         hand.pickFrom(deck, 10);
-
+/*
         //
         // Draw joker from deck.
         IndividualCardImitator jokerImitator = new JokerImitator();
@@ -53,6 +53,6 @@ class Sample {
                     String.format("%s: %d.", suit, hand.countCard(new SuitImitator(suit)))
                 )
             )
-        ;
+        ;*/
     }
 }
