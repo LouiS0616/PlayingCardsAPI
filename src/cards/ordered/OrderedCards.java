@@ -71,7 +71,7 @@ public abstract class OrderedCards extends Cards {
         );
     }
     @Override
-    protected final void add(Card card, BaseCards from) {
+    protected final void add$all_check_has_done(Card card) {
         cards_.add(card);
     }
 

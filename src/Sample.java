@@ -15,7 +15,6 @@ class Sample {
         //
         // Make a deck.
         Deck deck = new Deck();
-        Deck deck2 = new Deck();
 
         //
         // Remove unnecessary cards.

@@ -16,6 +16,24 @@ public abstract class Cards extends BaseCards {
         this.observer_ = observer;
     }
 
+    //
+    // Class specific methods
+    @Override
+    protected final void add(Card card, BaseCards from) {
+        observer_.update(
+            Observer.Type.ADD, card, this, from
+        );
+
+        if(from instanceof Cards) {
+            Cards from_ = (Cards)from;
+            from_.observer_.update(
+                Observer.Type.PICK, card, from_, this
+            );
+        }
+    }
+
+    protected abstract void add$all_check_has_done(Card card);
+
 
     //
     // Methods related drawing
@@ -28,10 +46,6 @@ public abstract class Cards extends BaseCards {
     //
     // Randomly drawing
     public void pickFrom(Cards from, int num) throws CardNotEnoughException {
-        if(this == from) {
-            return;
-        }
-
         if(from.countCard() < num) {
             throw new CardNotEnoughException();
         }
@@ -46,10 +60,6 @@ public abstract class Cards extends BaseCards {
     //
     // Specific drawing
     public void divideFrom(Cards from, WildCardImitator wildPurpose) {
-        if(this == from) {
-            return;
-        }
-
         // DO make list first avoid to java.util.ConcurrentModificationException.
         List<IndividualCardImitator> purposes = from.stream()
             .filter(wildPurpose::isEquivalent)

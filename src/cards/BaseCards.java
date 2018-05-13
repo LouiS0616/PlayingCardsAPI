@@ -67,11 +67,10 @@ public abstract class BaseCards implements Iterable<Card>, StreamAble<Card> {
         if(this.affiliation_.isEquivalent(from.affiliation_)) {
             Card card = from.draw(purpose);
             add(card, from);
-
-            return;
         }
-
-        throw new CardOwnerImproperException("You MUST NOT mix distinct deck.");
+        else {
+            throw new CardOwnerImproperException("You MUST NOT mix distinct deck.");
+        }
     }
 
 
