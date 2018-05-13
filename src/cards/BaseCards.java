@@ -66,7 +66,7 @@ public abstract class BaseCards implements Iterable<Card>, StreamAble<Card> {
     protected abstract Card draw(IndividualCardImitator purpose) throws CardNotFoundException;
 
     /**
-     * This method is called when "from -card-> this".
+     * This method is called when "from -card-{@literal >} this".
      */
     protected abstract void update(Card card, BaseCards from);
 

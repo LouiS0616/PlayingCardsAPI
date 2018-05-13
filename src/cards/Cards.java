@@ -42,7 +42,7 @@ public abstract class Cards extends BaseCards {
 
     /**
      * Try to pick "num" cards from "from" to this.
-     * @throws CardNotEnoughException When from.countCard() < num.
+     * @throws CardNotEnoughException When from.countCard() {@literal <} num.
      */
     public void pickFrom(Cards from, int num) throws CardNotEnoughException {
         if(from.countCard() < num) {
