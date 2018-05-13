@@ -19,19 +19,10 @@ public abstract class Cards extends BaseCards {
 
     //
     // Methods related drawing
-    protected abstract void add$all_check_has_done(Card card);
 
     // TODO: add$ 系のメソッドを一本化。今までの所属確認はpickFrom(Card, IndividualImitator)に移行。
     // TODO: ただし、オブザーバはどこかで捕まえないといけないかもしれない。 -> Cardsレイヤにupdateメソッドを置けばよい。
     // TODO: 所属確認は『Cardsに対する確認』とする。
-    @Override
-    protected final void add$owner_is_already_checked(Card card, Cards from) {
-        this.observer_.update(Observer.Type.ADD, card, this, from);
-        from.observer_.update(Observer.Type.PICK, card, from, this);
-
-        add$all_check_has_done(card);
-    }
-
 
     // TODO: this == from は呼び出し元の責任とする。Docに明記の上、チェックを削除。
     //
@@ -54,17 +45,6 @@ public abstract class Cards extends BaseCards {
 
     //
     // Specific drawing
-
-    // TODO: BaseCardsに移動させ、必ずとおるメソッドとして扱う。
-    public void pickFrom(Cards from, IndividualCardImitator purpose) {
-        if(this == from) {
-            return;
-        }
-
-        Card card = from.draw(purpose);
-        this.add$any_check_is_undone(card, from);
-    }
-
     public void divideFrom(Cards from, WildCardImitator wildPurpose) {
         if(this == from) {
             return;

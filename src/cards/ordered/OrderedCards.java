@@ -2,6 +2,7 @@ package cards.ordered;
 
 import card.Card;
 import card.imitator.individual.IndividualCardImitator;
+import cards.BaseCards;
 import cards.Cards;
 import cards.Observer;
 import exceptions.CardNotEnoughException;
@@ -70,7 +71,7 @@ public abstract class OrderedCards extends Cards {
         );
     }
     @Override
-    protected final void add$all_check_has_done(Card card) {
+    protected final void add(Card card, BaseCards from) {
         cards_.add(card);
     }
 

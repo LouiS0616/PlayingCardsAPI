@@ -26,8 +26,8 @@ class Sample {
             new SuitImitator(Suit.CLUB)
         );
 
-        Trash trash = Trash.makeTrash();
-        trash.divideFrom(deck, unitedImitator);
+        //Trash trash = Trash.makeTrash();
+        //trash.divideFrom(deck, unitedImitator);
 
         //
         // Shuffle deck and make a hand with observer.

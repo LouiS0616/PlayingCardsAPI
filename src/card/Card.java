@@ -28,13 +28,6 @@ public abstract class Card {
     //
     private final CardAffiliation owner_;
     public boolean isRegisteredAt(CardAffiliation owner) {
-        if(owner == null) {
-            throw new CardOwnerImproperException("You MUST register cards to valid card-owner.");
-        }
-        if(this.owner_ != owner) {
-            throw new CardOwnerImproperException("You MUST NOT mix distinct deck.");
-        }
-
-        return true;
+        return owner == this.owner_;
     }
 }

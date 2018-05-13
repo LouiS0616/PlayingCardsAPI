@@ -51,21 +51,26 @@ public abstract class BaseCards implements Iterable<Card> {
 
     //
     // Methods related drawing
-    protected abstract void add$owner_is_already_checked(Card card, Cards from);
-
-    final void add$any_check_is_undone(Card card, Cards from) throws CardOwnerImproperException {
-        if(affiliation_ == null) {
-            throw new CardOwnerImproperException("You MUST register cards to valid card-owner.");
-        }
-        if(!affiliation_.own(card)) {
-            throw new CardOwnerImproperException("You MUST NOT mix distinct decks.");
-        }
-
-        add$owner_is_already_checked(card, from);
-    }
+    protected abstract void add(Card card, BaseCards from);
 
     protected abstract IndividualCardImitator peek()             throws CardNotEnoughException;
     protected abstract Card draw(IndividualCardImitator purpose) throws CardNotFoundException;
+
+    /**
+     * In any way you draw card, you MUST use this method.
+     * Because this method is responsible for check card affiliation.
+     */
+    public void pickFrom(BaseCards from, IndividualCardImitator purpose) {
+        if(this.affiliation_ == null) {
+            this.affiliation_ = from.affiliation_;
+        }
+        else if(this.affiliation_ != from.affiliation_) {
+            throw new CardOwnerImproperException("You MUST NOT mix distinct deck.");
+        }
+
+        Card card = from.draw(purpose);
+        add(card, from);
+    }
 
 
     //

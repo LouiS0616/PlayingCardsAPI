@@ -3,6 +3,7 @@ package cards.sorted;
 import card.Card;
 import card.comparator.CardComparator;
 import card.imitator.individual.IndividualCardImitator;
+import cards.BaseCards;
 import cards.Cards;
 import cards.Observer;
 import exceptions.CardNotEnoughException;
@@ -63,7 +64,7 @@ public abstract class AutoSortedCards extends Cards {
         );
     }
     @Override
-    public final void add$all_check_has_done(Card card) {
+    public final void add(Card card, BaseCards from) {
         if(!cardSet_.add(card)) {
             System.err.println("You may use deprecated cards.");
         }
