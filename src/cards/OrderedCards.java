@@ -4,6 +4,7 @@ import card.Card;
 import card.imitator.IndividualCardImitator;
 import exceptions.CardNotEnoughException;
 import exceptions.CardNotFoundException;
+import exceptions.ProhibitedOperationException;
 import observer.Observer;
 import util.CollectionUtil;
 
@@ -12,15 +13,28 @@ import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.stream.Stream;
 
+/**
+ * You can draw top card of cards, and cannot draw random card.
+ */
 public abstract class OrderedCards extends Cards {
     //
     // Generate methods
     protected OrderedCards(String name, Observer observer) {
         super(name, observer);
-        this.cards_ = new LinkedList<>();
     }
-    protected void setCards(LinkedList<Card> cards) {
-        this.cards_ = cards;
+
+    /**
+     * Set cards and these owner.
+     * @exception ProhibitedOperationException When originally cards is not empty.
+     */
+    protected void setCards(LinkedList<Card> cards, CardOwner owner) {
+        if(this.cards_.isEmpty()) {
+            this.cards_ = cards;
+            setOwner(owner);
+        }
+        else {
+            throw new ProhibitedOperationException();
+        }
     }
 
     //
@@ -77,5 +91,5 @@ public abstract class OrderedCards extends Cards {
 
     // This field should be LinkedList object instead of List.
     // Because OrderedCards does'nt allow random access.
-    private LinkedList<Card> cards_;
+    private LinkedList<Card> cards_ = new LinkedList<>();
 }

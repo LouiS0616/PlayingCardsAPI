@@ -14,6 +14,10 @@ import java.util.SortedSet;
 import java.util.TreeSet;
 import java.util.stream.Stream;
 
+/**
+ * You can draw a card randomly, but you cannot draw top card of cards.
+ * Auto sorted concept is included in unordered rather than ordered.
+ */
 public abstract class AutoSortedCards extends Cards {
     //
     // Generate methods
