@@ -8,6 +8,9 @@ import observer.Observer;
 import java.util.Iterator;
 import java.util.stream.Stream;
 
+/**
+ * This class is singleton, and ANY card can be included in this instance to trash.
+ */
 public final class Trash extends Cards implements CardOwner {
     //
     // Generate methods
@@ -38,6 +41,8 @@ public final class Trash extends Cards implements CardOwner {
         return affiliation_;
     }
 
+    //
+    //
     @Override
     protected void add(Card card) {
         // Just trash the card.
@@ -53,21 +58,37 @@ public final class Trash extends Cards implements CardOwner {
     private int numOfTrashedCard_ = 0;
 
 
-    //
-    // Prohibited operations
+    /**
+     * @deprecated This method is prohibited.
+     * @exception ProhibitedOperationException Anytime.
+     */
     @Override
     public Iterator<Card> iterator() {
         throw new ProhibitedOperationException();
     }
+
+    /**
+     * @deprecated This method is prohibited.
+     * @exception ProhibitedOperationException Anytime.
+     */
     @Override
     public Stream<Card> stream() {
         throw new ProhibitedOperationException();
     }
 
+    /**
+     * @deprecated This method is prohibited.
+     * @exception ProhibitedOperationException Anytime.
+     */
     @Override
     protected IndividualCardImitator peek() {
         throw new ProhibitedOperationException();
     }
+
+    /**
+     * @deprecated This method is prohibited.
+     * @exception ProhibitedOperationException Anytime.
+     */
     @Override
     protected Card draw(IndividualCardImitator purpose) {
         throw new ProhibitedOperationException();

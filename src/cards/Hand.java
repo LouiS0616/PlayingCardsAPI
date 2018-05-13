@@ -4,6 +4,10 @@ import card.comparator.CardComparator;
 import card.comparator.DefaultCardComparator;
 import observer.Observer;
 
+/**
+ * Auto sorted hand.
+ * Most portable class to use.
+ */
 public final class Hand extends AutoSortedCards {
     public Hand(String name) {
         this(name, Observer.STUB, new DefaultCardComparator());

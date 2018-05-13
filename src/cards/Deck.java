@@ -3,24 +3,34 @@ package cards;
 import card.Card;
 import observer.Observer;
 
+/**
+ * When you construct a deck, a set of cards are set automatically.
+ * These cards' owner is deck instance.
+ */
 public final class Deck extends OrderedCards implements CardOwner {
+    private static int serialId_ = 0;
+
     //
     // Generate methods
     public Deck() {
         this(Observer.STUB);
     }
     public Deck(Observer observer) {
-        super("Deck", observer);
+        super("Deck" + serialId_, observer);
+
+        this.affiliation_ = new CardAffiliation("Deck" + serialId_);
         setCards(
-            Card.makeCards$for_deck(this.owner_ = new CardAffiliation("Deck")), this
+            Card.makeCards$for_deck(this.affiliation_), this
         );
+
+        ++serialId_;
     }
 
     //
     // Affiliation
     @Override
     public CardAffiliation getAffiliation() {
-        return this.owner_;
+        return this.affiliation_;
     }
-    private final CardAffiliation owner_;
+    private final CardAffiliation affiliation_;
 }

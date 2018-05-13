@@ -17,7 +17,7 @@ public final class Joker extends Card {
     // Generate methods
     private Joker(CardAffiliation owner) {
         super(owner);
-        this.id_ = ++serialId_;
+        this.id_ = serialId_++;
     }
     static Stream<Card> generate$for_makeCards(CardAffiliation affiliation) {
         return Stream.of(
