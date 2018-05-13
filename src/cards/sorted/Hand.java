@@ -4,7 +4,7 @@ import card.comparator.CardComparator;
 import card.comparator.DefaultCardComparator;
 import cards.Observer;
 
-public class Hand extends AutoSortedCards {
+public final class Hand extends AutoSortedCards {
     public Hand(String name) {
         this(name, Observer.STUB, new DefaultCardComparator());
     }
