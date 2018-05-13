@@ -21,6 +21,10 @@ public abstract class BaseCards implements Iterable<Card>, StreamAble<Card> {
     BaseCards(String name) {
         this.name_ = name;
     }
+
+    /**
+     * @exception CardAffiliationImproperException When owner is tried to overwrite.
+     */
     protected void setOwner(CardOwner owner) {
         if(this.affiliation_ != null) {
             throw new CardAffiliationImproperException("You can NOT reset card owner.");
@@ -50,7 +54,15 @@ public abstract class BaseCards implements Iterable<Card>, StreamAble<Card> {
     // Methods related drawing
     protected abstract void add(Card card);
 
-    protected abstract IndividualCardImitator peek()             throws CardNotEnoughException;
+    /**
+     * Get a card imitator what mean drawable card.
+     * @throws CardNotEnoughException When cards is empty.
+     */
+    protected abstract IndividualCardImitator peek() throws CardNotEnoughException;
+
+    /**
+     * @throws CardNotFoundException When card is not included in cards.
+     */
     protected abstract Card draw(IndividualCardImitator purpose) throws CardNotFoundException;
 
     /**
@@ -78,7 +90,6 @@ public abstract class BaseCards implements Iterable<Card>, StreamAble<Card> {
             throw new CardAffiliationImproperException("You MUST NOT mix distinct deck.");
         }
     }
-
 
 
     //
