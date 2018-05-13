@@ -5,8 +5,13 @@ import card.Card;
 import java.util.Arrays;
 import java.util.List;
 
+/**
+ * Class what can concatenate imitators by OR condition.
+ */
 public class UnitedImitator implements WildCardImitator {
-    // Be careful not to occur Loop Reference.
+    /**
+     * Be careful not to occur Loop Reference.
+     */
     public UnitedImitator(CardImitator... imitators) {
         this.imitators_ = Arrays.asList(imitators);
     }
