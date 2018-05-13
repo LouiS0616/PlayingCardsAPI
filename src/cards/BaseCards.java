@@ -12,13 +12,12 @@ import exceptions.CardOwnerImproperException;
 import cards.own.CardAffiliation;
 import cards.own.CardOwner;
 import util.PyLikePrinter;
+import util.StreamAble;
 
-import java.util.Iterator;
 import java.util.stream.Collectors;
-import java.util.stream.Stream;
 
 
-public abstract class BaseCards implements Iterable<Card> {
+public abstract class BaseCards implements Iterable<Card>, StreamAble<Card> {
     //
     // Generate methods
     BaseCards(String name) {
@@ -74,12 +73,6 @@ public abstract class BaseCards implements Iterable<Card> {
 
         throw new CardOwnerImproperException("You MUST NOT mix distinct deck.");
     }
-
-
-    //
-    // Iterate methods
-    public abstract Iterator<Card> iterator();
-    public abstract Stream<Card> stream();
 
 
     //
