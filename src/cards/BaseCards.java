@@ -53,27 +53,18 @@ public abstract class BaseCards implements Iterable<Card> {
     // Methods related drawing
     protected abstract void add$owner_is_already_checked(Card card, Cards from);
 
-    private void check(Card card) {
+    final void add$any_check_is_undone(Card card, Cards from) throws CardOwnerImproperException {
         if(affiliation_ == null) {
             throw new CardOwnerImproperException("You MUST register cards to valid card-owner.");
         }
         if(!affiliation_.own(card)) {
             throw new CardOwnerImproperException("You MUST NOT mix distinct decks.");
         }
-    }
-    final void add$any_check_is_undone(Card card, Cards from) throws CardOwnerImproperException {
-        try { check(card); }
-        catch(CardOwnerImproperException e) {
-            // Return card to "from".
-            from.add$all_check_has_done(card);
-            throw e;
-        }
 
         add$owner_is_already_checked(card, from);
     }
 
-    // TODO: このメソッドは排除し、代わりにIndividualImitatorを返すpeekメソッドを設ける。
-    protected abstract Card draw()                               throws CardNotEnoughException;
+    protected abstract IndividualCardImitator peek()             throws CardNotEnoughException;
     protected abstract Card draw(IndividualCardImitator purpose) throws CardNotFoundException;
 
 

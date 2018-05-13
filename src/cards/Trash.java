@@ -61,7 +61,7 @@ public final class Trash extends Cards implements CardOwner {
     }
 
     @Override
-    protected Card draw() {
+    protected IndividualCardImitator peek() {
         throw new ProhibitedOperationException();
     }
     @Override

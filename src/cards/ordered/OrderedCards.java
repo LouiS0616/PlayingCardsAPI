@@ -52,12 +52,12 @@ public abstract class OrderedCards extends Cards {
     //
     // Methods related drawing
     @Override
-    protected final Card draw() {
+    protected final IndividualCardImitator peek() {
         if(countCard() == 0) {
             throw new CardNotEnoughException();
         }
 
-        return cards_.remove(0);
+        return cards_.get(0).getIndividualImitator();
     }
     @Override
     protected final Card draw(IndividualCardImitator purpose) {

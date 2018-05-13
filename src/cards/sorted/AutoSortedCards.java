@@ -44,15 +44,13 @@ public abstract class AutoSortedCards extends Cards {
     //
     // Methods related drawing
     @Override
-    protected final Card draw() {
+    protected final IndividualCardImitator peek() {
         if(countCard() == 0) {
             throw new CardNotEnoughException();
         }
 
-        return CollectionUtil.popElem(
-            cardSet_,
-            (Card)cardSet_.toArray()[randIndex()]
-        );
+        Card card = (Card)cardSet_.toArray()[randIndex()];
+        return card.getIndividualImitator();
     }
     @Override
     protected final Card draw(IndividualCardImitator purpose) {

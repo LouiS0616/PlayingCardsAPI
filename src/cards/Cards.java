@@ -46,8 +46,8 @@ public abstract class Cards extends BaseCards {
         }
 
         for(int i = 0; i < num; ++i) {
-            Card card = from.draw();
-            this.add$any_check_is_undone(card, from);
+            IndividualCardImitator imitator = from.peek();
+            pickFrom(from, imitator);
         }
     }
 
