@@ -9,7 +9,6 @@ import cards.Deck;
 import cards.Hand;
 import observer.PrintObserver;
 
-// TODO: 各モジュールの平滑化。サブモジュールを減らせ。
 class Sample {
     public static void main(String[] args) {
         //

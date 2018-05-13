@@ -8,7 +8,7 @@ import card.imitator.SuitImitator;
 import card.imitator.WildCardImitator;
 import exceptions.CardNotEnoughException;
 import exceptions.CardNotFoundException;
-import exceptions.CardOwnerImproperException;
+import exceptions.CardAffiliationImproperException;
 import util.PyLikePrinter;
 import util.StreamAble;
 
@@ -23,7 +23,7 @@ public abstract class BaseCards implements Iterable<Card>, StreamAble<Card> {
     }
     protected void setOwner(CardOwner owner) {
         if(this.affiliation_ != null) {
-            throw new CardOwnerImproperException("You can NOT reset card owner.");
+            throw new CardAffiliationImproperException("You can NOT reset card owner.");
         }
 
         this.affiliation_ = owner.getAffiliation();
@@ -75,7 +75,7 @@ public abstract class BaseCards implements Iterable<Card>, StreamAble<Card> {
             add(card);
         }
         else {
-            throw new CardOwnerImproperException("You MUST NOT mix distinct deck.");
+            throw new CardAffiliationImproperException("You MUST NOT mix distinct deck.");
         }
     }
 

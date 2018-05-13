@@ -5,7 +5,11 @@ import cards.CardAffiliation;
 
 import java.util.stream.Stream;
 
-public class Joker extends Card {
+/**
+ * Though jokers are shown as same by user, it should be distinguishable.
+ * Because this might be contained by hash map.
+ */
+public final class Joker extends Card {
     private static int serialId_ = 0;
     private final int id_;
 
@@ -13,9 +17,10 @@ public class Joker extends Card {
         super(owner);
         this.id_ = ++serialId_;
     }
-    static Stream<Card> generate$for_makeCards(CardAffiliation owner) {
+
+    static Stream<Card> generate$for_makeCards(CardAffiliation affiliation) {
         return Stream.of(
-            new Joker(owner), new Joker(owner)
+            new Joker(affiliation), new Joker(affiliation)
         );
     }
 
@@ -31,7 +36,13 @@ public class Joker extends Card {
         return "Joker";
     }
 
-    // This method should be regarded as semi-private.
+
+    /**
+     * This method should be regarded as semi-private.
+     * @param joker1
+     * @param joker2
+     * @return
+     */
     public static int compareId$for_comparator(Joker joker1, Joker joker2) {
         return Integer.compare(joker1.id_, joker2.id_);
     }
