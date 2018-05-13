@@ -20,7 +20,6 @@ class Sample {
         //
         // Remove unnecessary cards.
         UnitedImitator unitedImitator = new UnitedImitator(
-            UnitedImitator.OperationType.OR,
             new RankImitator(11),
             new RankImitator(12),
             new RankImitator(13),
