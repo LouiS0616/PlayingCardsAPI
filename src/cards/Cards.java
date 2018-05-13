@@ -4,6 +4,7 @@ import card.Card;
 import card.imitator.IndividualCardImitator;
 import card.imitator.WildCardImitator;
 import exceptions.CardNotEnoughException;
+import observer.Observer;
 
 import java.util.List;
 import java.util.stream.Collectors;

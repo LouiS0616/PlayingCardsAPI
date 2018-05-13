@@ -5,6 +5,7 @@ import card.comparator.CardComparator;
 import card.imitator.IndividualCardImitator;
 import exceptions.CardNotEnoughException;
 import exceptions.CardNotFoundException;
+import observer.Observer;
 import util.CollectionUtil;
 
 import java.util.Iterator;

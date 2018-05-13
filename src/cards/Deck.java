@@ -1,6 +1,7 @@
 package cards;
 
 import card.Card;
+import observer.Observer;
 
 public final class Deck extends OrderedCards implements CardOwner {
     //

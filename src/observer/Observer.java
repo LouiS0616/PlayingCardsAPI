@@ -1,6 +1,8 @@
-package cards;
+package observer;
 
 import card.Card;
+import cards.BaseCards;
+import cards.Cards;
 
 @FunctionalInterface
 public interface Observer {

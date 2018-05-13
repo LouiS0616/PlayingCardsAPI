@@ -3,7 +3,6 @@ package observer;
 import card.Card;
 import cards.BaseCards;
 import cards.Cards;
-import cards.Observer;
 
 public class PrintObserver implements Observer {
     public void update(Type type, Card card, Cards self, BaseCards other) {
