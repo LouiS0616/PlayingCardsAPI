@@ -4,8 +4,10 @@ import card.Card;
 import card.Joker;
 import card.RankedCard;
 
-//
-// I referenced java.util.Comparator<T>.nullsLast to name this class.
+/**
+ * I referenced java.util.Comparator.nullsLast to name this class.
+ * Card aligned such as [ranked, ranked, ..., ranked, jokers].
+ */
 public abstract class JokersLastComparator extends CardComparator {
     //
     // Comparison methods
