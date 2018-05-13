@@ -1,4 +1,4 @@
-package cards.ordered;
+package cards;
 
 import card.Card;
 import card.imitator.individual.IndividualCardImitator;

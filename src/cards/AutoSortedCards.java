@@ -1,4 +1,4 @@
-package cards.sorted;
+package cards;
 
 import card.Card;
 import card.comparator.CardComparator;

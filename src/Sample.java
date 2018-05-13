@@ -5,8 +5,8 @@ import card.imitator.wild.RankImitator;
 import card.imitator.wild.SuitImitator;
 import card.imitator.wild.UnitedImitator;
 import cards.Trash;
-import cards.ordered.Deck;
-import cards.sorted.Hand;
+import cards.Deck;
+import cards.Hand;
 import observer.PrintObserver;
 
 // TODO: 各モジュールの平滑化。サブモジュールを減らせ。
