@@ -64,7 +64,7 @@ public abstract class AutoSortedCards extends Cards {
         );
     }
     @Override
-    protected final void add$all_check_has_done(Card card) {
+    protected final void add(Card card) {
         if(!cardSet_.add(card)) {
             System.err.println("You may use deprecated cards.");
         }

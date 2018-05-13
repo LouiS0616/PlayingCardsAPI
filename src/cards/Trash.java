@@ -40,7 +40,7 @@ public final class Trash extends Cards implements CardOwner {
     }
 
     @Override
-    protected void add$all_check_has_done(Card card) {
+    protected void add(Card card) {
         // Just trash the card.
         ++numOfTrashedCard_;
     }

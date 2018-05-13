@@ -50,10 +50,16 @@ public abstract class BaseCards implements Iterable<Card>, StreamAble<Card> {
 
     //
     // Methods related drawing
-    protected abstract void add(Card card, BaseCards from);
+    protected abstract void add(Card card);
 
     protected abstract IndividualCardImitator peek()             throws CardNotEnoughException;
     protected abstract Card draw(IndividualCardImitator purpose) throws CardNotFoundException;
+
+    /**
+     * This method is called when "from -card-> this".
+     */
+    protected abstract void update(Card card, BaseCards from);
+
 
     /**
      * In any way you draw card, you MUST use this method.
@@ -66,12 +72,15 @@ public abstract class BaseCards implements Iterable<Card>, StreamAble<Card> {
 
         if(this.affiliation_.isEquivalent(from.affiliation_)) {
             Card card = from.draw(purpose);
-            add(card, from);
+
+            update(card, from);
+            add(card);
         }
         else {
             throw new CardOwnerImproperException("You MUST NOT mix distinct deck.");
         }
     }
+
 
 
     //

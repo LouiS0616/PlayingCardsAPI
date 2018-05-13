@@ -19,7 +19,7 @@ public abstract class Cards extends BaseCards {
     //
     // Class specific methods
     @Override
-    protected final void add(Card card, BaseCards from) {
+    protected final void update(Card card, BaseCards from) {
         observer_.update(
             Observer.Type.ADD, card, this, from
         );
@@ -31,8 +31,6 @@ public abstract class Cards extends BaseCards {
             );
         }
     }
-
-    protected abstract void add$all_check_has_done(Card card);
 
 
     //
