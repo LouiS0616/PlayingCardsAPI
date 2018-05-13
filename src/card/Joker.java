@@ -13,17 +13,20 @@ public final class Joker extends Card {
     private static int serialId_ = 0;
     private final int id_;
 
+    //
+    // Generate methods
     private Joker(CardAffiliation owner) {
         super(owner);
         this.id_ = ++serialId_;
     }
-
     static Stream<Card> generate$for_makeCards(CardAffiliation affiliation) {
         return Stream.of(
             new Joker(affiliation), new Joker(affiliation)
         );
     }
 
+    //
+    //
     @Override
     public JokerImitator getIndividualImitator() {
         return new JokerImitator();

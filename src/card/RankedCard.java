@@ -8,7 +8,10 @@ import java.util.Map;
 import java.util.stream.IntStream;
 import java.util.stream.Stream;
 
-public class RankedCard extends Card {
+/**
+ * Card what has suit and rank.
+ */
+public final class RankedCard extends Card {
     //
     // Generate methods
     private RankedCard(Suit suit, int rank, CardAffiliation owner) {
@@ -27,6 +30,8 @@ public class RankedCard extends Card {
         ;
     }
 
+    //
+    //
     @Override
     public RankedCardImitator getIndividualImitator() {
         return new RankedCardImitator(this);
@@ -37,8 +42,7 @@ public class RankedCard extends Card {
     @Override
     public String toString() {
         return String.format(
-            "%s%s",
-            suit_, rankToMark_.getOrDefault(rank_, String.valueOf(rank_))
+            "%s%s", suit_, rankToMark_.getOrDefault(rank_, String.valueOf(rank_))
         );
     }
     private static final Map<Integer, String> rankToMark_ = new HashMap<>();
