@@ -1,9 +1,9 @@
 package cards.ordered;
 
 import card.Card;
-import cards.own.CardAffiliation;
+import cards.CardAffiliation;
 import cards.Observer;
-import cards.own.CardOwner;
+import cards.CardOwner;
 
 public final class Deck extends OrderedCards implements CardOwner {
     //

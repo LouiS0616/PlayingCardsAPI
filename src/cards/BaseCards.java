@@ -9,8 +9,6 @@ import card.imitator.wild.WildCardImitator;
 import exceptions.CardNotEnoughException;
 import exceptions.CardNotFoundException;
 import exceptions.CardOwnerImproperException;
-import cards.own.CardAffiliation;
-import cards.own.CardOwner;
 import util.PyLikePrinter;
 import util.StreamAble;
 

@@ -3,8 +3,6 @@ package cards;
 import card.Card;
 import card.imitator.individual.IndividualCardImitator;
 import exceptions.ProhibitedOperationException;
-import cards.own.CardAffiliation;
-import cards.own.CardOwner;
 
 import java.util.Iterator;
 import java.util.stream.Stream;

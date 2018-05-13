@@ -1,4 +1,4 @@
-package cards.own;
+package cards;
 
 public class CardAffiliation {
     public CardAffiliation(String name) {
