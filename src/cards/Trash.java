@@ -41,16 +41,21 @@ public final class Trash extends Cards implements CardOwner {
 
     @Override
     public void add(Card card, BaseCards from) {
-        // Do nothing, just trash the card.
+        // Just trash the card.
+        ++numOfTrashedCard_;
+    }
+    @Override
+    public int countCard() {
+        return numOfTrashedCard_;
     }
 
     //
-    // Prohibited operations
-    @Override
-    public int countCard() {
-        throw new ProhibitedOperationException();
-    }
+    // Fields
+    private int numOfTrashedCard_ = 0;
 
+
+    //
+    // Prohibited operations
     @Override
     public Iterator<Card> iterator() {
         throw new ProhibitedOperationException();
