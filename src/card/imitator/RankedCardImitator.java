@@ -12,6 +12,7 @@ public class RankedCardImitator implements IndividualCardImitator {
         this.suit_ = suit;
         this.rank_ = rank;
     }
+
     @Override
     public boolean isEquivalent(Card card) {
         if(!(card instanceof RankedCard)) {
