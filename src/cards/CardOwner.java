@@ -1,5 +1,5 @@
 package cards;
 
-public interface CardOwner {
+interface CardOwner {
     CardAffiliation getAffiliation();
 }

@@ -26,5 +26,5 @@ public class UnitedImitator implements WildCardImitator {
 
     //
     //
-    private List<CardImitator> imitators_;
+    private final List<CardImitator> imitators_;
 }

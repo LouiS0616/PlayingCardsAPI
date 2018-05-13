@@ -29,10 +29,9 @@ class Sample {
 
         //
         // Shuffle deck and make a hand with observer.
-        //deck.shuffle();
+        deck.shuffle();
         Hand hand = new Hand("My Hand", new PrintObserver());
         hand.pickFrom(deck, 10);
-
 
         //
         // Draw joker from deck.
