@@ -36,11 +36,6 @@ public abstract class Cards extends BaseCards {
     //
     // Methods related drawing
 
-    // TODO: add$ 系のメソッドを一本化。今までの所属確認はpickFrom(Card, IndividualImitator)に移行。
-    // TODO: ただし、オブザーバはどこかで捕まえないといけないかもしれない。 -> Cardsレイヤにupdateメソッドを置けばよい。
-    // TODO: 所属確認は『Cardsに対する確認』とする。
-
-    // TODO: this == from は呼び出し元の責任とする。Docに明記の上、チェックを削除。
     //
     // Randomly drawing
     public void pickFrom(Cards from, int num) throws CardNotEnoughException {
