@@ -30,7 +30,7 @@ public final class Trash extends Cards implements CardOwner {
     // Class-specific methods
     private CardAffiliation affiliation_ = new CardAffiliation("Trash") {
         @Override
-        public boolean own(Card card) {
+        public boolean isEquivalent(CardAffiliation other) {
             return true;
         }
     };

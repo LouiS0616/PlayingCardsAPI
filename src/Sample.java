@@ -15,6 +15,7 @@ class Sample {
         //
         // Make a deck.
         Deck deck = new Deck();
+        Deck deck2 = new Deck();
 
         //
         // Remove unnecessary cards.
@@ -26,16 +27,15 @@ class Sample {
             new SuitImitator(Suit.CLUB)
         );
 
-        //Trash trash = Trash.makeTrash();
-        //trash.divideFrom(deck, unitedImitator);
+        Trash trash = Trash.makeTrash();
+        trash.divideFrom(deck, unitedImitator);
 
         //
         // Shuffle deck and make a hand with observer.
         //deck.shuffle();
         Hand hand = new Hand("My Hand", new PrintObserver());
-        hand.setOwner(deck);
-
         hand.pickFrom(deck, 10);
+
 
         //
         // Draw joker from deck.

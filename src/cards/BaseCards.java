@@ -24,7 +24,7 @@ public abstract class BaseCards implements Iterable<Card> {
     BaseCards(String name) {
         this.name_ = name;
     }
-    public void setOwner(CardOwner owner) {
+    protected void setOwner(CardOwner owner) {
         if(this.affiliation_ != null) {
             throw new CardOwnerImproperException("You can NOT reset card owner.");
         }
@@ -64,12 +64,15 @@ public abstract class BaseCards implements Iterable<Card> {
         if(this.affiliation_ == null) {
             this.affiliation_ = from.affiliation_;
         }
-        else if(this.affiliation_ != from.affiliation_) {
-            throw new CardOwnerImproperException("You MUST NOT mix distinct deck.");
+
+        if(this.affiliation_.isEquivalent(from.affiliation_)) {
+            Card card = from.draw(purpose);
+            add(card, from);
+
+            return;
         }
 
-        Card card = from.draw(purpose);
-        add(card, from);
+        throw new CardOwnerImproperException("You MUST NOT mix distinct deck.");
     }
 
 
