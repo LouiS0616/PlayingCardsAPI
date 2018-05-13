@@ -2,8 +2,6 @@ package cards;
 
 import card.comparator.CardComparator;
 import card.comparator.DefaultCardComparator;
-import cards.AutoSortedCards;
-import cards.Observer;
 
 public final class Hand extends AutoSortedCards {
     public Hand(String name) {

@@ -2,8 +2,6 @@ package cards;
 
 import card.Card;
 import card.imitator.individual.IndividualCardImitator;
-import cards.Cards;
-import cards.Observer;
 import exceptions.CardNotEnoughException;
 import exceptions.CardNotFoundException;
 import util.CollectionUtil;
