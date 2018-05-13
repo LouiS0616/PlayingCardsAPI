@@ -9,6 +9,9 @@ import observer.Observer;
 import java.util.List;
 import java.util.stream.Collectors;
 
+/**
+ * This class is high-functioning than BaseCards.
+ */
 public abstract class Cards extends BaseCards {
     //
     // Generate methods
@@ -37,8 +40,10 @@ public abstract class Cards extends BaseCards {
     //
     // Methods related drawing
 
-    //
-    // Randomly drawing
+    /**
+     * Try to pick "num" cards from "from" to this.
+     * @throws CardNotEnoughException When from.countCard() < num.
+     */
     public void pickFrom(Cards from, int num) throws CardNotEnoughException {
         if(from.countCard() < num) {
             throw new CardNotEnoughException();
@@ -50,9 +55,9 @@ public abstract class Cards extends BaseCards {
         }
     }
 
-
-    //
-    // Specific drawing
+    /**
+     * Draw cards from "from" what match "wildPurpose" condition.
+     */
     public void divideFrom(Cards from, WildCardImitator wildPurpose) {
         // DO make list first avoid to java.util.ConcurrentModificationException.
         List<IndividualCardImitator> purposes = from.stream()
