@@ -1,7 +1,7 @@
 package cards;
 
 import card.Card;
-import card.imitator.individual.IndividualCardImitator;
+import card.imitator.IndividualCardImitator;
 import exceptions.ProhibitedOperationException;
 
 import java.util.Iterator;

@@ -1,6 +1,6 @@
 package card;
 
-import card.imitator.individual.JokerImitator;
+import card.imitator.JokerImitator;
 import cards.CardAffiliation;
 
 import java.util.stream.Stream;

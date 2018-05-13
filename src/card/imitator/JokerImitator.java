@@ -1,8 +1,7 @@
-package card.imitator.individual;
+package card.imitator;
 
 import card.Card;
 import card.Joker;
-import card.imitator.wild.WildCardImitator;
 
 public class JokerImitator implements IndividualCardImitator, WildCardImitator {
     @Override

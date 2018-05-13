@@ -2,7 +2,7 @@ package cards;
 
 import card.Card;
 import card.comparator.CardComparator;
-import card.imitator.individual.IndividualCardImitator;
+import card.imitator.IndividualCardImitator;
 import exceptions.CardNotEnoughException;
 import exceptions.CardNotFoundException;
 import util.CollectionUtil;

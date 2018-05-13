@@ -1,9 +1,9 @@
 import card.Suit;
-import card.imitator.individual.IndividualCardImitator;
-import card.imitator.individual.JokerImitator;
-import card.imitator.wild.RankImitator;
-import card.imitator.wild.SuitImitator;
-import card.imitator.wild.UnitedImitator;
+import card.imitator.IndividualCardImitator;
+import card.imitator.JokerImitator;
+import card.imitator.RankImitator;
+import card.imitator.SuitImitator;
+import card.imitator.UnitedImitator;
 import cards.Trash;
 import cards.Deck;
 import cards.Hand;

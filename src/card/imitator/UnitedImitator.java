@@ -1,7 +1,6 @@
-package card.imitator.wild;
+package card.imitator;
 
 import card.Card;
-import card.imitator.CardImitator;
 
 import java.util.Arrays;
 import java.util.List;

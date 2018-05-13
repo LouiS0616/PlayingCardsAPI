@@ -1,4 +1,4 @@
-package card.imitator.wild;
+package card.imitator;
 
 import card.Card;
 import card.RankedCard;

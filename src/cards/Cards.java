@@ -1,8 +1,8 @@
 package cards;
 
 import card.Card;
-import card.imitator.individual.IndividualCardImitator;
-import card.imitator.wild.WildCardImitator;
+import card.imitator.IndividualCardImitator;
+import card.imitator.WildCardImitator;
 import exceptions.CardNotEnoughException;
 
 import java.util.List;

@@ -1,6 +1,6 @@
 package card;
 
-import card.imitator.individual.RankedCardImitator;
+import card.imitator.RankedCardImitator;
 import cards.CardAffiliation;
 
 import java.util.HashMap;

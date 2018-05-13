@@ -1,6 +1,6 @@
 package card;
 
-import card.imitator.individual.IndividualCardImitator;
+import card.imitator.IndividualCardImitator;
 import cards.CardAffiliation;
 
 import java.util.LinkedList;
