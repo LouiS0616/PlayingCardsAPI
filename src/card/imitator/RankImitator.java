@@ -10,6 +10,7 @@ public class RankImitator implements WildCardImitator {
     public RankImitator(int rank) {
         this.rank_ = rank;
     }
+
     @Override
     public boolean isEquivalent(Card card) {
         if(!(card instanceof RankedCard)) {

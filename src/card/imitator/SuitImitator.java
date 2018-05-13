@@ -11,6 +11,7 @@ public class SuitImitator implements WildCardImitator {
     public SuitImitator(Suit suit) {
         this.suit_ = suit;
     }
+
     @Override
     public boolean isEquivalent(Card card) {
         if(!(card instanceof RankedCard)) {
