@@ -1,7 +1,7 @@
 package nsr.loui.playingcards.cards;
 
 /**
- * It can have loui.playingcards.cards that classes implement this interface.
+ * It can have cards that classes implement this interface.
  */
 interface CardOwner {
     CardOwnerCertificate getCertificate();

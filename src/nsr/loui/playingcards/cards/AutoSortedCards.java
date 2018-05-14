@@ -15,10 +15,10 @@ import java.util.TreeSet;
 import java.util.stream.Stream;
 
 /**
- * You can draw a loui.playingcards.card randomly, but you cannot draw top loui.playingcards.card of loui.playingcards.cards.
+ * You can draw a card randomly, but you cannot draw top card of cards.
  * Auto sorted concept is close to unordered rather than ordered that.
  *
- * This class has loui.playingcards.cards as SortedSet.
+ * This class has cards as SortedSet.
  */
 public abstract class AutoSortedCards extends Cards {
     //

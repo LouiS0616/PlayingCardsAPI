@@ -42,8 +42,8 @@ public abstract class Cards extends BaseCards {
     // Methods related drawing
 
     /**
-     * Try to pick NUM loui.playingcards.cards from FROM to THIS.
-     * @param from Where you want to pick loui.playingcards.card from.
+     * Try to pick NUM cards from FROM to THIS.
+     * @param from Where you want to pick card from.
      * @param num How many you want to pick.
      * @throws CardNotEnoughException When from.countCard() {@literal <} num.
      */
@@ -59,12 +59,12 @@ public abstract class Cards extends BaseCards {
     }
 
     /**
-     * Draw loui.playingcards.cards from FROM what match WILD-PURPOSE condition.
+     * Draw cards from FROM what match WILD-PURPOSE condition.
      * @param from Where you want to divide from.
      * @param wildPurpose Imitator means what you want to divide.
      */
     public void divideFrom(Cards from, WildCardImitator wildPurpose) {
-        // DO make list first avoid to java.loui.playingcards.util.ConcurrentModificationException.
+        // DO make list first avoid to java.util.ConcurrentModificationException.
         List<IndividualCardImitator> purposes = from.stream()
             .filter(wildPurpose::isEquivalent)
             .map(Card::getIndividualImitator)

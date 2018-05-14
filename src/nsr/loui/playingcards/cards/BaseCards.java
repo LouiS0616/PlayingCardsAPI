@@ -16,7 +16,7 @@ import java.util.stream.Collectors;
 
 
 /**
- * This class means loui.playingcards.cards and handle loui.playingcards.card transfer safety way.
+ * This class means cards and handle card transfer safety way.
  */
 public abstract class BaseCards implements Iterable<Card>, StreamAble<Card> {
     //
@@ -26,8 +26,8 @@ public abstract class BaseCards implements Iterable<Card>, StreamAble<Card> {
     }
 
     /**
-     * Set owner when loui.playingcards.cards' owner has been uninitialized.
-     * @param owner Owner what should have this loui.playingcards.cards.
+     * Set owner when cards' owner has been uninitialized.
+     * @param owner Owner what should have this cards.
      * @throws OwnerCertificateImproperException When owner is tried to overwrite.
      */
     protected final void setOwner(CardOwner owner) {
@@ -40,8 +40,8 @@ public abstract class BaseCards implements Iterable<Card>, StreamAble<Card> {
 
 
     /**
-     * @param imitator Purpose loui.playingcards.card imitator.
-     * @return Whether any loui.playingcards.card what is equivalent to imitator included in THIS or not.
+     * @param imitator Purpose card imitator.
+     * @return Whether any card what is equivalent to imitator included in THIS or not.
      */
     public boolean include(CardImitator imitator) {
         return stream()
@@ -50,8 +50,8 @@ public abstract class BaseCards implements Iterable<Card>, StreamAble<Card> {
     }
 
     /**
-     * @param imitator Purpose loui.playingcards.card imitator.
-     * @return How many loui.playingcards.cards what is equivalent to imitator included in THIS.
+     * @param imitator Purpose card imitator.
+     * @return How many cards what is equivalent to imitator included in THIS.
      */
     public int countCard(WildCardImitator imitator) {
         return (int)stream()
@@ -61,7 +61,7 @@ public abstract class BaseCards implements Iterable<Card>, StreamAble<Card> {
     }
 
     /**
-     * @return #loui.playingcards.cards
+     * @return #cards
      */
     public abstract int countCard();
 
@@ -71,39 +71,39 @@ public abstract class BaseCards implements Iterable<Card>, StreamAble<Card> {
 
     /**
      * This method MUST be called only by BaseCards#pickFrom(BaseCards, IndividualCardImitator).
-     * Because this method does not check loui.playingcards.card certificate at all.
+     * Because this method does not check card certificate at all.
      * @param card Card you want to add THIS.
      */
     protected abstract void add(Card card);
 
     /**
      * This method behave randomly or not in accordance with its implementation.
-     * @throws CardNotEnoughException When loui.playingcards.cards is empty.
-     * @return A loui.playingcards.card imitator what mean drawable loui.playingcards.card.
+     * @throws CardNotEnoughException When cards is empty.
+     * @return A card imitator what mean drawable card.
      */
     protected abstract IndividualCardImitator peek() throws CardNotEnoughException;
 
     /**
      * This method MUST be called only by BaseCards#pickFrom(BaseCards, IndividualCardImitator).
-     * Do not call this method thoughtless avoid to lost loui.playingcards.card, because this method treats raw that.
+     * Do not call this method thoughtless avoid to lost card, because this method treats raw that.
      * @param purpose Card imitator what you want to draw.
-     * @throws CardNotFoundException When loui.playingcards.card is not included in loui.playingcards.cards.
-     * @return Drawn loui.playingcards.card.
+     * @throws CardNotFoundException When card is not included in cards.
+     * @return Drawn card.
      */
     protected abstract Card draw(IndividualCardImitator purpose) throws CardNotFoundException;
 
     /**
      * This method is called when "FROM -CARD-{@literal >} THIS".
-     * @param card Added loui.playingcards.card.
-     * @param from Where loui.playingcards.card from.
+     * @param card Added card.
+     * @param from Where card from.
      */
     protected abstract void update(Card card, BaseCards from);
 
 
     /**
-     * In any way you draw loui.playingcards.card, you MUST use this method.
-     * Because this method is responsible for check loui.playingcards.card affiliation.
-     * @param from Where you want to pick a loui.playingcards.card from.
+     * In any way you draw card, you MUST use this method.
+     * Because this method is responsible for check card affiliation.
+     * @param from Where you want to pick a card from.
      * @param purpose What you want to draw.
      * @throws OwnerCertificateImproperException When certificates are difference between THIS and FROM.
      */

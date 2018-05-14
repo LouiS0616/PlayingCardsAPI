@@ -1,8 +1,8 @@
 package nsr.loui.playingcards.cards;
 
 /**
- * This class certificate loui.playingcards.cards' owner.
- * This have to be extended carefully avoid to loui.playingcards.card duplication.
+ * This class certificate cards' owner.
+ * This have to be extended carefully avoid to card duplication.
  */
 public class CardOwnerCertificate {
     public CardOwnerCertificate(String name) {

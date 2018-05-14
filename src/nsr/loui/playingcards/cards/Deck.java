@@ -4,8 +4,8 @@ import nsr.loui.playingcards.card.Card;
 import nsr.loui.playingcards.observer.Observer;
 
 /**
- * When you construct a deck, a set of loui.playingcards.cards are set automatically.
- * These loui.playingcards.cards' owner is THIS.
+ * When you construct a deck, a set of cards are set automatically.
+ * These cards' owner is THIS.
  */
 public final class Deck extends OrderedCards implements CardOwner {
     private static int serialId_ = 0;

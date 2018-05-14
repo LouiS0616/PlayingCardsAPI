@@ -9,7 +9,7 @@ import java.util.Iterator;
 import java.util.stream.Stream;
 
 /**
- * This class is singleton, and ANY loui.playingcards.card can be included in this instance to trash.
+ * This class is singleton, and ANY card can be included in this instance to trash.
  */
 public final class Trash extends Cards implements CardOwner {
     //
@@ -45,7 +45,7 @@ public final class Trash extends Cards implements CardOwner {
     //
     @Override
     protected void add(Card card) {
-        // Just trash the loui.playingcards.card.
+        // Just trash the card.
         ++numOfTrashedCard_;
     }
     @Override

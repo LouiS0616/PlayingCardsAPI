@@ -14,9 +14,9 @@ import java.util.LinkedList;
 import java.util.stream.Stream;
 
 /**
- * This class treats ORDERED loui.playingcards.cards.
- * You can draw top loui.playingcards.card of loui.playingcards.cards, and cannot draw random loui.playingcards.card.
- * This class has loui.playingcards.cards as LinkedList for what reason its performance.
+ * This class treats ORDERED cards.
+ * You can draw top card of cards, and cannot draw random card.
+ * This class has cards as LinkedList for what reason its performance.
  */
 public abstract class OrderedCards extends Cards {
     //
@@ -26,10 +26,10 @@ public abstract class OrderedCards extends Cards {
     }
 
     /**
-     * Set loui.playingcards.cards and these owner when THIS have empty loui.playingcards.cards.
+     * Set cards and these owner when THIS have empty cards.
      * @param cards What you want THIS to hold.
-     * @param owner Valid loui.playingcards.card owner.
-     * @exception ProhibitedOperationException When originally loui.playingcards.cards is not empty.
+     * @param owner Valid card owner.
+     * @exception ProhibitedOperationException When originally cards is not empty.
      */
     protected void setCards(LinkedList<Card> cards, CardOwner owner) {
         if(this.cards_.isEmpty()) {
