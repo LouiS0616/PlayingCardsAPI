@@ -4,7 +4,7 @@ import loui.playingcards.card.Card;
 import loui.playingcards.card.RankedCard;
 
 /**
- * This class imitate rank type of loui.playingcards.card.
+ * This class imitate rank type of card.
  * For example, RankImitator(3) can imitate "Spade 3", "Heart 3" and more.
  */
 public class RankImitator implements WildCardImitator {

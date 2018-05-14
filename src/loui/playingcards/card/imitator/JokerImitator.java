@@ -5,7 +5,7 @@ import loui.playingcards.card.Joker;
 
 /**
  * This class imitate a joker or jokers.
- * Because Joker can be regarded as a loui.playingcards.card and loui.playingcards.card type.
+ * Because Joker can be regarded as a card and card type.
  */
 public class JokerImitator implements IndividualCardImitator, WildCardImitator {
     @Override

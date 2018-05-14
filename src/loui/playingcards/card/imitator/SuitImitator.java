@@ -5,7 +5,7 @@ import loui.playingcards.card.RankedCard;
 import loui.playingcards.card.Suit;
 
 /**
- * This class imitate suit type of loui.playingcards.card.
+ * This class imitate suit type of card.
  * For example, SuitImitator(Suit.SPADE) can imitate "Spade 3", "Spade king" and more.
  */
 public class SuitImitator implements WildCardImitator {
