@@ -4,10 +4,22 @@ import card.Card;
 import card.RankedCard;
 import card.Suit;
 
+/**
+ * This class imitate RankedCard.
+ */
 public class RankedCardImitator implements IndividualCardImitator {
+    /**
+     * Make instance what can imitate model.
+     * @param model A Ranked Card behaves model.
+     */
     public RankedCardImitator(RankedCard model) {
         this(model.getSuit(), model.getRank());
     }
+
+    /**
+     * @param suit Suit to imitate.
+     * @param rank Rank to imitate.
+     */
     public RankedCardImitator(Suit suit, int rank) {
         this.suit_ = suit;
         this.rank_ = rank;
