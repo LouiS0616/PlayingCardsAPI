@@ -5,7 +5,7 @@ import nsr.loui.playingcards.cards.BaseCards;
 import nsr.loui.playingcards.cards.Cards;
 
 /**
- * It can observe card transfer that classes implement this interface.
+ * Classes that implement this interface can be notified card transfer.
  */
 @FunctionalInterface
 public interface Observer {
@@ -24,6 +24,10 @@ public interface Observer {
      */
     void update(Type type, Card card, Cards self, BaseCards other);
 
+    /**
+     * This method do NOTHING at all.
+     * Using null observer instead of this may occur null pointer clash.
+     */
     Observer STUB =
         (Type type, Card card, Cards self, BaseCards other) -> {
             // Do nothing.

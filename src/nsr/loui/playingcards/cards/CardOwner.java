@@ -1,8 +1,11 @@
 package nsr.loui.playingcards.cards;
 
 /**
- * It can have cards that classes implement this interface.
+ * Classes implement this interface have to be responsible manage its cards.
  */
 interface CardOwner {
+    /**
+     * @return its certificate.
+     */
     CardOwnerCertificate getCertificate();
 }
