@@ -11,8 +11,20 @@ import card.RankedCard;
  * I referenced java.util.Comparator.nullsLast to name this class.
  */
 public abstract class JokersLastComparator extends CardComparator {
+    /**
+     * @param rankedCard1 ranked card to be compared.
+     * @param rankedCard2 ranked card to be compared.
+     * @return a negative integer, zero, or a positive integer
+     *              as the RANKED-CARD1 is former than, equal to, or latter then RANKED-CARD2.
+     */
     protected abstract int compare(RankedCard rankedCard1, RankedCard rankedCard2);
 
+    /**
+     * @param card1 card to be compared.
+     * @param card2 card to be compared.
+     * @return a negative integer, zero, or a positive integer
+     *              as the CARD1 is former than, equal to, or latter than CARD2.
+     */
     @Override
     public final int compare(Card card1, Card card2) {
         boolean card1IsJoker = card1 instanceof Joker;
