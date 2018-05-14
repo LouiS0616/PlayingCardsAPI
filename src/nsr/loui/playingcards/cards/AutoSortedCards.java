@@ -23,6 +23,12 @@ import java.util.stream.Stream;
 public abstract class AutoSortedCards extends Cards {
     //
     // Generate methods
+
+    /**
+     * @param name name of cards used for print info.
+     * @param observer observer. DON'T pass null, DO use stub instead.
+     * @param comparator comparator used for auto-sort.
+     */
     protected AutoSortedCards(String name, Observer observer, CardComparator comparator) {
         super(name, observer);
         this.cardSet_ = new TreeSet<>(comparator);
@@ -48,6 +54,10 @@ public abstract class AutoSortedCards extends Cards {
 
     //
     // Methods related drawing
+
+    /**
+     * @return imitator what behave as card chosen randomly.
+     */
     @Override
     protected final IndividualCardImitator peek() {
         if(countCard() == 0) {
@@ -70,7 +80,7 @@ public abstract class AutoSortedCards extends Cards {
     @Override
     protected final void add(Card card) {
         if(!cardSet_.add(card)) {
-            System.err.println("You may use deprecated loui.playingcards.cards.");
+            System.err.println("You may use deprecated cards.");
         }
     }
 

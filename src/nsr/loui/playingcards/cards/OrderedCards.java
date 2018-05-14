@@ -15,21 +15,26 @@ import java.util.stream.Stream;
 
 /**
  * This class treats ORDERED cards.
- * You can draw top card of cards, and cannot draw random card.
+ * You can draw top card of cards, but cannot draw card randomly.
  * This class has cards as LinkedList for what reason its performance.
  */
 public abstract class OrderedCards extends Cards {
     //
     // Generate methods
+
+    /**
+     * @param name name of cards used for print info.
+     * @param observer observer. DON'T pass null, DO use stub instead.
+     */
     protected OrderedCards(String name, Observer observer) {
         super(name, observer);
     }
 
     /**
      * Set cards and these owner when THIS have empty cards.
-     * @param cards What you want THIS to hold.
-     * @param owner Valid card owner.
-     * @exception ProhibitedOperationException When originally cards is not empty.
+     * @param cards what you want THIS to hold.
+     * @param owner valid card owner.
+     * @exception ProhibitedOperationException when originally cards is not empty.
      */
     protected void setCards(LinkedList<Card> cards, CardOwner owner) {
         if(this.cards_.isEmpty()) {
@@ -67,6 +72,10 @@ public abstract class OrderedCards extends Cards {
 
     //
     // Methods related drawing
+
+    /**
+     * @return imitator what behave as the top card.
+     */
     @Override
     protected final IndividualCardImitator peek() {
         if(countCard() == 0) {
