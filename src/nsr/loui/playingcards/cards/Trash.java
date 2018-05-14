@@ -19,6 +19,7 @@ public final class Trash extends Cards implements CardOwner {
     // Generate methods
 
     /**
+     * Call it to get singleton instance.
      * @return singleton instance.
      */
     public static Trash makeTrash() {
@@ -75,6 +76,7 @@ public final class Trash extends Cards implements CardOwner {
 
     /**
      * @deprecated This method is prohibited.
+     * @return no chance to return value.
      * @exception ProhibitedOperationException anytime.
      */
     @Override
@@ -84,6 +86,7 @@ public final class Trash extends Cards implements CardOwner {
 
     /**
      * @deprecated This method is prohibited.
+     * @return no chance to return value.
      * @exception ProhibitedOperationException anytime.
      */
     @Override
@@ -93,6 +96,7 @@ public final class Trash extends Cards implements CardOwner {
 
     /**
      * @deprecated This method is prohibited.
+     * @return no chance to return value.
      * @exception ProhibitedOperationException anytime.
      */
     @Override
@@ -102,6 +106,7 @@ public final class Trash extends Cards implements CardOwner {
 
     /**
      * @deprecated This method is prohibited.
+     * @return no chance to return value.
      * @exception ProhibitedOperationException anytime.
      */
     @Override
