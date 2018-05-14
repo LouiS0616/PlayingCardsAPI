@@ -134,5 +134,5 @@ public abstract class BaseCards implements Iterable<Card>, StreamAble<Card> {
     //
     // Fields
     private final String name_;
-    private CardAffiliation affiliation_;
+    private CardOwnerCertificate affiliation_;
 }

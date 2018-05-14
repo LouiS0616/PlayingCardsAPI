@@ -3,12 +3,12 @@ package cards;
 /**
  * This class have to be extended carefully avoid to card duplication.
  */
-public class CardAffiliation {
-    public CardAffiliation(String name) {
+public class CardOwnerCertificate {
+    public CardOwnerCertificate(String name) {
         this.name_ = name;
     }
 
-    public boolean isEquivalent(CardAffiliation other) {
+    public boolean isEquivalent(CardOwnerCertificate other) {
         return this == other;
     }
 

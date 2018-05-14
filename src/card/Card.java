@@ -1,7 +1,7 @@
 package card;
 
 import card.imitator.IndividualCardImitator;
-import cards.CardAffiliation;
+import cards.CardOwnerCertificate;
 import exceptions.CardAffiliationImproperException;
 
 import java.util.LinkedList;
@@ -9,11 +9,12 @@ import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 /**
- * This class should be extended only by Joker and RankedCard class.
+ * Class Card means a playing card abstractly.
+ * This should be extended only by Joker and RankedCard class.
  */
 public abstract class Card {
-    Card(CardAffiliation affiliation) {
-        this.cardAffiliation_ = affiliation;
+    Card(CardOwnerCertificate affiliation) {
+        this.cardOwnerCertificate_ = affiliation;
     }
 
     /**
@@ -21,7 +22,7 @@ public abstract class Card {
      * @param affiliation Valid card affiliation.
      * @return A set of playing cards, including jokers.
      */
-    public static LinkedList<Card> makeCards$for_deck(CardAffiliation affiliation) {
+    public static LinkedList<Card> makeCards$for_deck(CardOwnerCertificate affiliation) {
         if(affiliation == null) {
             throw new CardAffiliationImproperException("You MUST use valid affiliation.");
         }
@@ -42,13 +43,13 @@ public abstract class Card {
 
     //
     //
-    private final CardAffiliation cardAffiliation_;
+    private final CardOwnerCertificate cardOwnerCertificate_;
 
     /**
      * Card should be have its affiliation for future extension.
      */
     @SuppressWarnings("unused")
-    public CardAffiliation getCardAffiliation() {
-        return cardAffiliation_;
+    public CardOwnerCertificate getCardAffiliation() {
+        return cardOwnerCertificate_;
     }
 }

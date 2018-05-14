@@ -1,7 +1,7 @@
 package card;
 
 import card.imitator.JokerImitator;
-import cards.CardAffiliation;
+import cards.CardOwnerCertificate;
 
 import java.util.stream.Stream;
 
@@ -15,11 +15,11 @@ public final class Joker extends Card {
 
     //
     // Generate methods
-    private Joker(CardAffiliation owner) {
+    private Joker(CardOwnerCertificate owner) {
         super(owner);
         this.id_ = serialId_++;
     }
-    static Stream<Card> generate$for_makeCards(CardAffiliation affiliation) {
+    static Stream<Card> generate$for_makeCards(CardOwnerCertificate affiliation) {
         return Stream.of(
             new Joker(affiliation), new Joker(affiliation)
         );

@@ -18,7 +18,7 @@ public final class Deck extends OrderedCards implements CardOwner {
     public Deck(Observer observer) {
         super("Deck" + serialId_, observer);
 
-        this.affiliation_ = new CardAffiliation("Deck" + serialId_);
+        this.affiliation_ = new CardOwnerCertificate("Deck" + serialId_);
         setCards(
             Card.makeCards$for_deck(this.affiliation_), this
         );
@@ -29,8 +29,8 @@ public final class Deck extends OrderedCards implements CardOwner {
     //
     // Affiliation
     @Override
-    public CardAffiliation getAffiliation() {
+    public CardOwnerCertificate getAffiliation() {
         return this.affiliation_;
     }
-    private final CardAffiliation affiliation_;
+    private final CardOwnerCertificate affiliation_;
 }

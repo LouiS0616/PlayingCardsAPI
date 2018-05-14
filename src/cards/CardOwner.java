@@ -1,5 +1,5 @@
 package cards;
 
 interface CardOwner {
-    CardAffiliation getAffiliation();
+    CardOwnerCertificate getAffiliation();
 }
