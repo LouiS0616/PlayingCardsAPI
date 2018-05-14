@@ -48,6 +48,10 @@ public abstract class OrderedCards extends Cards {
 
     //
     // Class-specific methods
+
+    /**
+     * This method implemented by just calling java.util.Collections.shuffle.
+     */
     public final void shuffle() {
         Collections.shuffle(this.cards_);
     }

@@ -151,7 +151,7 @@ public abstract class BaseCards implements Iterable<Card>, StreamAble<Card> {
     }
 
     /**
-     * Please use it for just print debugging.
+     * Please use it for just for print debugging.
      */
     public void printInfo() {
         new PyLikePrinter("\n").print(
