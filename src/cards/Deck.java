@@ -29,7 +29,7 @@ public final class Deck extends OrderedCards implements CardOwner {
     //
     // Affiliation
     @Override
-    public CardOwnerCertificate getAffiliation() {
+    public CardOwnerCertificate getCertificate() {
         return this.affiliation_;
     }
     private final CardOwnerCertificate affiliation_;

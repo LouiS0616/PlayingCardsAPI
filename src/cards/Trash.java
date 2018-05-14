@@ -37,7 +37,7 @@ public final class Trash extends Cards implements CardOwner {
         }
     };
     @Override
-    public CardOwnerCertificate getAffiliation() {
+    public CardOwnerCertificate getCertificate() {
         return affiliation_;
     }
 
