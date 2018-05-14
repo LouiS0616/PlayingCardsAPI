@@ -9,10 +9,10 @@ import java.util.Iterator;
 import java.util.stream.Stream;
 
 /**
- * Trash instance can be owner, and ANY card can be included in this instance to trash.
+ * Trash instance can be owner, and ANY card can be included in this instance as trash.
  * Note that card once throw into trash cannot be no longer collected.
  *
- * This class is singleton. Call makeTrash method to get instance.
+ * This class is singleton so call makeTrash method to get instance.
  */
 public final class Trash extends Cards implements CardOwner {
     //
@@ -75,7 +75,7 @@ public final class Trash extends Cards implements CardOwner {
 
     /**
      * @deprecated This method is prohibited.
-     * @exception ProhibitedOperationException Anytime.
+     * @exception ProhibitedOperationException anytime.
      */
     @Override
     public Iterator<Card> iterator() {
@@ -84,7 +84,7 @@ public final class Trash extends Cards implements CardOwner {
 
     /**
      * @deprecated This method is prohibited.
-     * @exception ProhibitedOperationException Anytime.
+     * @exception ProhibitedOperationException anytime.
      */
     @Override
     public Stream<Card> stream() {
@@ -93,7 +93,7 @@ public final class Trash extends Cards implements CardOwner {
 
     /**
      * @deprecated This method is prohibited.
-     * @exception ProhibitedOperationException Anytime.
+     * @exception ProhibitedOperationException anytime.
      */
     @Override
     protected IndividualCardImitator peek() {
@@ -102,7 +102,7 @@ public final class Trash extends Cards implements CardOwner {
 
     /**
      * @deprecated This method is prohibited.
-     * @exception ProhibitedOperationException Anytime.
+     * @exception ProhibitedOperationException anytime.
      */
     @Override
     protected Card draw(IndividualCardImitator purpose) {
