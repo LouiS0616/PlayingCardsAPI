@@ -6,7 +6,7 @@ import cards.CardOwnerCertificate;
 import java.util.stream.Stream;
 
 /**
- * Class Joker means a joker.
+ * This class means a joker.
  * Though jokers are shown as same by user, it should be distinguishable.
  * Because these might be contained by hash map.
  */

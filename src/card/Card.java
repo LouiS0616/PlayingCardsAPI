@@ -9,7 +9,7 @@ import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 /**
- * Class Card means a playing card abstractly.
+ * This class means a playing card abstractly.
  * This should be extended only by Joker and RankedCard class.
  */
 public abstract class Card {

@@ -6,7 +6,7 @@ import java.util.Map;
 import java.util.stream.Stream;
 
 /**
- * Enum class Suit means playing cards' suit.
+ * This enum class means playing cards' suit.
  */
 public enum Suit {
     SPADE, HEART, DIAMOND, CLUB;
