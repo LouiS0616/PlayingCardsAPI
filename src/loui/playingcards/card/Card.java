@@ -9,7 +9,7 @@ import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 /**
- * This class means a playing loui.playingcards.card abstractly.
+ * This class means a playing card abstractly.
  * This should be extended only by Joker and RankedCard class.
  */
 public abstract class Card {
@@ -18,9 +18,9 @@ public abstract class Card {
     }
 
     /**
-     * This method should be called by only Deck class avoid to loui.playingcards.card duplication.
-     * @param certificate valid loui.playingcards.card certificate.
-     * @return a set of playing loui.playingcards.cards, including jokers.
+     * This method should be called by only Deck class avoid to card duplication.
+     * @param certificate valid card certificate.
+     * @return a set of playing cards, including jokers.
      * @throws OwnerCertificateImproperException when CERTIFICATE is null.
      */
     public static LinkedList<Card> makeCards$for_deck(CardOwnerCertificate certificate) {

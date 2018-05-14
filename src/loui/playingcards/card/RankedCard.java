@@ -10,7 +10,7 @@ import java.util.stream.Stream;
 
 /**
  * This class means Ranked Card what has suit and rank.
- * In other words, ranked loui.playingcards.card is all loui.playingcards.cards but jokers.
+ * In other words, ranked card is all cards but jokers.
  */
 public final class RankedCard extends Card {
     //
