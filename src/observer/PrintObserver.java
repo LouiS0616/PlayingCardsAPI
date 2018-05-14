@@ -4,6 +4,9 @@ import card.Card;
 import cards.BaseCards;
 import cards.Cards;
 
+/**
+ * This class is stdout observer for just a sample or debug.
+ */
 public class PrintObserver implements Observer {
     public void update(Type type, Card card, Cards self, BaseCards other) {
         switch(type) {
