@@ -9,6 +9,12 @@ import nsr.loui.playingcards.observer.Observer;
  * Most portable class to use.
  */
 public final class Hand extends AutoSortedCards {
+    /**
+     * The default values are as below:
+     * comparator - instance of DefaultCardComparator.
+     * observer - Observer.STUB.
+     * @param name name of cards used for print info.
+     */
     public Hand(String name) {
         this(name, Observer.STUB, new DefaultCardComparator());
     }
@@ -18,6 +24,12 @@ public final class Hand extends AutoSortedCards {
     public Hand(String name, Observer observer) {
         this(name, observer, new DefaultCardComparator());
     }
+
+    /**
+     * @param name name of cards used for print info.
+     * @param observer observer. DON'T pass null, DO use stub instead.
+     * @param comparator comparator used for auto-sort.
+     */
     public Hand(String name, Observer observer, CardComparator comparator) {
         super(name, observer, comparator);
     }

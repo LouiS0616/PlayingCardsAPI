@@ -5,7 +5,7 @@ import nsr.loui.playingcards.observer.Observer;
 
 /**
  * When you construct a deck, a set of cards are set automatically.
- * These cards' owner is THIS.
+ * Deck instance can be a owner of cards.
  */
 public final class Deck extends OrderedCards implements CardOwner {
     private static int serialId_ = 0;
@@ -15,6 +15,10 @@ public final class Deck extends OrderedCards implements CardOwner {
     public Deck() {
         this(Observer.STUB);
     }
+
+    /**
+     * @param observer observer. DON'T pass null, DO use stub instead.
+     */
     public Deck(Observer observer) {
         super("Deck" + serialId_, observer);
 

@@ -9,11 +9,18 @@ import java.util.Iterator;
 import java.util.stream.Stream;
 
 /**
- * This class is singleton, and ANY card can be included in this instance to trash.
+ * Trash instance can be owner, and ANY card can be included in this instance to trash.
+ * Note that card once throw into trash cannot be no longer collected.
+ *
+ * This class is singleton. Call makeTrash method to get instance.
  */
 public final class Trash extends Cards implements CardOwner {
     //
     // Generate methods
+
+    /**
+     * @return singleton instance.
+     */
     public static Trash makeTrash() {
         if(instance_ != null) {
             return instance_;
@@ -43,11 +50,19 @@ public final class Trash extends Cards implements CardOwner {
 
     //
     //
+
+    /**
+     * Just trash the CARD.
+     * @param card card you want to throw away.
+     */
     @Override
     protected void add(Card card) {
-        // Just trash the card.
         ++numOfTrashedCard_;
     }
+
+    /**
+     * @return num of cards had been thrown away.
+     */
     @Override
     public int countCard() {
         return numOfTrashedCard_;
