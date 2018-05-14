@@ -75,6 +75,7 @@ public final class Trash extends Cards implements CardOwner {
 
 
     /**
+     * Do NOT call this method.
      * @deprecated This method is prohibited.
      * @return no chance to return value.
      * @exception ProhibitedOperationException anytime.
@@ -85,6 +86,7 @@ public final class Trash extends Cards implements CardOwner {
     }
 
     /**
+     * Do NOT call this method.
      * @deprecated This method is prohibited.
      * @return no chance to return value.
      * @exception ProhibitedOperationException anytime.
@@ -95,6 +97,7 @@ public final class Trash extends Cards implements CardOwner {
     }
 
     /**
+     * Do NOT call this method.
      * @deprecated This method is prohibited.
      * @return no chance to return value.
      * @exception ProhibitedOperationException anytime.
@@ -105,6 +108,7 @@ public final class Trash extends Cards implements CardOwner {
     }
 
     /**
+     * Do NOT call this method.
      * @deprecated This method is prohibited.
      * @return no chance to return value.
      * @exception ProhibitedOperationException anytime.

@@ -11,8 +11,10 @@ import nsr.loui.playingcards.observer.Observer;
 public final class Hand extends AutoSortedCards {
     /**
      * The default values are as below:
-     * comparator - instance of DefaultCardComparator.
-     * observer - Observer.STUB.
+     * <pre>
+     *     comparator - instance of DefaultCardComparator.
+     *     observer   - Observer.STUB.
+     * </pre>
      * @param name name of cards used for print info.
      */
     public Hand(String name) {

@@ -12,6 +12,13 @@ public final class Deck extends OrderedCards implements CardOwner {
 
     //
     // Generate methods
+
+    /**
+     * The default value is below:
+     * <pre>
+     *     observer - Observer.STUB.
+     * </pre>
+     */
     public Deck() {
         this(Observer.STUB);
     }
