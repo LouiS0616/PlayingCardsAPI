@@ -12,7 +12,7 @@ import nsr.loui.playingcards.cards.Hand;
 import nsr.loui.playingcards.observer.PrintObserver;
 
 /**
- * Sample how to use this api.
+ * Sample how to use this api.push test
  */
 class Sample {
     public static void main(String[] args) {
