@@ -5,7 +5,7 @@ import loui.playingcards.card.RankedCard;
 import java.util.Comparator;
 
 /**
- * This class provide rank-natural loui.playingcards.card comparison.
+ * This class provide rank-natural card comparison.
  * Cards aligned such as [Spade A, Heart A, Spade 3, ..., Joker].
  */
 public class DefaultCardComparator extends JokersLastComparator {

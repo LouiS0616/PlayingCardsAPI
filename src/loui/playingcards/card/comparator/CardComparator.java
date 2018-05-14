@@ -7,7 +7,7 @@ import java.util.Comparator;
 
 /**
  * This class handles comparison between jokers, what user does not have to pay attention.
- * Every loui.playingcards.card comparator class MUST extend this.
+ * Every card comparator class MUST extend this.
  */
 public abstract class CardComparator implements Comparator<Card> {
     /**
