@@ -5,12 +5,12 @@ import card.Joker;
 import card.RankedCard;
 
 /**
+ * This class means comparator what always put jokers at last of cards.
+ * Cards aligned such as [ranked, ranked, ..., ranked, jokers].
+ *
  * I referenced java.util.Comparator.nullsLast to name this class.
- * Card aligned such as [ranked, ranked, ..., ranked, jokers].
  */
 public abstract class JokersLastComparator extends CardComparator {
-    //
-    // Comparison methods
     protected abstract int compare(RankedCard rankedCard1, RankedCard rankedCard2);
 
     @Override
