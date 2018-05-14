@@ -21,7 +21,7 @@ class Sample {
         Deck deck = new Deck();
 
         //
-        // Remove unnecessary loui.playingcards.cards.
+        // Remove unnecessary cards.
         UnitedImitator unitedImitator = new UnitedImitator(
             new RankImitator(11),
             new RankImitator(12),
@@ -33,7 +33,7 @@ class Sample {
         trash.divideFrom(deck, unitedImitator);
 
         //
-        // Shuffle deck and make a hand with loui.playingcards.observer.
+        // Shuffle deck and make a hand with observer.
         deck.shuffle();
         Hand hand = new Hand("My Hand", new PrintObserver());
         hand.pickFrom(deck, 10);

@@ -30,9 +30,9 @@ public abstract class BaseCards implements Iterable<Card>, StreamAble<Card> {
      * @param owner owner what should have THIS cards.
      * @throws OwnerCertificateImproperException when non-null THIS.owner is tried to overwrite.
      */
-    protected final void setOwner(CardOwner owner) {
+    final void setOwner(CardOwner owner) {
         if(this.certificate_ != null) {
-            throw new OwnerCertificateImproperException("You can NOT reset loui.playingcards.card owner.");
+            throw new OwnerCertificateImproperException("You can NOT reset card owner.");
         }
 
         this.certificate_ = owner.getCertificate();
