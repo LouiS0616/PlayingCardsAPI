@@ -19,9 +19,9 @@ public abstract class Card {
 
     /**
      * This method should be called by only Deck class avoid to card duplication.
-     * @param certificate Valid card certificate.
-     * @return A set of playing cards, including jokers.
-     * @throws OwnerCertificateImproperException When param certificate is null.
+     * @param certificate valid card certificate.
+     * @return a set of playing cards, including jokers.
+     * @throws OwnerCertificateImproperException when CERTIFICATE is null.
      */
     public static LinkedList<Card> makeCards$for_deck(CardOwnerCertificate certificate) {
         if(certificate == null) {
@@ -37,7 +37,7 @@ public abstract class Card {
     }
 
     /**
-     * @return Its imitator.
+     * @return its imitator.
      */
     public abstract IndividualCardImitator getIndividualImitator();
 
@@ -47,8 +47,8 @@ public abstract class Card {
     private final CardOwnerCertificate cardOwnerCertificate_;
 
     /**
-     * Card should be have its affiliation for future extension.
-     * @return Its certificate.
+     * Card should be have its certificate for future extension.
+     * @return its certificate.
      */
     @SuppressWarnings("unused")
     public CardOwnerCertificate getCardCertificate() {

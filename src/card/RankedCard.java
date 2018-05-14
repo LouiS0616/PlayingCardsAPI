@@ -10,7 +10,7 @@ import java.util.stream.Stream;
 
 /**
  * This class means Ranked Card what has suit and rank.
- * In other words, ranked card is all of cards except jokers.
+ * In other words, ranked card is all cards but jokers.
  */
 public final class RankedCard extends Card {
     //
@@ -40,6 +40,10 @@ public final class RankedCard extends Card {
 
     //
     // Basically methods
+
+    /**
+     * @return like these; "[Suit:%s]A", "[Suit:%s]8" and "[Suit:%s]K".
+     */
     @Override
     public String toString() {
         return String.format(
@@ -60,14 +64,14 @@ public final class RankedCard extends Card {
     private final int rank_;
 
     /**
-     * @return Its suit.
+     * @return its suit.
      */
     public Suit getSuit() {
         return suit_;
     }
 
     /**
-     * @return Its rank(1~13).
+     * @return its rank(1~13).
      */
     public int getRank() {
         return rank_;

@@ -5,7 +5,7 @@ import observer.Observer;
 
 /**
  * When you construct a deck, a set of cards are set automatically.
- * These cards' owner is deck instance.
+ * These cards' owner is THIS.
  */
 public final class Deck extends OrderedCards implements CardOwner {
     private static int serialId_ = 0;

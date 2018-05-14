@@ -6,18 +6,21 @@ import java.util.Map;
 import java.util.stream.Stream;
 
 /**
- * This enum class means playing cards' suit.
+ * This enum means playing cards' suit.
  */
 public enum Suit {
     SPADE, HEART, DIAMOND, CLUB;
 
     /**
-     * @return Stream of values.
+     * @return stream of values.
      */
     public static Stream<Suit> stream() {
         return Arrays.stream(Suit.values());
     }
 
+    /**
+     * @return replaced to following letters; ♠, ♥, ♦ and ♣.
+     */
     @Override
     public String toString() {
         return suitToMark_.get(this);
