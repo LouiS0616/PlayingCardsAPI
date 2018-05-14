@@ -9,7 +9,8 @@ import java.util.stream.IntStream;
 import java.util.stream.Stream;
 
 /**
- * Card what has suit and rank.
+ * Class means Ranked Card what has suit and rank.
+ * In other words, ranked card is all of cards except jokers.
  */
 public final class RankedCard extends Card {
     //
@@ -58,9 +59,16 @@ public final class RankedCard extends Card {
     private final Suit suit_;
     private final int rank_;
 
+    /**
+     * @return Its suit.
+     */
     public Suit getSuit() {
         return suit_;
     }
+
+    /**
+     * @return Its rank(1~13).
+     */
     public int getRank() {
         return rank_;
     }

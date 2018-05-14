@@ -5,9 +5,15 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.stream.Stream;
 
+/**
+ * Enum class Suit means playing cards' suit.
+ */
 public enum Suit {
     SPADE, HEART, DIAMOND, CLUB;
 
+    /**
+     * @return Stream of values.
+     */
     public static Stream<Suit> stream() {
         return Arrays.stream(Suit.values());
     }

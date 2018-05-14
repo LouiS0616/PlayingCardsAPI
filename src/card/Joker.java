@@ -6,8 +6,9 @@ import cards.CardOwnerCertificate;
 import java.util.stream.Stream;
 
 /**
+ * Class Joker means a joker.
  * Though jokers are shown as same by user, it should be distinguishable.
- * Because this might be contained by hash map.
+ * Because these might be contained by hash map.
  */
 public final class Joker extends Card {
     private static int serialId_ = 0;
@@ -42,6 +43,9 @@ public final class Joker extends Card {
 
     /**
      * This method should be regarded as semi-private.
+     * User should not pay attention to its action.
+     * @param joker1 A joker.
+     * @param joker2 A joker.
      * @return Integer.compare(joker1.id_, joker2.id_)
      */
     public static int compareId$for_comparator(Joker joker1, Joker joker2) {
