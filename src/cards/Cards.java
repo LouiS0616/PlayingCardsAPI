@@ -11,6 +11,7 @@ import java.util.stream.Collectors;
 
 /**
  * This class is high-functioning than BaseCards.
+ * Usually you had better to use class that extends this.
  */
 public abstract class Cards extends BaseCards {
     //
@@ -41,7 +42,9 @@ public abstract class Cards extends BaseCards {
     // Methods related drawing
 
     /**
-     * Try to pick "num" cards from "from" to this.
+     * Try to pick NUM cards from FROM to THIS.
+     * @param from Where you want to pick card from.
+     * @param num How many you want to pick.
      * @throws CardNotEnoughException When from.countCard() {@literal <} num.
      */
     public void pickFrom(Cards from, int num) throws CardNotEnoughException {
@@ -56,7 +59,9 @@ public abstract class Cards extends BaseCards {
     }
 
     /**
-     * Draw cards from "from" what match "wildPurpose" condition.
+     * Draw cards from FROM what match WILD-PURPOSE condition.
+     * @param from Where you want to divide from.
+     * @param wildPurpose Imitator means what you want to divide.
      */
     public void divideFrom(Cards from, WildCardImitator wildPurpose) {
         // DO make list first avoid to java.util.ConcurrentModificationException.
