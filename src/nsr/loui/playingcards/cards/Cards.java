@@ -16,6 +16,12 @@ import java.util.stream.Collectors;
 public abstract class Cards extends BaseCards {
     //
     // Generate methods
+
+    /**
+     * If you don't observe cards, pass Observer.STUB as arg OBSERVER.
+     * @param name name of cards used for print info.
+     * @param observer observer. DON'T pass null, DO use stub instead.
+     */
     protected Cards(String name, Observer observer) {
         super(name);
         this.observer_ = observer;
@@ -43,9 +49,9 @@ public abstract class Cards extends BaseCards {
 
     /**
      * Try to pick NUM cards from FROM to THIS.
-     * @param from Where you want to pick card from.
-     * @param num How many you want to pick.
-     * @throws CardNotEnoughException When from.countCard() {@literal <} num.
+     * @param from where you want to pick card from.
+     * @param num how many you want to pick.
+     * @throws CardNotEnoughException when from.countCard() {@literal <} num.
      */
     public void pickFrom(Cards from, int num) throws CardNotEnoughException {
         if(from.countCard() < num) {
@@ -60,8 +66,8 @@ public abstract class Cards extends BaseCards {
 
     /**
      * Draw cards from FROM what match WILD-PURPOSE condition.
-     * @param from Where you want to divide from.
-     * @param wildPurpose Imitator means what you want to divide.
+     * @param from where you want to divide from.
+     * @param wildPurpose imitator indicate cards what you want to divide.
      */
     public void divideFrom(Cards from, WildCardImitator wildPurpose) {
         // DO make list first avoid to java.util.ConcurrentModificationException.
