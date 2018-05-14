@@ -6,12 +6,13 @@ import java.util.Arrays;
 import java.util.List;
 
 /**
- * This class can concatenate imitators by OR condition.
+ * This class is consist of imitators concatenated on OR condition.
  */
 public class UnitedImitator implements WildCardImitator {
     /**
+     * Feed imitators what you want to concatenate.
      * Be careful not to occur Loop Reference.
-     * @param imitators Imitators to concatenate.
+     * @param imitators imitators to concatenate.
      */
     public UnitedImitator(CardImitator... imitators) {
         this.imitators_ = Arrays.asList(imitators);

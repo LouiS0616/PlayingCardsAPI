@@ -10,15 +10,15 @@ import nsr.loui.playingcards.card.Suit;
 public class RankedCardImitator implements IndividualCardImitator {
     /**
      * Make instance what can imitate model.
-     * @param model A Ranked Card behaves model.
+     * @param model a Ranked Card behaves as imitator model.
      */
     public RankedCardImitator(RankedCard model) {
         this(model.getSuit(), model.getRank());
     }
 
     /**
-     * @param suit Suit to imitate.
-     * @param rank Rank to imitate.
+     * @param suit suit to imitate.
+     * @param rank rank to imitate.
      */
     public RankedCardImitator(Suit suit, int rank) {
         this.suit_ = suit;

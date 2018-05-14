@@ -3,14 +3,13 @@ package nsr.loui.playingcards.card.imitator;
 import nsr.loui.playingcards.card.Card;
 
 /**
- * It imitates a card that class implements this interface.
- * User should not use Card instance avoid to card duplication.
- * When you want to express card, use imitator proactively instead of concrete Card instance.
+ * Classes implements this interface imitate a card.
+ * User had better use imitator proactively instead of concrete Card instance directory avoid to card duplication.
  */
 public interface CardImitator {
     /**
-     * @param card The card judged equivalent to this.
-     * @return Whether card is equivalent or not.
+     * @param card card judged equivalent to THIS.
+     * @return whether THIS is equivalent to CARD or not.
      */
     boolean isEquivalent(Card card);
 }
