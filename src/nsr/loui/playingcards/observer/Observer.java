@@ -5,7 +5,7 @@ import nsr.loui.playingcards.cards.BaseCards;
 import nsr.loui.playingcards.cards.Cards;
 
 /**
- * It can observe loui.playingcards.card transfer that classes implement this interface.
+ * It can observe card transfer that classes implement this interface.
  */
 @FunctionalInterface
 public interface Observer {
@@ -18,9 +18,9 @@ public interface Observer {
      * When type is ADD, this method means "CARD ADDed to SELF from OTHER".
      * When type is PICK, this method means "CARD PICKed from SELF to OTHER".
      * @param type Action type for observe.
-     * @param card The loui.playingcards.card transferred.
+     * @param card The card transferred.
      * @param self Cards what can be the subject.
-     * @param other The other loui.playingcards.cards where loui.playingcards.card is from or loui.playingcards.card is to.
+     * @param other The other cards where card is from or card is to.
      */
     void update(Type type, Card card, Cards self, BaseCards other);
 

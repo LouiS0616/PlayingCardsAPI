@@ -13,6 +13,10 @@ import java.util.stream.Stream;
  * This should be extended only by Joker and RankedCard class.
  */
 public abstract class Card {
+    /**
+     * Each card has its owner certificate for future extension.
+     * @param certificate valid card owner certificate.
+     */
     Card(CardOwnerCertificate certificate) {
         this.cardOwnerCertificate_ = certificate;
     }

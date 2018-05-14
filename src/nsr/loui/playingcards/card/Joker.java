@@ -19,9 +19,15 @@ public final class Joker extends Card {
         super(owner);
         this.id_ = serialId_++;
     }
-    static Stream<Card> generate$for_makeCards(CardOwnerCertificate affiliation) {
+
+    /**
+     * This method should be called only by Card.makeCards$for_deck method.
+     * @param certificate valid card own certificate.
+     * @return card stream what is consists of two joker instances.
+     */
+    static Stream<Card> generate$for_makeCards(CardOwnerCertificate certificate) {
         return Stream.of(
-            new Joker(affiliation), new Joker(affiliation)
+            new Joker(certificate), new Joker(certificate)
         );
     }
 

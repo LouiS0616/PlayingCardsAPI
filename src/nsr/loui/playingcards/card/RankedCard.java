@@ -20,12 +20,18 @@ public final class RankedCard extends Card {
         this.suit_ = suit;
         this.rank_ = rank;
     }
-    static Stream<Card> generate$for_makeCards(CardOwnerCertificate owner) {
+
+    /**
+     * This method should be called only by Card.makeCards$for_deck method.
+     * @param certificate valid card own certificate.
+     * @return card stream what is consists of 13x4 cards.
+     */
+    static Stream<Card> generate$for_makeCards(CardOwnerCertificate certificate) {
         return IntStream.rangeClosed(1, 13)
             .boxed()
             .flatMap(
                 i -> Suit.stream().map(
-                    s -> new RankedCard(s, i, owner)
+                    s -> new RankedCard(s, i, certificate)
                 )
             )
         ;
