@@ -1,7 +1,7 @@
 package card.imitator;
 
 /**
- * Imitator what indicate type of card.
+ * It imitates type of card that implement this interface, in contrast to IndividualCardImitator.
  */
 public interface WildCardImitator extends CardImitator {
 }
