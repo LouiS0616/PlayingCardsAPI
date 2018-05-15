@@ -10,8 +10,8 @@ public class CardOwnerCertificate {
     /**
      * @param name its name.
      */
-    public CardOwnerCertificate(String name) {
-        this.name_ = name;
+    public CardOwnerCertificate(CardOwner owner) {
+        this.name_ = owner.toString();
     }
 
     /**

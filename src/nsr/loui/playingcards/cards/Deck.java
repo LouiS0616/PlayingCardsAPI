@@ -8,40 +8,39 @@ import nsr.loui.playingcards.observer.Observer;
  * Deck instance can be a owner of cards.
  */
 public final class Deck extends OrderedCards implements CardOwner {
-    private static int serialId_ = 0;
-
     //
     // Generate methods
 
     /**
      * The default value is below:
      * <pre>
-     *     observer - Observer.STUB.
+     *     name - "Deck".
+     *     observer - Observer#STUB.
      * </pre>
      */
     public Deck() {
-        this(Observer.STUB);
+        this("Deck", Observer.STUB);
     }
-
+    public Deck(String name) {
+        this(name, Observer.STUB);
+    }
     /**
      * @param observer observer. DON'T pass null, DO use stub instead.
      */
-    public Deck(Observer observer) {
-        super("Deck" + serialId_, observer);
+    public Deck(String name, Observer observer) {
+        super(name, observer);
 
-        this.affiliation_ = new CardOwnerCertificate("Deck" + serialId_);
+        this.certificate_ = new CardOwnerCertificate(this);
         setCards(
-            Card.makeCards$for_deck(this.affiliation_), this
+            Card.makeCards$for_deck(this.certificate_ ), this
         );
-
-        ++serialId_;
     }
 
     //
-    // Affiliation
+    // Certificate
     @Override
     public CardOwnerCertificate getCertificate() {
-        return this.affiliation_;
+        return this.certificate_;
     }
-    private final CardOwnerCertificate affiliation_;
+    private final CardOwnerCertificate certificate_;
 }

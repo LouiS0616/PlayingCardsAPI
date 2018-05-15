@@ -161,7 +161,7 @@ public abstract class BaseCards {
         new PyLikePrinter("\n").print(
             "----------------------------------------------------------------",
             "Name:        " + name_,
-            "Affiliation: " + certificate_,
+            "Certificate: " + certificate_,
             "#Card:       " + countCard(),
             "Breakdown:   " + toStringBreakdown(),
             "",

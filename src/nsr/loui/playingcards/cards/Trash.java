@@ -37,7 +37,7 @@ public final class Trash extends Cards implements CardOwner {
 
     //
     // Class-specific methods
-    private final CardOwnerCertificate affiliation_ = new CardOwnerCertificate("Trash") {
+    private final CardOwnerCertificate certificate_ = new CardOwnerCertificate(this) {
         @Override
         public boolean isEquivalent(CardOwnerCertificate other) {
             return true;
@@ -45,7 +45,7 @@ public final class Trash extends Cards implements CardOwner {
     };
     @Override
     public CardOwnerCertificate getCertificate() {
-        return affiliation_;
+        return certificate_;
     }
 
     //

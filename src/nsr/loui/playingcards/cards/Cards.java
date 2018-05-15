@@ -49,6 +49,7 @@ public abstract class Cards extends BaseCards {
 
     /**
      * Try to pick NUM cards from FROM to THIS.
+     * This method call BaseCards#pickFrom(BaseCards, IndividualCardImitator) internally.
      * @param from where you want to pick card from.
      * @param num how many you want to pick.
      * @throws CardNotEnoughException when from.countCard() {@literal <} num.
@@ -66,6 +67,7 @@ public abstract class Cards extends BaseCards {
 
     /**
      * Draw cards from FROM what match WILD-PURPOSE condition.
+     * This method call BaseCards#pickFrom(BaseCards, IndividualCardImitator) internally.
      * @param from where you want to divide from.
      * @param wildPurpose imitator indicate cards what you want to divide.
      */
@@ -79,6 +81,12 @@ public abstract class Cards extends BaseCards {
 
         purposes.forEach(imitator -> pickFrom(from, imitator));
     }
+
+    /**
+     * This method call divideFrom(WildCardImitator) for each WILD-PURPOSE.
+     * @param from where you want to divide from.
+     * @param wildPurposes imitators indicate cards what you want to divide.
+     */
     public void divideFrom(Cards from, WildCardImitator... wildPurposes) {
         for(WildCardImitator wildPurpose: wildPurposes) {
             divideFrom(from, wildPurpose);
