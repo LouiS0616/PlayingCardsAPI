@@ -76,7 +76,7 @@ public abstract class OrderedCards extends Cards {
      * @return imitator what behave as the top card.
      */
     @Override
-    protected final IndividualCardImitator peek() {
+    public final IndividualCardImitator peek() {
         if(countCard() == 0) {
             throw new CardNotEnoughException();
         }
@@ -84,7 +84,7 @@ public abstract class OrderedCards extends Cards {
         return cards_.get(0).getIndividualImitator();
     }
     @Override
-    protected final Card draw(IndividualCardImitator purpose) {
+    final Card draw(IndividualCardImitator purpose) {
         return CollectionUtil.popElem(
             cards_,
             stream()
@@ -94,7 +94,7 @@ public abstract class OrderedCards extends Cards {
         );
     }
     @Override
-    protected final void add(Card card) {
+    final void add(Card card) {
         cards_.add(card);
     }
 

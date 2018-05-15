@@ -78,14 +78,14 @@ public abstract class BaseCards {
      * Because this method does not check card certificate at all.
      * @param card card you want to add THIS.
      */
-    protected abstract void add(Card card);
+    abstract void add(Card card);
 
     /**
      * This method behave randomly or not in accordance with its implementation.
      * @return a card imitator what mean drawable card.
      * @throws CardNotEnoughException when empty.
      */
-    protected abstract IndividualCardImitator peek() throws CardNotEnoughException;
+    public abstract IndividualCardImitator peek() throws CardNotEnoughException;
 
     /**
      * This method MUST be called only by BaseCards#pickFrom(BaseCards, IndividualCardImitator).
@@ -94,14 +94,14 @@ public abstract class BaseCards {
      * @return drawn card.
      * @throws CardNotFoundException when card is not included in cards.
      */
-    protected abstract Card draw(IndividualCardImitator purpose) throws CardNotFoundException;
+    abstract Card draw(IndividualCardImitator purpose) throws CardNotFoundException;
 
     /**
      * This method is called when CARD added to THIS from FROM.
      * @param card added card.
      * @param from where card from.
      */
-    protected abstract void update(Card card, BaseCards from);
+    abstract void update(Card card, BaseCards from);
 
 
     /**

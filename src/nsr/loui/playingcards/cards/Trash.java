@@ -91,7 +91,7 @@ public final class Trash extends Cards implements CardOwner {
      * @exception ProhibitedOperationException anytime.
      */
     @Override
-    protected IndividualCardImitator peek() {
+    public IndividualCardImitator peek() {
         throw new ProhibitedOperationException();
     }
 

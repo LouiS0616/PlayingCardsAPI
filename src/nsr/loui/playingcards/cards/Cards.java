@@ -30,7 +30,7 @@ public abstract class Cards extends BaseCards {
     //
     // Class specific methods
     @Override
-    protected final void update(Card card, BaseCards from) {
+    final void update(Card card, BaseCards from) {
         observer_.update(
             Observer.Type.ADD, card, this, from
         );

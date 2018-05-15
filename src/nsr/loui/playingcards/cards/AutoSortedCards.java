@@ -54,7 +54,7 @@ public abstract class AutoSortedCards extends Cards {
      * @return imitator what behave as card chosen randomly.
      */
     @Override
-    protected final IndividualCardImitator peek() {
+    public final IndividualCardImitator peek() {
         if(countCard() == 0) {
             throw new CardNotEnoughException();
         }
@@ -63,7 +63,7 @@ public abstract class AutoSortedCards extends Cards {
         return card.getIndividualImitator();
     }
     @Override
-    protected final Card draw(IndividualCardImitator purpose) {
+    final Card draw(IndividualCardImitator purpose) {
         return CollectionUtil.popElem(
             cardSet_,
             stream()
@@ -73,7 +73,7 @@ public abstract class AutoSortedCards extends Cards {
         );
     }
     @Override
-    protected final void add(Card card) {
+    final void add(Card card) {
         if(!cardSet_.add(card)) {
             System.err.println("You may use deprecated cards.");
         }
