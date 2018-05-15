@@ -1,11 +1,9 @@
 package nsr.loui.playingcards.cards;
 
 import nsr.loui.playingcards.card.Card;
+import nsr.loui.playingcards.card.RankedCard;
 import nsr.loui.playingcards.card.Suit;
-import nsr.loui.playingcards.card.imitator.CardImitator;
-import nsr.loui.playingcards.card.imitator.IndividualCardImitator;
-import nsr.loui.playingcards.card.imitator.SuitImitator;
-import nsr.loui.playingcards.card.imitator.WildCardImitator;
+import nsr.loui.playingcards.card.imitator.*;
 import nsr.loui.playingcards.exceptions.CardNotEnoughException;
 import nsr.loui.playingcards.exceptions.CardNotFoundException;
 import nsr.loui.playingcards.exceptions.OwnerCertificateImproperException;
@@ -40,8 +38,17 @@ public abstract class BaseCards {
     }
 
     //
-    // Stream method for semi-private use.
+    // Stream methods.
     abstract Stream<Card> stream();
+
+    /**
+     * This method is prepared to future extension, there is rarely case you should use this.
+     * @return stream of cards.
+     */
+    public Stream<CardImitator> cardImitatorStream() {
+        return stream().map(IndividualCardImitator::make);
+    }
+
 
     /**
      * @param imitator purpose card imitator.
