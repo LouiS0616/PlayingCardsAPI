@@ -1,9 +1,11 @@
 package nsr.loui.playingcards.cards;
 
 import nsr.loui.playingcards.card.Card;
-import nsr.loui.playingcards.card.RankedCard;
 import nsr.loui.playingcards.card.Suit;
-import nsr.loui.playingcards.card.imitator.*;
+import nsr.loui.playingcards.card.imitator.CardImitator;
+import nsr.loui.playingcards.card.imitator.IndividualCardImitator;
+import nsr.loui.playingcards.card.imitator.SuitImitator;
+import nsr.loui.playingcards.card.imitator.WildCardImitator;
 import nsr.loui.playingcards.exceptions.CardNotEnoughException;
 import nsr.loui.playingcards.exceptions.CardNotFoundException;
 import nsr.loui.playingcards.exceptions.OwnerCertificateImproperException;
