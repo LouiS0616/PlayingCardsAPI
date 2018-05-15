@@ -8,6 +8,10 @@ import nsr.loui.playingcards.card.RankedCard;
  * Classes implements this interface imitate just a card, in contrast to WildCardImitator.
  */
 public interface IndividualCardImitator extends CardImitator {
+    /**
+     * @param model model card.
+     * @return instance what can imitate MODEL.
+     */
     static IndividualCardImitator make(Card model) {
         if(model instanceof RankedCard) {
             return new RankedCardImitator((RankedCard)model);

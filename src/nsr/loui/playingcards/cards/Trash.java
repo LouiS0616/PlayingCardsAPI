@@ -80,7 +80,7 @@ public final class Trash extends Cards implements CardOwner {
      * @exception ProhibitedOperationException anytime.
      */
     @Override
-    public Stream<Card> stream() {
+    Stream<Card> stream() {
         throw new ProhibitedOperationException();
     }
 

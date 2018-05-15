@@ -5,7 +5,7 @@ import nsr.loui.playingcards.cards.BaseCards;
 import nsr.loui.playingcards.cards.Cards;
 
 /**
- * This class is stdout observer for just a sample or debug.
+ * This class report transfer on stdout just for debug, or just be implementation sample.
  */
 public class PrintObserver implements Observer {
     public void update(Type type, Card card, Cards self, BaseCards other) {

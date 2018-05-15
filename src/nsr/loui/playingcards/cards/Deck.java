@@ -14,8 +14,8 @@ public final class Deck extends OrderedCards implements CardOwner {
     /**
      * The default value is below:
      * <pre>
-     *     name - "Deck".
-     *     observer - Observer.STUB.
+     *     name     - "Deck".
+     *     observer - Observer.STUB .
      * </pre>
      */
     public Deck() {

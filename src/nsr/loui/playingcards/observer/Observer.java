@@ -14,7 +14,7 @@ public interface Observer {
     }
 
     /**
-     * This method should be called from Cards#update method.
+     * This method called when card transfers.
      * When type is ADD, this method means "CARD ADDed to SELF from OTHER".
      * When type is PICK, this method means "CARD PICKed from SELF to OTHER".
      * @param type Action type for observe.
@@ -26,7 +26,7 @@ public interface Observer {
 
     /**
      * This method do NOTHING at all.
-     * Using null observer instead of this may occur null pointer clash.
+     * Using null instead of this may occur null pointer clash.
      */
     Observer STUB =
         (Type type, Card card, Cards self, BaseCards other) -> {

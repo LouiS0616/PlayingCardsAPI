@@ -26,7 +26,7 @@ public abstract class AutoSortedCards extends Cards {
     /**
      * @param name name of cards used for print info.
      * @param observer observer. DON'T pass null, DO use stub instead.
-     * @param comparator comparator used for auto-sort.
+     * @param comparator comparator used for auto-sorting.
      */
     protected AutoSortedCards(String name, Observer observer, CardComparator comparator) {
         super(name, observer);

@@ -13,7 +13,7 @@ public final class Hand extends AutoSortedCards {
      * The default values are as below:
      * <pre>
      *     comparator - instance of DefaultCardComparator.
-     *     observer   - Observer.STUB.
+     *     observer   - Observer.STUB .
      * </pre>
      * @param name name of cards used for print info.
      */
