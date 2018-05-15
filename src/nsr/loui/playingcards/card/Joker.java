@@ -7,6 +7,8 @@ import java.util.stream.Stream;
 
 /**
  * This class means a joker.
+ *
+ * Each instance is given serial id.
  * Though jokers are shown as same by user, it should be distinguishable for hash container.
  */
 public final class Joker extends Card {

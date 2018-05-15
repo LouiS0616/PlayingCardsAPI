@@ -11,7 +11,7 @@ import java.util.List;
 public class UnitedImitator implements WildCardImitator {
     /**
      * Feed imitators what you want to concatenate.
-     * Be careful not to occur Loop Reference.
+     * Be careful of Loop Reference not to occur.
      * @param imitators imitators to concatenate.
      */
     public UnitedImitator(CardImitator... imitators) {

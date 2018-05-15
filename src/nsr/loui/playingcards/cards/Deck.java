@@ -25,6 +25,7 @@ public final class Deck extends OrderedCards implements CardOwner {
         this(name, Observer.STUB);
     }
     /**
+     * @param name its name.
      * @param observer observer. DON'T pass null, DO use stub instead.
      */
     public Deck(String name, Observer observer) {

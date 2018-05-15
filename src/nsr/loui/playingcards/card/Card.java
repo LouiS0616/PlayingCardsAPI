@@ -9,8 +9,8 @@ import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 /**
- * This class means a playing card abstractly.
- * This should be extended only by Joker and RankedCard class.
+ * This class means a playing card abstractly, should be extended only by Joker and RankedCard class.
+ * NO way is provided to make Card instance by users avoid to card duplication.
  */
 public abstract class Card {
     /**

@@ -4,7 +4,7 @@ import nsr.loui.playingcards.card.Card;
 
 /**
  * Classes implements this interface imitate a card.
- * User had better use imitator proactively instead of concrete Card instance directory avoid to card duplication.
+ * Use imitator proactively instead of concrete Card instance directory.
  */
 public interface CardImitator {
     /**
