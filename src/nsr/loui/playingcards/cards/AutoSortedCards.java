@@ -43,7 +43,7 @@ public abstract class AutoSortedCards extends Cards {
     //
     // Iterate methods
     @Override
-    public final Stream<Card> stream() {
+    final Stream<Card> stream() {
         return cardSet_.stream();
     }
 

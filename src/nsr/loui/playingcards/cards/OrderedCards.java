@@ -35,7 +35,7 @@ public abstract class OrderedCards extends Cards {
      * @param owner valid card owner.
      * @exception ProhibitedOperationException when originally cards is not empty.
      */
-    protected void setCards(LinkedList<Card> cards, CardOwner owner) {
+    void setCards(LinkedList<Card> cards, CardOwner owner) {
         if(this.cards_.isEmpty()) {
             this.cards_ = cards;
             setOwner(owner);
@@ -65,7 +65,7 @@ public abstract class OrderedCards extends Cards {
     //
     // Iterate methods
     @Override
-    public final Stream<Card> stream() {
+    final Stream<Card> stream() {
         return cards_.stream();
     }
 

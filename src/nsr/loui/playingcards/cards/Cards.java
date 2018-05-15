@@ -22,7 +22,7 @@ public abstract class Cards extends BaseCards {
      * @param name name of cards used for print info.
      * @param observer observer. DON'T pass null, DO use stub instead.
      */
-    protected Cards(String name, Observer observer) {
+    Cards(String name, Observer observer) {
         super(name);
         this.observer_ = observer;
     }
