@@ -12,13 +12,16 @@ import nsr.loui.playingcards.exceptions.OwnerCertificateImproperException;
 import nsr.loui.playingcards.util.PyLikePrinter;
 import nsr.loui.playingcards.util.StreamAble;
 
+import java.util.Iterator;
 import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 
 /**
  * This class means cards and handles card transfer in safety way.
+ * Cards container should NOT provide iterator or stream method publicly avoid to card duplication.
  */
-public abstract class BaseCards implements Iterable<Card>, StreamAble<Card> {
+public abstract class BaseCards {
     //
     // Generate methods
     BaseCards(String name) {
@@ -38,6 +41,9 @@ public abstract class BaseCards implements Iterable<Card>, StreamAble<Card> {
         this.certificate_ = owner.getCertificate();
     }
 
+    //
+    // Stream method for semi-private use.
+    abstract Stream<Card> stream();
 
     /**
      * @param imitator purpose card imitator.

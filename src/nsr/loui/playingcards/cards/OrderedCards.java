@@ -66,10 +66,6 @@ public abstract class OrderedCards extends Cards {
     //
     // Iterate methods
     @Override
-    public final Iterator<Card> iterator() {
-        return cards_.iterator();
-    }
-    @Override
     public final Stream<Card> stream() {
         return cards_.stream();
     }

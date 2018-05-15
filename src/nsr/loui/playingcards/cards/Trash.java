@@ -81,17 +81,6 @@ public final class Trash extends Cards implements CardOwner {
      * @exception ProhibitedOperationException anytime.
      */
     @Override
-    public Iterator<Card> iterator() {
-        throw new ProhibitedOperationException();
-    }
-
-    /**
-     * Do NOT call this method.
-     * @deprecated This method is prohibited.
-     * @return no chance to return value.
-     * @exception ProhibitedOperationException anytime.
-     */
-    @Override
     public Stream<Card> stream() {
         throw new ProhibitedOperationException();
     }
