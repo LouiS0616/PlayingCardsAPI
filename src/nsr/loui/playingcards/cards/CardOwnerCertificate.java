@@ -8,10 +8,10 @@ package nsr.loui.playingcards.cards;
  */
 public class CardOwnerCertificate {
     /**
-     * @param name its name.
+     * @param owner its owner.
      */
     public CardOwnerCertificate(CardOwner owner) {
-        this.name_ = owner.toString();
+        this.owner_ = owner;
     }
 
     /**
@@ -27,10 +27,10 @@ public class CardOwnerCertificate {
      */
     @Override
     public String toString() {
-        return this.name_;
+        return this.owner_.toString();
     }
 
     //
     //
-    private final String name_;
+    private final CardOwner owner_;
 }
