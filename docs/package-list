@@ -1,0 +1,7 @@
+nsr.loui.playingcards.card
+nsr.loui.playingcards.card.comparator
+nsr.loui.playingcards.card.imitator
+nsr.loui.playingcards.cards
+nsr.loui.playingcards.exceptions
+nsr.loui.playingcards.observer
+nsr.loui.util
