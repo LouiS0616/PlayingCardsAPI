@@ -5,7 +5,6 @@ import nsr.loui.playingcards.card.imitator.IndividualCardImitator;
 import nsr.loui.playingcards.exceptions.ProhibitedOperationException;
 import nsr.loui.playingcards.observer.Observer;
 
-import java.util.Iterator;
 import java.util.stream.Stream;
 
 /**

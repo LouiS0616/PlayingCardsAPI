@@ -8,7 +8,6 @@ import nsr.loui.playingcards.exceptions.CardNotFoundException;
 import nsr.loui.playingcards.observer.Observer;
 import nsr.loui.playingcards.util.CollectionUtil;
 
-import java.util.Iterator;
 import java.util.Random;
 import java.util.SortedSet;
 import java.util.TreeSet;

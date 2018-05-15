@@ -9,7 +9,6 @@ import nsr.loui.playingcards.observer.Observer;
 import nsr.loui.playingcards.util.CollectionUtil;
 
 import java.util.Collections;
-import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.stream.Stream;
 
