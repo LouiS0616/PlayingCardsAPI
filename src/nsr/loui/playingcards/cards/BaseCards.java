@@ -9,7 +9,7 @@ import nsr.loui.playingcards.card.imitator.WildCardImitator;
 import nsr.loui.playingcards.exceptions.CardNotEnoughException;
 import nsr.loui.playingcards.exceptions.CardNotFoundException;
 import nsr.loui.playingcards.exceptions.OwnerCertificateImproperException;
-import nsr.loui.playingcards.util.PyLikePrinter;
+import nsr.loui.util.PyLikePrinter;
 
 import java.util.stream.Collectors;
 import java.util.stream.Stream;

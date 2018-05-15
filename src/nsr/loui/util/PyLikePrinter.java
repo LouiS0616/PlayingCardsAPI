@@ -1,4 +1,4 @@
-package nsr.loui.playingcards.util;
+package nsr.loui.util;
 
 import java.util.StringJoiner;
 

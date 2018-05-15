@@ -4,4 +4,4 @@ nsr.loui.playingcards.card.imitator
 nsr.loui.playingcards.cards
 nsr.loui.playingcards.exceptions
 nsr.loui.playingcards.observer
-nsr.loui.playingcards.util
+nsr.loui.util

@@ -6,7 +6,7 @@ import nsr.loui.playingcards.exceptions.CardNotEnoughException;
 import nsr.loui.playingcards.exceptions.CardNotFoundException;
 import nsr.loui.playingcards.exceptions.ProhibitedOperationException;
 import nsr.loui.playingcards.observer.Observer;
-import nsr.loui.playingcards.util.CollectionUtil;
+import nsr.loui.util.CollectionUtil;
 
 import java.util.Collections;
 import java.util.LinkedList;

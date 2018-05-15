@@ -6,7 +6,7 @@ import nsr.loui.playingcards.card.imitator.IndividualCardImitator;
 import nsr.loui.playingcards.exceptions.CardNotEnoughException;
 import nsr.loui.playingcards.exceptions.CardNotFoundException;
 import nsr.loui.playingcards.observer.Observer;
-import nsr.loui.playingcards.util.CollectionUtil;
+import nsr.loui.util.CollectionUtil;
 
 import java.util.Random;
 import java.util.SortedSet;
