@@ -14,7 +14,6 @@ public class CardOwnerCertificate {
 
     private CardOwnerCertificate() {
         this.name_ = "UNINITIALIZED";
-        this.owner_ = null;
     }
 
     /**
@@ -29,7 +28,6 @@ public class CardOwnerCertificate {
      */
     CardOwnerCertificate(CardOwner owner) {
         this.name_ = owner.toString();
-        this.owner_ = owner;
     }
 
     /**
@@ -37,7 +35,7 @@ public class CardOwnerCertificate {
      * @return whether OTHER is equivalent THIS or not.
      */
     boolean isEquivalent(CardOwnerCertificate other) {
-        return this == other;
+        return this.equals(other);
     }
 
     /**
@@ -51,5 +49,4 @@ public class CardOwnerCertificate {
     //
     // Fields
     private final String name_;
-    private final CardOwner owner_;
 }
