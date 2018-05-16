@@ -39,7 +39,7 @@ public final class Trash extends Cards implements CardOwner {
     // Class-specific methods
     private final CardOwnerCertificate certificate_ = new CardOwnerCertificate(this) {
         @Override
-        public boolean isEquivalent(CardOwnerCertificate other) {
+        public boolean permits(CardOwnerCertificate other) {
             return true;
         }
     };

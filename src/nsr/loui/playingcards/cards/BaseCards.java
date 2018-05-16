@@ -14,9 +14,6 @@ import nsr.loui.util.PyLikePrinter;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
-import static nsr.loui.playingcards.cards.CardOwnerCertificate.UNINITIALIZED;
-
-
 /**
  * This class means cards and handles card transfer in safety way.
  * Cards container should NOT provide iterator or stream method publicly avoid to card duplication.
@@ -127,7 +124,7 @@ public abstract class BaseCards {
             this.certificate_ = from.certificate_;
         }
 
-        if(this.certificate_.isEquivalent(from.certificate_)) {
+        if(this.certificate_.permits(from.certificate_)) {
             Card card = from.draw(purpose);
 
             update(card, from);
@@ -185,5 +182,5 @@ public abstract class BaseCards {
     //
     // Fields
     private final String name_;
-    private CardOwnerCertificate certificate_ = UNINITIALIZED;
+    private CardOwnerCertificate certificate_ = CardOwnerCertificate.UNINITIALIZED;
 }

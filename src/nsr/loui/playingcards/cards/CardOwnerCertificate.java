@@ -34,7 +34,7 @@ public class CardOwnerCertificate {
      * @param other other certificate.
      * @return whether OTHER is equivalent THIS or not.
      */
-    boolean isEquivalent(CardOwnerCertificate other) {
+    boolean permits(CardOwnerCertificate other) {
         return this.equals(other);
     }
 
