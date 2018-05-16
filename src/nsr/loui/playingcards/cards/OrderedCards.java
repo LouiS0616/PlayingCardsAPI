@@ -35,7 +35,7 @@ public class OrderedCards extends Cards {
      * Set cards and these owner when THIS have empty cards.
      * @param cards what you want THIS to hold.
      * @param owner valid card owner.
-     * @exception ProhibitedOperationException when originally cards is not empty.
+     * @throws ProhibitedOperationException when originally cards is not empty.
      */
     void setCards(LinkedList<Card> cards, CardOwner owner) {
         if(this.cards_.isEmpty()) {
