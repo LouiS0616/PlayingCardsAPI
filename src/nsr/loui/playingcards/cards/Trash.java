@@ -56,7 +56,7 @@ public final class Trash extends Cards implements CardOwner {
      * @param card card you want to throw away.
      */
     @Override
-    protected void add(Card card) {
+    void add(Card card) {
         ++numOfTrashedCard_;
     }
 
