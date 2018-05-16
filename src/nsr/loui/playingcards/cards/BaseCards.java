@@ -11,7 +11,6 @@ import nsr.loui.playingcards.exceptions.CardNotFoundException;
 import nsr.loui.playingcards.exceptions.OwnerCertificateImproperException;
 import nsr.loui.util.PyLikePrinter;
 
-import java.util.Optional;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
