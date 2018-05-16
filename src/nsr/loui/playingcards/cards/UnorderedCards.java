@@ -18,7 +18,7 @@ import java.util.stream.Stream;
  *
  * This class has cards as Set.
  */
-public abstract class UnorderedCards extends Cards {
+public class UnorderedCards extends Cards {
     //
     // Generate methods
 

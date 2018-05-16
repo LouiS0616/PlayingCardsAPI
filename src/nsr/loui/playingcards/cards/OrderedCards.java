@@ -19,7 +19,7 @@ import java.util.stream.Stream;
  *
  * This class has cards as LinkedList for what reason its performance.
  */
-public abstract class OrderedCards extends Cards {
+public class OrderedCards extends Cards {
     //
     // Generate methods
 

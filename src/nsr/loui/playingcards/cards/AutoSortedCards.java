@@ -11,7 +11,7 @@ import java.util.TreeSet;
  *
  * This class has cards as SortedSet.
  */
-public abstract class AutoSortedCards extends UnorderedCards {
+public class AutoSortedCards extends UnorderedCards {
     //
     // Generate methods
 
