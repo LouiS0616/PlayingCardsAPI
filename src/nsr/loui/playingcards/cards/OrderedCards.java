@@ -16,6 +16,7 @@ import java.util.stream.Stream;
 /**
  * This class treats ORDERED cards.
  * You can draw top card of cards, but cannot draw card randomly.
+ *
  * This class has cards as LinkedList for what reason its performance.
  */
 public abstract class OrderedCards extends Cards {
