@@ -31,7 +31,6 @@ public class UnorderedCards extends Cards {
     }
 
     /**
-     *
      * @param name name of cards used for print info.
      * @param observer observer. DON'T pass null, DO use stub instead.
      * @param cardSet card set haven internally.
