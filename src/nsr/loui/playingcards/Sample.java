@@ -1,6 +1,9 @@
 package nsr.loui.playingcards;
 
+import nsr.loui.playingcards.card.RankedCard;
 import nsr.loui.playingcards.card.Suit;
+import nsr.loui.playingcards.card.comparator.DefaultCardComparator;
+import nsr.loui.playingcards.card.comparator.JokersLastComparator;
 import nsr.loui.playingcards.card.imitator.IndividualCardImitator;
 import nsr.loui.playingcards.card.imitator.JokerImitator;
 import nsr.loui.playingcards.card.imitator.RankImitator;
@@ -10,6 +13,8 @@ import nsr.loui.playingcards.cards.Trash;
 import nsr.loui.playingcards.cards.Deck;
 import nsr.loui.playingcards.cards.Hand;
 import nsr.loui.playingcards.observer.PrintObserver;
+
+import java.util.Comparator;
 
 /**
  * Sample how to use this api.
@@ -51,6 +56,22 @@ class Sample {
         //
         // Print info.
         hand.printInfo();
+        deck.printInfo();
+
+        //
+        // Sorting.
+        deck.sort(
+            new JokersLastComparator() {
+                @Override
+                protected int compare(RankedCard rankedCard1, RankedCard rankedCard2) {
+                    return Comparator
+                        .comparing(RankedCard::getSuit)
+                        .thenComparingInt(RankedCard::getRank)
+                        .compare(rankedCard1, rankedCard2)
+                    ;
+                }
+            }
+        );
         deck.printInfo();
     }
 }
