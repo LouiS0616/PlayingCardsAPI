@@ -2,7 +2,6 @@ package nsr.loui.playingcards;
 
 import nsr.loui.playingcards.card.RankedCard;
 import nsr.loui.playingcards.card.Suit;
-import nsr.loui.playingcards.card.comparator.DefaultCardComparator;
 import nsr.loui.playingcards.card.comparator.JokersLastComparator;
 import nsr.loui.playingcards.card.imitator.IndividualCardImitator;
 import nsr.loui.playingcards.card.imitator.JokerImitator;
