@@ -11,7 +11,7 @@ import java.util.stream.Collectors;
 
 /**
  * High-functioning than BaseCards, however this does NOT hold cards concretely yet.
- * User had better not extend this class directory after all.
+ * Users except core-developer had better not extend this class directory after all.
  */
 public abstract class Cards extends BaseCards {
     //
