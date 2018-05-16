@@ -20,14 +20,14 @@ public class CardOwnerCertificate {
     /**
      * @return whether THIS has been initialized or not.
      */
-    public boolean initialized() {
+    boolean initialized() {
         return this != UNINITIALIZED;
     }
 
     /**
      * @param owner its owner.
      */
-    public CardOwnerCertificate(CardOwner owner) {
+    CardOwnerCertificate(CardOwner owner) {
         this.name_ = owner.toString();
         this.owner_ = owner;
     }
@@ -36,7 +36,7 @@ public class CardOwnerCertificate {
      * @param other other certificate.
      * @return whether OTHER is equivalent THIS or not.
      */
-    public boolean isEquivalent(CardOwnerCertificate other) {
+    boolean isEquivalent(CardOwnerCertificate other) {
         return this == other;
     }
 
