@@ -75,7 +75,7 @@ public abstract class OrderedCards extends Cards {
     //
     // Iterate methods
     @Override
-    final Stream<Card> stream() {
+    protected Stream<Card> stream() {
         return cards_.stream();
     }
 

@@ -41,7 +41,7 @@ public abstract class BaseCards {
 
     //
     // Stream methods.
-    abstract Stream<Card> stream();
+    protected abstract Stream<Card> stream();
 
     /**
      * This method is prepared to future extension, there is rarely case you should use this.
@@ -110,7 +110,7 @@ public abstract class BaseCards {
      * @param card added card.
      * @param from where card from.
      */
-    abstract void update(Card card, BaseCards from);
+    protected abstract void update(Card card, BaseCards from);
 
 
     /**
