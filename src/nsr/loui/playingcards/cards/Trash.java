@@ -32,7 +32,7 @@ public final class Trash extends Cards implements CardOwner {
 
     private Trash() {
         super("Trash", Observer.STUB);
-        setOwner(this);
+        setCertificate(this.certificate_);
     }
 
     //

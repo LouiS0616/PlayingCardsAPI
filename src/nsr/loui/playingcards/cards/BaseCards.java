@@ -26,16 +26,16 @@ public abstract class BaseCards {
     }
 
     /**
-     * Set owner when cards' owner has been uninitialized.
-     * @param owner owner what should have THIS cards.
+     * Set certificate when cards' owner has been uninitialized.
+     * @param certificate owner certificate what means having THIS cards.
      * @throws OwnerCertificateImproperException when non-null THIS.owner is tried to overwrite.
      */
-    final void setOwner(CardOwner owner) {
+    final void setCertificate(CardOwnerCertificate certificate) {
         if(this.certificate_.initialized()) {
             throw new OwnerCertificateImproperException("You can NOT reset card owner.");
         }
 
-        this.certificate_ = owner.getCertificate();
+        this.certificate_ = certificate;
     }
 
     //

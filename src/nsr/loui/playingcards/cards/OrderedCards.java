@@ -34,13 +34,13 @@ public class OrderedCards extends Cards {
     /**
      * Set cards and these owner when THIS have empty cards.
      * @param cards what you want THIS to hold.
-     * @param owner valid card owner.
+     * @param certificate valid card owner-certificate.
      * @throws ProhibitedOperationException when originally cards is not empty.
      */
-    void setCards(LinkedList<Card> cards, CardOwner owner) {
+    void setCards(LinkedList<Card> cards, CardOwnerCertificate certificate) {
         if(this.cards_.isEmpty()) {
             this.cards_ = cards;
-            setOwner(owner);
+            setCertificate(certificate);
         }
         else {
             throw new ProhibitedOperationException();

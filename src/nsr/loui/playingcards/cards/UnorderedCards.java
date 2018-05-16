@@ -44,13 +44,13 @@ public class UnorderedCards extends Cards {
     /**
      * Set cards and these owner when THIS have empty cards.
      * @param cards what you want THIS to hold.
-     * @param owner valid card owner.
+     * @param owner valid card owner-certificate.
      * @throws ProhibitedOperationException when originally cards is not empty.
      */
-    void setCards(Set<Card> cards, CardOwner owner) {
+    void setCards(Set<Card> cards, CardOwnerCertificate certificate) {
         if(this.cardSet_.isEmpty()) {
             this.cardSet_ = cards;
-            setOwner(owner);
+            setCertificate(certificate);
         }
         else {
             throw new ProhibitedOperationException();
