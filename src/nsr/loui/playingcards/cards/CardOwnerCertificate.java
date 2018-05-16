@@ -8,9 +8,27 @@ package nsr.loui.playingcards.cards;
  */
 public class CardOwnerCertificate {
     /**
+     * UNINITIALIZED certificate is prepared instead of null.
+     */
+    static CardOwnerCertificate UNINITIALIZED = new CardOwnerCertificate();
+
+    private CardOwnerCertificate() {
+        this.name_ = "UNINITIALIZED";
+        this.owner_ = null;
+    }
+
+    /**
+     * @return whether THIS has been initialized or not.
+     */
+    public boolean initialized() {
+        return this != UNINITIALIZED;
+    }
+
+    /**
      * @param owner its owner.
      */
     public CardOwnerCertificate(CardOwner owner) {
+        this.name_ = owner.toString();
         this.owner_ = owner;
     }
 
@@ -23,21 +41,15 @@ public class CardOwnerCertificate {
     }
 
     /**
-     * @return its owner.
-     */
-    public CardOwner getOwner() {
-        return this.owner_;
-    }
-
-    /**
      * @return its name.
      */
     @Override
     public String toString() {
-        return this.owner_.toString();
+        return this.name_;
     }
 
     //
-    //
+    // Fields
+    private final String name_;
     private final CardOwner owner_;
 }

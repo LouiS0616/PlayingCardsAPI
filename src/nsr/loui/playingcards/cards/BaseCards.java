@@ -14,6 +14,8 @@ import nsr.loui.util.PyLikePrinter;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
+import static nsr.loui.playingcards.cards.CardOwnerCertificate.UNINITIALIZED;
+
 
 /**
  * This class means cards and handles card transfer in safety way.
@@ -32,7 +34,7 @@ public abstract class BaseCards {
      * @throws OwnerCertificateImproperException when non-null THIS.owner is tried to overwrite.
      */
     final void setOwner(CardOwner owner) {
-        if(this.certificate_ != null) {
+        if(this.certificate_.initialized()) {
             throw new OwnerCertificateImproperException("You can NOT reset card owner.");
         }
 
@@ -121,7 +123,7 @@ public abstract class BaseCards {
      * @throws OwnerCertificateImproperException when certificates are difference between THIS and FROM.
      */
     public final void pickFrom(BaseCards from, IndividualCardImitator purpose) {
-        if(this.certificate_ == null) {
+        if(!this.certificate_.initialized()) {
             this.certificate_ = from.certificate_;
         }
 
@@ -183,5 +185,5 @@ public abstract class BaseCards {
     //
     // Fields
     private final String name_;
-    private CardOwnerCertificate certificate_;
+    private CardOwnerCertificate certificate_ = UNINITIALIZED;
 }
