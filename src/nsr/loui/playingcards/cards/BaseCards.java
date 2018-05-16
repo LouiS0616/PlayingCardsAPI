@@ -15,8 +15,10 @@ import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 /**
- * This class means cards and handles card transfer in safety way.
- * Cards container should NOT provide iterator or stream method publicly avoid to card duplication.
+ * Holds cards abstractly and handles card transfer in safety way.
+ * Cards container should NOT provide iterator or stream method publicly avoid to illegal card-removal.
+ *
+ * This class has responsibility just for basically operation, user should NOT be extend this directory.
  */
 public abstract class BaseCards {
     //

@@ -10,8 +10,8 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 /**
- * This class is high-functioning than BaseCards.
- * Usually you had better to use class that extends this.
+ * High-functioning than BaseCards, however this does NOT hold cards concretely yet.
+ * User had better not extend this class directory after all.
  */
 public abstract class Cards extends BaseCards {
     //
