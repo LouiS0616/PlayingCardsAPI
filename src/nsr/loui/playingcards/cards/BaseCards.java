@@ -40,14 +40,6 @@ public abstract class BaseCards {
         this.certificate_ = owner.getCertificate();
     }
 
-    /**
-     * @return its owner.
-     */
-    final Optional<CardOwner> getOwner() {
-        return Optional.ofNullable(this.certificate_.getOwner());
-    }
-
-
     //
     // Stream methods.
     abstract Stream<Card> stream();

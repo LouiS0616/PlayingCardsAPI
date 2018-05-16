@@ -4,6 +4,7 @@ import nsr.loui.playingcards.card.Card;
 import nsr.loui.playingcards.card.imitator.IndividualCardImitator;
 import nsr.loui.playingcards.exceptions.CardNotEnoughException;
 import nsr.loui.playingcards.exceptions.CardNotFoundException;
+import nsr.loui.playingcards.exceptions.ProhibitedOperationException;
 import nsr.loui.playingcards.observer.Observer;
 import nsr.loui.util.CollectionUtil;
 
@@ -38,6 +39,22 @@ public class UnorderedCards extends Cards {
     protected UnorderedCards(String name, Observer observer, Set<Card> cardSet) {
         super(name, observer);
         this.cardSet_ = cardSet;
+    }
+
+    /**
+     * Set cards and these owner when THIS have empty cards.
+     * @param cards what you want THIS to hold.
+     * @param owner valid card owner.
+     * @throws ProhibitedOperationException when originally cards is not empty.
+     */
+    void setCards(Set<Card> cards, CardOwner owner) {
+        if(this.cardSet_.isEmpty()) {
+            this.cardSet_ = cards;
+            setOwner(owner);
+        }
+        else {
+            throw new ProhibitedOperationException();
+        }
     }
 
     //
@@ -88,7 +105,7 @@ public class UnorderedCards extends Cards {
 
     //
     // Fields and utility
-    private final Set<Card> cardSet_;
+    private Set<Card> cardSet_;
     private final Random rand_ = new Random();
 
     private int randIndex() {
