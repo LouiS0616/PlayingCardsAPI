@@ -11,6 +11,7 @@ import nsr.loui.playingcards.exceptions.CardNotFoundException;
 import nsr.loui.playingcards.exceptions.OwnerCertificateImproperException;
 import nsr.loui.util.PyLikePrinter;
 
+import java.util.Optional;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
@@ -38,6 +39,14 @@ public abstract class BaseCards {
 
         this.certificate_ = owner.getCertificate();
     }
+
+    /**
+     * @return its owner.
+     */
+    final Optional<CardOwner> getOwner() {
+        return Optional.ofNullable(this.certificate_.getOwner());
+    }
+
 
     //
     // Stream methods.

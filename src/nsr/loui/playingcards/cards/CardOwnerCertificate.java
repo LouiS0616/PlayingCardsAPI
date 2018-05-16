@@ -23,6 +23,13 @@ public class CardOwnerCertificate {
     }
 
     /**
+     * @return its owner.
+     */
+    public CardOwner getOwner() {
+        return this.owner_;
+    }
+
+    /**
      * @return its name.
      */
     @Override
