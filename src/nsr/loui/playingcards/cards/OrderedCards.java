@@ -50,14 +50,14 @@ public abstract class OrderedCards extends Cards {
     // Class-specific methods
 
     /**
-     * This method implemented just by calling java.util.Collections.shuffle .
+     * This method is implemented just by calling java.util.Collections.shuffle .
      */
     public final void shuffle() {
         Collections.shuffle(this.cards_);
     }
 
     /**
-     * This method implemented just by calling List#sort .
+     * This method is implemented just by calling List#sort .
      * @param comparator how to compare.
      */
     public final void sort(CardComparator comparator) {
