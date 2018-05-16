@@ -41,7 +41,7 @@ public abstract class BaseCards {
 
     //
     // Stream methods.
-    protected abstract Stream<Card> stream();
+    abstract Stream<Card> stream();
 
     /**
      * This method is prepared to future extension, there is rarely case you should use this.

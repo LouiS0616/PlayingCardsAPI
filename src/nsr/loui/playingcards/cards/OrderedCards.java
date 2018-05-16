@@ -75,7 +75,7 @@ public class OrderedCards extends Cards {
     //
     // Iterate methods
     @Override
-    protected Stream<Card> stream() {
+    Stream<Card> stream() {
         return cards_.stream();
     }
 
