@@ -37,16 +37,14 @@ public final class Trash extends Cards implements CardOwner {
 
     //
     // Class-specific methods
+    @SuppressWarnings("FieldCanBeLocal")
     private final CardOwnerCertificate certificate_ = new CardOwnerCertificate(this) {
         @Override
         public boolean permits(CardOwnerCertificate other) {
             return true;
         }
     };
-    @Override
-    public CardOwnerCertificate getCertificate() {
-        return certificate_;
-    }
+
 
     //
     //

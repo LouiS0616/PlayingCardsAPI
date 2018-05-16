@@ -39,9 +39,6 @@ public final class Deck extends OrderedCards implements CardOwner {
 
     //
     // Certificate
-    @Override
-    public CardOwnerCertificate getCertificate() {
-        return this.certificate_;
-    }
+    @SuppressWarnings("FieldCanBeLocal")
     private final CardOwnerCertificate certificate_;
 }
