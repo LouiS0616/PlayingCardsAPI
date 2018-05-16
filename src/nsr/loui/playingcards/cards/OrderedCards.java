@@ -1,6 +1,7 @@
 package nsr.loui.playingcards.cards;
 
 import nsr.loui.playingcards.card.Card;
+import nsr.loui.playingcards.card.comparator.CardComparator;
 import nsr.loui.playingcards.card.imitator.IndividualCardImitator;
 import nsr.loui.playingcards.exceptions.CardNotEnoughException;
 import nsr.loui.playingcards.exceptions.CardNotFoundException;
@@ -53,6 +54,14 @@ public abstract class OrderedCards extends Cards {
      */
     public final void shuffle() {
         Collections.shuffle(this.cards_);
+    }
+
+    /**
+     * This method implemented just by calling List#sort .
+     * @param comparator how to compare.
+     */
+    public final void sort(CardComparator comparator) {
+        this.cards_.sort(comparator);
     }
 
     //
