@@ -25,11 +25,10 @@ public class UnorderedCards extends Cards {
     /**
      * @param name name of cards used for print info.
      * @param observer observer. DON'T pass null, DO use stub instead.
-     * @param cardSet card set haven internally.
      */
-    protected UnorderedCards(String name, Observer observer, Set<Card> cardSet) {
+    public UnorderedCards(String name, Observer observer) {
         super(name, observer);
-        this.cardSet_ = cardSet;
+        this.cardSet_ = new HashSet<>();
     }
 
 

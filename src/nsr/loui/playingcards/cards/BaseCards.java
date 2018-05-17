@@ -167,7 +167,7 @@ public abstract class BaseCards {
     /**
      * Please use it just for print debugging.
      */
-    public final void printInfo() {
+    public void printInfo() {
         new PyLikePrinter("\n").print(
             "----------------------------------------------------------------",
             "Name:        " + name_,

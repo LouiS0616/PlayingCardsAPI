@@ -27,7 +27,7 @@ public class OrderedCards extends Cards {
      * @param name name of cards used for print info.
      * @param observer observer. DON'T pass null, DO use stub instead.
      */
-    protected OrderedCards(String name, Observer observer) {
+    public OrderedCards(String name, Observer observer) {
         super(name, observer);
         this.cards_ = new LinkedList<>();
     }

@@ -27,7 +27,7 @@ public class AutoSortedCards extends Cards {
      * @param observer observer. DON'T pass null, DO use stub instead.
      * @param comparator comparator used for auto-sorting.
      */
-    protected AutoSortedCards(String name, Observer observer, CardComparator comparator) {
+    public AutoSortedCards(String name, Observer observer, CardComparator comparator) {
         super(name, observer);
         this.sortedCardSet_ = new TreeSet<>(comparator);
     }
