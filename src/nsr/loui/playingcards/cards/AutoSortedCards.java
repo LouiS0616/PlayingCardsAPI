@@ -34,6 +34,25 @@ public class AutoSortedCards extends Cards {
 
 
     //
+    // Class-specific methods
+
+    /**
+     * Behaves such as re-sorting.
+     * This method make new instance internally, so pay attention to its computational complexity.
+     * @param comparator new comparator to set.
+     */
+    protected final void resetComparator(CardComparator comparator) {
+        if(comparator.equals(this.sortedCardSet_.comparator())) {
+            return;
+        }
+
+        SortedSet<Card> tmp = new TreeSet<>(comparator);
+        tmp.addAll(this.sortedCardSet_);
+        this.sortedCardSet_ = tmp;
+    }
+
+
+    //
     // Check methods
     @Override
     public final int countCard() {
