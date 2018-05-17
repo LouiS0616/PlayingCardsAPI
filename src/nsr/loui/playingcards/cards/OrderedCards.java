@@ -37,7 +37,7 @@ public class OrderedCards extends Cards {
      * @param certificate valid card owner-certificate.
      * @throws ProhibitedOperationException when originally cards is not empty.
      */
-    void setCards(LinkedList<Card> cards, CardOwnerCertificate certificate) {
+    void setCards$for_deck(LinkedList<Card> cards, CardOwnerCertificate certificate) {
         if(this.cards_.isEmpty()) {
             this.cards_ = cards;
             setCertificate(certificate);

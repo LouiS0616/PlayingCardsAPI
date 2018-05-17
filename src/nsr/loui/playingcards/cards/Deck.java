@@ -32,7 +32,7 @@ public final class Deck extends OrderedCards implements CardOwner {
         super(name, observer);
 
         this.certificate_ = new CardOwnerCertificate(this);
-        setCards(
+        setCards$for_deck(
             Card.makeCards$for_deck(this.certificate_ ), this.certificate_
         );
     }
