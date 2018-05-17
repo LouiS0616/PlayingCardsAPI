@@ -48,7 +48,7 @@ public abstract class BaseCards {
      * This method is prepared to future extension, there is rarely case you should use this.
      * @return stream of cards.
      */
-    public Stream<CardImitator> cardImitatorStream() {
+    public final Stream<CardImitator> cardImitatorStream() {
         return stream().map(IndividualCardImitator::make);
     }
 
@@ -57,7 +57,7 @@ public abstract class BaseCards {
      * @param imitator purpose card imitator.
      * @return whether any card what is equivalent to imitator included in THIS or not.
      */
-    public boolean include(CardImitator imitator) {
+    public final boolean include(CardImitator imitator) {
         return stream()
             .anyMatch(imitator::isEquivalent)
         ;
@@ -67,7 +67,7 @@ public abstract class BaseCards {
      * @param imitator purpose card imitator.
      * @return how many cards what is equivalent to imitator included in THIS.
      */
-    public int countCard(WildCardImitator imitator) {
+    public final int countCard(WildCardImitator imitator) {
         return (int)stream()
             .filter(imitator::isEquivalent)
             .count()
@@ -167,7 +167,7 @@ public abstract class BaseCards {
     /**
      * Please use it just for print debugging.
      */
-    public void printInfo() {
+    public final void printInfo() {
         new PyLikePrinter("\n").print(
             "----------------------------------------------------------------",
             "Name:        " + name_,

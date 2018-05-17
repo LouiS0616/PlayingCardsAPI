@@ -56,7 +56,7 @@ public abstract class Cards extends BaseCards {
      * @param num how many you want to pick.
      * @throws CardNotEnoughException when from.countCard() {@literal <} num.
      */
-    public void pickFrom(Cards from, int num) throws CardNotEnoughException {
+    public final void pickFrom(Cards from, int num) throws CardNotEnoughException {
         if(from.countCard() < num) {
             throw new CardNotEnoughException();
         }
@@ -73,7 +73,7 @@ public abstract class Cards extends BaseCards {
      * @param from where you want to divide from.
      * @param wildPurpose imitator indicate cards what you want to divide.
      */
-    public void divideFrom(Cards from, WildCardImitator wildPurpose) {
+    public final void divideFrom(Cards from, WildCardImitator wildPurpose) {
         // DO make list first avoid to java.util.ConcurrentModificationException.
         List<IndividualCardImitator> purposes = from.stream()
             .filter(wildPurpose::isEquivalent)
@@ -89,7 +89,7 @@ public abstract class Cards extends BaseCards {
      * @param from where you want to divide from.
      * @param wildPurposes imitators indicate cards what you want to divide.
      */
-    public void divideFrom(Cards from, WildCardImitator... wildPurposes) {
+    public final void divideFrom(Cards from, WildCardImitator... wildPurposes) {
         for(WildCardImitator wildPurpose: wildPurposes) {
             divideFrom(from, wildPurpose);
         }
