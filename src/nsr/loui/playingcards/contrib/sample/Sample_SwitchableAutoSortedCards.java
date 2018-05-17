@@ -1,15 +1,10 @@
 package nsr.loui.playingcards.contrib.sample;
 
 import nsr.loui.playingcards.card.RankedCard;
-import nsr.loui.playingcards.card.Suit;
 import nsr.loui.playingcards.card.comparator.CardComparator;
 import nsr.loui.playingcards.card.comparator.DefaultCardComparator;
-import nsr.loui.playingcards.card.comparator.JokersFirstComparator;
 import nsr.loui.playingcards.card.comparator.JokersLastComparator;
 import nsr.loui.playingcards.card.imitator.JokerImitator;
-import nsr.loui.playingcards.card.imitator.RankImitator;
-import nsr.loui.playingcards.card.imitator.SuitImitator;
-import nsr.loui.playingcards.card.imitator.UnitedImitator;
 import nsr.loui.playingcards.cards.Deck;
 import nsr.loui.playingcards.contrib.SwitchableAutoSortedCards;
 import nsr.loui.playingcards.observer.Observer;
@@ -24,21 +19,14 @@ import java.util.Map;
 class Sample_SwitchableAutoSortedCards {
     enum OrderType {
         DEFAULT,
-        JOKER_IS_LAST$SUIT_NATURAL$RANK_NATURAL,
-        JOKER_IS_LAST$RANK_NATURAL$SUIT_REVERSE,
-        JOKER_IS_FIRST$RANK_REVERSE$SUIT_REVERSE
+        DAIFUGO_ORDER
     }
 
     public static void main(String[] args) {
         //
-        // Prepare deck and sample imitator.
+        // Prepare deck.
         Deck deck = new Deck();
-        UnitedImitator imitator = new UnitedImitator(
-            new JokerImitator(),
-            new RankImitator(10),
-            new SuitImitator(Suit.CLUB),
-            new SuitImitator(Suit.SPADE)
-        );
+        deck.shuffle();
 
         //
         // Make map of Comparators.
@@ -48,53 +36,17 @@ class Sample_SwitchableAutoSortedCards {
                 OrderType.DEFAULT, new DefaultCardComparator()
             );
             tagToComparator.put(
-                OrderType.JOKER_IS_LAST$SUIT_NATURAL$RANK_NATURAL,
-                new JokersLastComparator() {
-                    @Override
-                    protected int compare(RankedCard rankedCard1, RankedCard rankedCard2) {
-                        return Comparator
-                            .comparing(RankedCard::getSuit)
-                            .thenComparingInt(RankedCard::getRank)
-                            .compare(rankedCard1, rankedCard2)
-                        ;
-                    }
-                }
-            );
-            tagToComparator.put(
-                OrderType.JOKER_IS_LAST$RANK_NATURAL$SUIT_REVERSE,
-                new JokersLastComparator() {
-                    @Override
-                    protected int compare(RankedCard rankedCard1, RankedCard rankedCard2) {
-                        int rankCompared =
-                            Comparator.comparingInt(RankedCard::getRank).compare(rankedCard1, rankedCard2);
-                        if(rankCompared != 0) {
-                            return rankCompared;
-                        }
-
-                        return
-                            -1 * Comparator.comparing(RankedCard::getSuit).compare(rankedCard1, rankedCard2);
-                    }
-                }
-            );
-            tagToComparator.put(
-                OrderType.JOKER_IS_FIRST$RANK_REVERSE$SUIT_REVERSE,
-                new JokersFirstComparator() {
-                    private final DefaultCardComparator comp = new DefaultCardComparator();
-
-                    @Override
-                    protected int compare(RankedCard rankedCard1, RankedCard rankedCard2) {
-                        return comp.reversed().compare(rankedCard1, rankedCard2);
-                    }
-                }
+                OrderType.DAIFUGO_ORDER, new DaifugoComparator()
             );
         }
 
         //
         // Make cards.
-        nsr.loui.playingcards.contrib.SwitchableAutoSortedCards<OrderType> cards = new nsr.loui.playingcards.contrib.SwitchableAutoSortedCards<>(
-            "Cards", Observer.STUB, tagToComparator, OrderType.DEFAULT
+        SwitchableAutoSortedCards<OrderType> cards = new SwitchableAutoSortedCards<>(
+            "Cards", null, Observer.STUB, tagToComparator, OrderType.DEFAULT
         );
-        cards.divideFrom(deck, imitator);
+        cards.divideFrom(deck, new JokerImitator());
+        cards.pickFrom(deck, 10);
 
         //
         // Switch and print.
@@ -102,5 +54,22 @@ class Sample_SwitchableAutoSortedCards {
             cards.switchComparator(type);
             cards.printInfo();
         }
+    }
+}
+
+
+/**
+ * Comparator tuned for Japanese card-game "Daifugo".
+ */
+class DaifugoComparator extends JokersLastComparator {
+    @Override
+    protected int compare(RankedCard rankedCard1, RankedCard rankedCard2) {
+        return Comparator
+            .comparingInt(
+                (RankedCard rankedCard) -> (rankedCard.getRank() + 10) % 13
+            )
+            .thenComparing(RankedCard::getSuit)
+            .compare(rankedCard1, rankedCard2)
+        ;
     }
 }

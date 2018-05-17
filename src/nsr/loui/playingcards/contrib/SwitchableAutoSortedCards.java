@@ -6,18 +6,29 @@ import nsr.loui.playingcards.card.comparator.DefaultCardComparator;
 import nsr.loui.playingcards.cards.AutoSortedCards;
 import nsr.loui.playingcards.cards.BaseCards;
 import nsr.loui.playingcards.cards.Deck;
-import nsr.loui.playingcards.cards.UnorderedCards;
 import nsr.loui.playingcards.observer.Observer;
 
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 
+/**
+ * Experimental class to order-switchable auto sorted cards.
+ * This class has several deck instances for each order-rule, so it spend memory.
+ *
+ * @param <T> Enum type act as tag to each comparators.
+ */
 public class SwitchableAutoSortedCards <T extends Enum> extends AutoSortedCards {
+    /**
+     * @param name this hands' name
+     * @param deckName if you pass null, name related tag's that used instead.
+     * @param observer observer. DON'T pass null, DO use stub instead.
+     * @param tagToComparator map binds tag to comparator.
+     * @param defaultTag to indicate default order mode. it must be included in above map.
+     */
     public SwitchableAutoSortedCards(
-        String name, Observer observer, Map<T, CardComparator> tagToComparator, T defaultTag
+        String name, String deckName, Observer observer, Map<T, CardComparator> tagToComparator, T defaultTag
     ) {
         super(name, observer, new DefaultCardComparator());
 
@@ -34,15 +45,15 @@ public class SwitchableAutoSortedCards <T extends Enum> extends AutoSortedCards 
                 new AutoSortedCards(name, Observer.STUB, tagToComparator.get(tag))
             );
             deckMap_.put(
-                tag, new Deck(tag.toString() + "_DECK")
+                tag, new Deck(deckName == null ? tag.toString() + "_DECK" : deckName)
             );
         }
 
         if(tags_.contains(defaultTag)) {
-            nowTag_ = defaultTag;
+            nowTag_ = defaultTag_ = defaultTag;
         }
         else {
-            throw new RuntimeException();
+            throw new RuntimeException("Default tag must be concluded in map-key tags.");
         }
     }
 
@@ -62,14 +73,30 @@ public class SwitchableAutoSortedCards <T extends Enum> extends AutoSortedCards 
         sortedCardsMap_.get(nowTag_).printInfo();
     }
 
+    /**
+     * Switch to order bound to designate tag.
+     * @param tag tag to set. if tag is not noticed in advance, this method do nothing other than print err.
+     */
     public void switchComparator(T tag) {
-        nowTag_ = tag;
+        if(tags_.contains(tag)) {
+            nowTag_ = tag;
+        }
+        else {
+            System.err.println("You tried to set tag what not noticed in advance.");
+        }
+    }
+    /**
+     * Switch to default order.
+     */
+    public void switchDefaultComparator() {
+        nowTag_ = defaultTag_;
     }
 
 
     //
     // Fields
     private T nowTag_;
+    private final T defaultTag_;
 
     private final List<T> tags_;
     private final Map<T, AutoSortedCards> sortedCardsMap_;
