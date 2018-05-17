@@ -21,8 +21,8 @@ import java.util.Map;
  */
 public class SwitchableAutoSortedCards <T extends Enum> extends AutoSortedCards {
     /**
-     * @param name this hands' name
-     * @param deckName if you pass null, name related tag's that used instead.
+     * @param name this cards' name
+     * @param deckName if you pass null, name related tag's that will use instead.
      * @param observer observer. DON'T pass null, DO use stub instead.
      * @param tagToComparator map binds tag to comparator.
      * @param defaultTag to indicate default order mode. it must be included in above map.
@@ -41,8 +41,7 @@ public class SwitchableAutoSortedCards <T extends Enum> extends AutoSortedCards 
             tags_.add(tag);
 
             sortedCardsMap_.put(
-                tag,
-                new AutoSortedCards(name, Observer.STUB, tagToComparator.get(tag))
+                tag, new AutoSortedCards(name, Observer.STUB, tagToComparator.get(tag))
             );
             deckMap_.put(
                 tag, new Deck(deckName == null ? tag.toString() + "_DECK" : deckName)
