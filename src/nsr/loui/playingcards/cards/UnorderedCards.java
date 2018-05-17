@@ -52,9 +52,10 @@ public class UnorderedCards extends Cards {
     //
     // Iterate methods
     @Override
-    Stream<Card> stream() {
+    final Stream<Card> stream() {
         return cardSet_.stream();
     }
+
 
     //
     // Methods related drawing
@@ -84,9 +85,10 @@ public class UnorderedCards extends Cards {
     @Override
     final void add(Card card) {
         if(!cardSet_.add(card)) {
-            System.err.println("You may use deprecated cards.");
+            System.err.println("You may use duplicated cards.");
         }
     }
+
 
     //
     // Fields and utility
