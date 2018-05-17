@@ -4,7 +4,6 @@ import nsr.loui.playingcards.card.Card;
 import nsr.loui.playingcards.card.imitator.IndividualCardImitator;
 import nsr.loui.playingcards.exceptions.CardNotEnoughException;
 import nsr.loui.playingcards.exceptions.CardNotFoundException;
-import nsr.loui.playingcards.exceptions.ProhibitedOperationException;
 import nsr.loui.playingcards.observer.Observer;
 import nsr.loui.util.CollectionUtil;
 
@@ -26,14 +25,6 @@ public class UnorderedCards extends Cards {
     /**
      * @param name name of cards used for print info.
      * @param observer observer. DON'T pass null, DO use stub instead.
-     */
-    protected UnorderedCards(String name, Observer observer) {
-        this(name, observer, new HashSet<>());
-    }
-
-    /**
-     * @param name name of cards used for print info.
-     * @param observer observer. DON'T pass null, DO use stub instead.
      * @param cardSet card set haven internally.
      */
     protected UnorderedCards(String name, Observer observer, Set<Card> cardSet) {
@@ -48,6 +39,7 @@ public class UnorderedCards extends Cards {
     public final int countCard() {
         return cardSet_.size();
     }
+
 
     //
     // Iterate methods

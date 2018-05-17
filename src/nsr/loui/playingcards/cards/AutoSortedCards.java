@@ -40,6 +40,7 @@ public class AutoSortedCards extends Cards {
         return sortedCardSet_.size();
     }
 
+
     //
     // Iterate methods
     @Override

@@ -29,15 +29,17 @@ public class OrderedCards extends Cards {
      */
     protected OrderedCards(String name, Observer observer) {
         super(name, observer);
+        this.cards_ = new LinkedList<>();
     }
 
     /**
+     * This method is open only for Deck class.
      * Set cards and these owner when THIS have empty cards.
      * @param cards what you want THIS to hold.
      * @param certificate valid card owner-certificate.
      * @throws ProhibitedOperationException when originally cards is not empty.
      */
-    void setCards$for_deck(LinkedList<Card> cards, CardOwnerCertificate certificate) {
+    final void setCards$for_deck(LinkedList<Card> cards, CardOwnerCertificate certificate) {
         if(this.cards_.isEmpty()) {
             this.cards_ = cards;
             setCertificate(certificate);
@@ -46,6 +48,7 @@ public class OrderedCards extends Cards {
             throw new ProhibitedOperationException();
         }
     }
+
 
     //
     // Class-specific methods
@@ -65,6 +68,7 @@ public class OrderedCards extends Cards {
         this.cards_.sort(comparator);
     }
 
+
     //
     // Check methods
     @Override
@@ -72,12 +76,14 @@ public class OrderedCards extends Cards {
         return cards_.size();
     }
 
+
     //
     // Iterate methods
     @Override
-    Stream<Card> stream() {
+    final Stream<Card> stream() {
         return cards_.stream();
     }
+
 
     //
     // Methods related drawing
@@ -108,10 +114,11 @@ public class OrderedCards extends Cards {
         cards_.add(card);
     }
 
+
     //
     // Fields
 
     // This field should be LinkedList object instead of List.
     // Because OrderedCards does'nt allow random access.
-    private LinkedList<Card> cards_ = new LinkedList<>();
+    private LinkedList<Card> cards_;
 }
