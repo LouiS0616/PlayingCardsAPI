@@ -1,4 +1,4 @@
-package nsr.loui.playingcards;
+package nsr.loui.playingcards.sample;
 
 import nsr.loui.playingcards.card.RankedCard;
 import nsr.loui.playingcards.card.Suit;
@@ -17,7 +17,7 @@ import nsr.loui.playingcards.observer.PrintObserver;
 import java.util.Comparator;
 
 /**
- * Sample how to use this api.
+ * Sample how to use this module.
  */
 class Sample {
     public static void main(String[] args) {

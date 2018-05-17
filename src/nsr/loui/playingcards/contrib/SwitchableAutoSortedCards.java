@@ -31,10 +31,10 @@ public class SwitchableAutoSortedCards <T extends Enum> extends AutoSortedCards 
 
             sortedCardsMap_.put(
                 tag,
-                new AutoSortedCards(tag.toString(), Observer.STUB, tagToComparator.get(tag))
+                new AutoSortedCards(name, Observer.STUB, tagToComparator.get(tag))
             );
             deckMap_.put(
-                tag, new Deck()
+                tag, new Deck(tag.toString() + "_DECK")
             );
         }
 
